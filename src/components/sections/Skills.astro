@@ -1,5 +1,35 @@
 ---
 import Section from "@/components/Section.astro"
+import { skills } from "@/content/data/skills.json"
 ---
 
-<Section title="Skills" />
+<Section title="Skills">
+  <ul>
+    {
+      skills.map((item) => {
+        return (
+          <li>
+            <span>{item}</span>
+          </li>
+        )
+      })
+    }
+  </ul>
+</Section>
+
+<style>
+  ul {
+    display: inline-flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  li {
+    border-radius: 8px;
+    background: #00adb5;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 400;
+    padding: 0.2rem 0.6rem;
+  }
+</style>
