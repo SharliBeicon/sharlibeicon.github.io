@@ -1,0 +1,33 @@
+---
+import Section from "@/components/Section.astro"
+---
+
+<Section>
+  <div class="container">
+    <a href="https://github.com/SharliBeicon" target="_blank">Github</a>
+    <a href="https://www.linkedin.com/in/sharlibeicon/" target="_blank"
+      >LinkedIn</a
+    >
+    <a href="https://twitter.com/SharliBeicon" target="_blank">Twitter</a>
+  </div>
+</Section>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 10rem 1rem;
+  }
+  a {
+    text-decoration: underline;
+    text-decoration-color: #00adb5;
+    text-decoration-thickness: 3px;
+  }
+  a:hover {
+    text-decoration-thickness: 2px;
+    cursor: pointer;
+    color: #222831;
+    font-weight: 800;
+  }
+</style>

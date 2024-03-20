@@ -1,13 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro"
 
-import Header from "@/components/Header.astro"
-import Links from "@/components/Links.astro"
-import Bio from "@/components/Bio.astro"
-import Experience from "@/components/Experience.astro"
-import Education from "@/components/Education.astro"
-import Projects from "@/components/Projects.astro"
-import Skills from "@/components/Skills.astro"
+import Header from "@/components/sections/Header.astro"
+import Links from "@/components/sections/Links.astro"
+import Bio from "@/components/sections/Bio.astro"
+import Experience from "@/components/sections/Experience.astro"
+import Education from "@/components/sections/Education.astro"
+import Projects from "@/components/sections/Projects.astro"
+import Skills from "@/components/sections/Skills.astro"
 ---
 
 <Layout title="Charlie Bacon's Portfolio">
@@ -21,4 +21,11 @@ import Skills from "@/components/Skills.astro"
     <Skills />
   </main>
 </Layout>
-<style></style>
+
+<style>
+  main {
+    padding: 4rem;
+    margin: auto;
+    width: 100%;
+  }
+</style>

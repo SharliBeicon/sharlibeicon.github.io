@@ -1,0 +1,62 @@
+---
+import Section from "@/components/Section.astro"
+---
+
+<Section>
+  <div class="container">
+    <div class="info">
+      <h1>Carlos Tocino</h1>
+      <h3>AKA. Charlie Bacon</h3>
+      <h2>Software Engineer in Cádiz.</h2>
+      <h4>Southern Spain ☀️🏖️</h4>
+      <p>carlostocinocubelo@gmail.com</p>
+    </div>
+    <figure>
+      <img src="/profile.webp" alt="profile" />
+    </figure>
+  </div>
+</Section>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+  }
+  h2,
+  h4 {
+    font-weight: 200;
+    font-size: 2rem;
+    text-wrap: balance;
+    color: #a4a4a4;
+  }
+  h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  h3 {
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #00adb5;
+  }
+  img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    width: 280px;
+    border-radius: 50%;
+  }
+</style>
