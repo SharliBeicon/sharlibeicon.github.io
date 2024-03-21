@@ -1,0 +1,114 @@
+---
+
+---
+
+<footer>
+  Press <kbd>Ctrl</kbd> + <kbd>K</kbd> to open the command palette.
+</footer>
+
+<ninja-keys></ninja-keys>
+
+<script>
+  import Icons from "@/content/js/Icons.js"
+  import "ninja-keys"
+
+  const { github, linkedin, twitter } = Icons
+  const ninja = document.querySelector("ninja-keys")
+  if (ninja !== null) {
+    ninja.data = [
+      {
+        id: "Print Page",
+        title: "🖨️ Print CV",
+        hotkey: "ctrl+P",
+        section: "Actions",
+        handler: () => {
+          window.print()
+        },
+      },
+      {
+        id: "Social Media",
+        title: "Check Social Media",
+        hotkey: "ctrl+M",
+        section: "Actions",
+        children: ["GitHub", "LinkedIn", "Twitter"],
+        handler: () => {
+          ninja.open({ parent: "Social Media" })
+          return { keepOpen: true }
+        },
+      },
+      {
+        id: "GitHub",
+        title: "GitHub",
+        icon: github,
+        hotkey: "ctrl+G",
+        parent: "Social Media",
+        handler: () => {},
+      },
+      {
+        id: "LinkedIn",
+        title: "LinkedIn",
+        icon: linkedin,
+        hotkey: "ctrl+G",
+        parent: "Social Media",
+        handler: () => {},
+      },
+      {
+        id: "Twitter",
+        title: "Twitter",
+        icon: twitter,
+        hotkey: "ctrl+T",
+        parent: "Social Media",
+        handler: () => {},
+      },
+      {
+        id: "Light Theme",
+        title: "😎 Light Theme",
+        hotkey: "ctrl+L",
+        section: "Theme Selection",
+        handler: () => {},
+      },
+      {
+        id: "Dark Theme",
+        title: "🌚 Dark Theme",
+        hotkey: "ctrl+D",
+        section: "Theme Selection",
+        handler: () => {},
+      },
+    ]
+  }
+</script>
+
+<style>
+  @media print {
+    ninja-keys {
+      display: none;
+    }
+  }
+
+  footer {
+    background: #f7f7f7;
+    border-top: 1px solid #e2e2e2;
+    position: fixed;
+    bottom: 0px;
+    padding-block: 8px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 14px;
+    width: 100%;
+    margin: 0 auto 0;
+  }
+
+  kbd {
+    background: #e8e8e8;
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-size: 12px;
+  }
+
+  @media print {
+    footer {
+      display: none;
+    }
+  }
+</style>

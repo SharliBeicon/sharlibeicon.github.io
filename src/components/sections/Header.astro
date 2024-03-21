@@ -17,8 +17,8 @@ import profileImg from "@/content/image/profile.webp"
       <Image
         src={profileImg}
         alt="profile"
-        width={280}
-        height={280}
+        width={250}
+        height={250}
         loading="eager"
       />
     </figure>
@@ -77,6 +77,15 @@ import profileImg from "@/content/image/profile.webp"
     .container {
       flex-direction: column;
     }
+    h1 {
+      font-size: 2.5rem;
+    }
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media print {
     h1 {
       font-size: 2.5rem;
     }

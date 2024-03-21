@@ -2,7 +2,7 @@
 import Section from "@/components/Section.astro"
 ---
 
-<Section title="About">
+<Section title="Bio">
   <div class="container">
     <p>
       Hello there! My name is Carlos Tocino (Charlie Bacon for non-Spanish
@@ -43,7 +43,13 @@ import Section from "@/components/Section.astro"
 
   @media only screen and (max-width: 500px) {
     p {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  @media print {
+    p {
+      font-size: 0.8rem;
     }
   }
 </style>
