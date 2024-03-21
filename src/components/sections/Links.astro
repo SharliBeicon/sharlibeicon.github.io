@@ -24,10 +24,21 @@ import Section from "@/components/Section.astro"
     text-decoration-color: #00adb5;
     text-decoration-thickness: 3px;
   }
-  a:hover {
-    text-decoration-thickness: 2px;
-    cursor: pointer;
-    color: #222831;
-    font-weight: 800;
+
+  @media only screen and (max-width: 700px) {
+    .container {
+      padding: 1rem 2rem 1rem;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .container {
+      padding: 1rem 0rem 1rem;
+    }
+  }
+
+  @media print {
+    .container {
+      display: none;
+    }
   }
 </style>

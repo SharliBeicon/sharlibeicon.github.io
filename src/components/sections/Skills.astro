@@ -4,20 +4,25 @@ import { skills } from "@/content/data/skills.json"
 ---
 
 <Section title="Skills">
-  <ul>
-    {
-      skills.map((item) => {
-        return (
-          <li>
-            <span>{item}</span>
-          </li>
-        )
-      })
-    }
-  </ul>
+  <div class="container">
+    <ul>
+      {
+        skills.map((item) => {
+          return (
+            <li>
+              <span>{item}</span>
+            </li>
+          )
+        })
+      }
+    </ul>
+  </div>
 </Section>
 
 <style>
+  .container {
+    margin-bottom: 30px;
+  }
   ul {
     display: inline-flex;
     gap: 8px;
@@ -31,5 +36,16 @@ import { skills } from "@/content/data/skills.json"
     font-size: 0.85rem;
     font-weight: 400;
     padding: 0.2rem 0.6rem;
+    transition: background 500ms;
+  }
+
+  li:hover {
+    background: #00696f;
+  }
+
+  @media print {
+    li {
+      color: #222831;
+    }
   }
 </style>

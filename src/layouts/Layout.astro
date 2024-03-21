@@ -20,6 +20,7 @@ const { title } = Astro.props
     <slot />
   </body>
 </html>
+
 <style is:global>
   html {
     font-family:
@@ -31,6 +32,35 @@ const { title } = Astro.props
       monospace;
     background: #eeeeee;
     letter-spacing: -0.025rem;
+  }
+
+  html.dark {
+    background-color: #222831;
+  }
+
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4 {
+    color: #eeeeee;
+  }
+
+  .dark p,
+  .dark a {
+    color: #d1d1d1;
+  }
+
+  a:hover {
+    text-decoration-thickness: 1px;
+    cursor: pointer;
+    color: #222831;
+    font-weight: 800;
+  }
+  .dark a:hover {
+    text-decoration-thickness: 2px;
+    cursor: pointer;
+    color: #d1d1d1;
+    font-weight: 800;
   }
 
   body,
@@ -82,5 +112,11 @@ const { title } = Astro.props
     line-height: 1.5;
     margin: 0;
     text-wrap: pretty;
+  }
+
+  @media only screen and (max-width: 500px) {
+    p {
+      font-size: 0.8rem;
+    }
   }
 </style>
