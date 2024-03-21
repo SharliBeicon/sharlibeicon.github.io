@@ -1,8 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro"
-import ThemeIcon from "@/components/ThemeIcon.astro"
-import LanguageToggle from "@/components/LanguageToggle.astro"
 
+import NavBar from "@/components/sections/NavBar.astro"
 import Header from "@/components/sections/Header.astro"
 import Links from "@/components/sections/Links.astro"
 import Bio from "@/components/sections/Bio.astro"
@@ -14,12 +13,7 @@ import Skills from "@/components/sections/Skills.astro"
 
 <Layout title="Charlie Bacon's Portfolio">
   <main>
-    <header>
-      <nav>
-        <ThemeIcon />
-        <LanguageToggle />
-      </nav>
-    </header>
+    <NavBar />
     <Header />
     <Links />
     <Bio />
@@ -35,11 +29,5 @@ import Skills from "@/components/sections/Skills.astro"
     padding: 4rem;
     margin: auto;
     width: 100%;
-  }
-  nav {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: 20px;
   }
 </style>
