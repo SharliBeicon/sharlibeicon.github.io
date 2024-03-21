@@ -20,6 +20,7 @@ const { title } = Astro.props
     <slot />
   </body>
 </html>
+
 <style is:global>
   html {
     font-family:
@@ -35,11 +36,31 @@ const { title } = Astro.props
 
   html.dark {
     background-color: #222831;
-    color: #fff;
   }
 
-  .dark .nav-links a {
-    color: #fff;
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4 {
+    color: #eeeeee;
+  }
+
+  .dark p,
+  .dark a {
+    color: #d1d1d1;
+  }
+
+  a:hover {
+    text-decoration-thickness: 1px;
+    cursor: pointer;
+    color: #222831;
+    font-weight: 800;
+  }
+  .dark a:hover {
+    text-decoration-thickness: 2px;
+    cursor: pointer;
+    color: #d1d1d1;
+    font-weight: 800;
   }
 
   body,
