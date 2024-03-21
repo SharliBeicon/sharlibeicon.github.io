@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": "/Users/carlostocino/Documents/Projects/Personal/portfolio",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
