@@ -163,6 +163,12 @@ const { lang } = Astro.props
     font-size: 12px;
   }
 
+  @media only screen and (max-width: 600px) {
+    footer {
+      display: none;
+    }
+  }
+
   @media print {
     footer {
       display: none;
