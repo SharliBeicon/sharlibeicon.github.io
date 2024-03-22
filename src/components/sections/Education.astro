@@ -1,13 +1,21 @@
 ---
 import Section from "@/components/Section.astro"
 import education from "@/content/data/education.json"
+
+
+interface Props {
+  lang: "en" | "es",
+  title: string
+}
+
+const { lang, title } = Astro.props
 ---
 
-<Section title="Education">
+<Section title={title}>
   <div class="container">
     <ul>
       {
-        education.map((item) => {
+        education[lang].map((item) => {
           return (
             <li>
               <article>

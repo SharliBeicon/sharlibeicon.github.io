@@ -1,28 +1,35 @@
 ---
 import Section from "@/components/Section.astro"
+import bio from "@/content/data/bio.json"
+
+interface Props {
+  lang: "en" | "es"
+  title: string
+}
+
+const { lang, title } = Astro.props
 ---
 
-<Section title="Bio">
+<Section title={title}>
   <div class="container">
     <p>
-      Hello there! My name is Carlos Tocino (Charlie Bacon for non-Spanish
-      speakers). I've been in the software engineering industry for <b>+6</b> years,
-      delivering products and leading teams effectively. However, I've been building
-      stuff (software and not software) for +13 years.
+      {bio[lang].intro.text1}<b>{bio[lang].intro.bold}</b>
+      {bio[lang].intro.text2}
     </p>
     <p>
-      I am graduated in computer engineering from University of Cádiz;
-      Co-Founder of <a href="https://cenware.net" target="_blank">Cenware</a>,
-      an association that helps small businesses to achieve a successful digital
-      transformation; and I'm currently working at
-      <a href="https://www.payretailers.com/" target="_blank">PayRetailers</a> as
-      a Senior Software Engineer, processing payments across all Latin America.
+      {bio[lang].about.text1}
+      <a href={bio[lang].about.href1.link} target="_blank"
+        >{bio[lang].about.href1.text}</a
+      >{bio[lang].about.text2}
+      <a href={bio[lang].about.href2.link} target="_blank"
+        >{bio[lang].about.href2.text}</a
+      >{bio[lang].about.text3}
     </p>
     <p>
-      I'm also vinyl collector (check my <a
-        href="https://www.discogs.com/es/user/SharliBeicon/collection"
-        target="_blank">discogs</a
-      >!), lifelong gamer, meme lover and, in short, a geek.
+      {bio[lang].extra.text1}<a
+        href={bio[lang].extra.href1.link}
+        target="_blank">{bio[lang].extra.href1.text}</a
+      >{bio[lang].extra.text2}
     </p>
   </div>
 </Section>
