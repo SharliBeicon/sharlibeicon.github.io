@@ -1,0 +1,16 @@
+{
+    "en": {
+        "name": "Carlos Tocino",
+        "aka": "AKA. Charlie Bacon",
+        "position": "Software Engineer in Cádiz",
+        "where": "Southern Spain",
+        "email": "carlostocinocubelo@gmail.com"
+    },
+    "es": {
+        "name": "Carlos Tocino",
+        "aka": "AKA. Charlie Bacon",
+        "position": "Ingeniero de Software en Cádiz",
+        "where": "Sur de España",
+        "email": "carlostocinocubelo@gmail.com"
+    }
+}

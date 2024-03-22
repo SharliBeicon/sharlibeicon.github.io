@@ -1,12 +1,17 @@
 ---
 import ThemeIcon from "@/components/ThemeIcon.astro"
 import LanguageToggle from "@/components/LanguageToggle.astro"
+interface Props {
+  translated: boolean
+}
+
+const { translated } = Astro.props
 ---
 
 <header>
   <nav>
     <ThemeIcon />
-    <LanguageToggle />
+    <LanguageToggle translated={translated} />
   </nav>
 </header>
 

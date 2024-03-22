@@ -1,6 +1,6 @@
 
 {
-    "skills": [
+    "en": [
         ".NET/C#",
         "C++",
         "TypeScript",
@@ -11,5 +11,17 @@
         "Linux",
         "OOP/SOLID",
         "Interpersonal leadership skills"
+    ],
+    "es": [
+        ".NET/C#",
+        "C++",
+        "TypeScript",
+        "React",
+        "Algoritmos/Estructuras de Datos",
+        "Microservicios",
+        "Bases de Datos SQL y NoSQL",
+        "Linux",
+        "POO/SOLID",
+        "Habilidades de Liderazgo"
     ]
 }

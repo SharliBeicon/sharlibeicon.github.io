@@ -1,0 +1,58 @@
+{
+    "en": {
+        "intro": {
+            "text1": "Hello there! My name is Carlos Tocino (Charlie Bacon for non-Spanish speakers). I've been in the software engineering industry for ",
+            "bold": "+6",
+            "text2": " years, delivering products and leading teams effectively. However, I've been building stuff (software and not software) for +13 years."
+        },
+        "about": {
+            "text1": "I'm graduated in computer engineering from University of Cádiz; Co-Founder of ",
+            "href1": {
+                "text": "Cenware",
+                "link": "https://www.cenware.net/"
+            },
+            "text2": ", a project that aims to help small businesses to achieve a successful digital transformation; and I'm currently working at",
+            "href2": {
+                "text": "PayRetailers",
+                "link": "https://www.payretailers.com/"
+            },
+            "text3": " as a Senior Software Engineer, processing payments across all Latin America."
+        },
+        "extra": {
+            "text1": "I'm also vinyl collector (check my ",
+            "href1": {
+                "link": "https://www.discogs.com/es/user/SharliBeicon/collection",
+                "text": "discogs"
+            },
+            "text2": "!), lifelong gamer, meme lover and, in short, a geek."
+        }
+    },
+    "es": {
+        "intro": {
+            "text1": "¡Hola! Mi nombre es Carlos Tocino (Charlie Bacon para los que no le hayan dado a traducir la página 😂). He estado en la industria de la ingeniería de software durante ",
+            "bold": "+6",
+            "text2": " años, entregando productos y liderando equipos de manera efectiva. Sin embargo, llevo construyendo cosas (software y no software) desde hace +13 años."
+        },
+        "about": {
+            "text1": "Me gradué en ingeniería informática en la Universidad de Cádiz. Soy cofundador de ",
+            "href1": {
+                "text": "Cenware",
+                "link": "https://www.cenware.net/"
+            },
+            "text2": ", un proyecto que busca ayudar a pequeñas empresas a lograr una transformación digital exitosa; y actualmente trabajo en ",
+            "href2": {
+                "text": "PayRetailers",
+                "link": "https://www.payretailers.com/"
+            },
+            "text3": " como Ingeniero de Software Senior, procesando pagos por toda América Latina."
+        },
+        "extra": {
+            "text1": "También soy coleccionista de vinilos (¡checkea mi ",
+            "href1": {
+                "link": "https://www.discogs.com/es/user/SharliBeicon/collection",
+                "text": "discogs"
+            },
+            "text2": "!), gamer desde que tengo uso de razón, amante de los memes y, en definitiva, un friki."
+        }
+    }
+}

@@ -1,12 +1,17 @@
 ---
+import content from "@/content/data/commands.json"
 
+interface Props {
+  lang: "en" | "es"
+}
+
+const { lang } = Astro.props
 ---
 
-<footer>
-  Press <kbd>Ctrl</kbd> + <kbd>K</kbd> to open the command palette.
-</footer>
-
 <ninja-keys></ninja-keys>
+<footer>
+  {content[lang].title1}<kbd>Ctrl</kbd> + <kbd>K</kbd>{content[lang].title2}
+</footer>
 
 <script>
   import Icons from "@/content/js/Icons.js"
@@ -27,7 +32,7 @@
       },
       {
         id: "Social Media",
-        title: "Check Social Media",
+        title: "👀 Check Social Media",
         hotkey: "ctrl+M",
         section: "Actions",
         children: ["GitHub", "LinkedIn", "Twitter"],
@@ -42,49 +47,93 @@
         icon: github,
         hotkey: "ctrl+G",
         parent: "Social Media",
-        handler: () => {},
+        handler: () => {
+          window.open("https://github.com/SharliBeicon", "_blank")
+        },
       },
       {
         id: "LinkedIn",
         title: "LinkedIn",
         icon: linkedin,
-        hotkey: "ctrl+G",
+        hotkey: "ctrl+I",
         parent: "Social Media",
-        handler: () => {},
+        handler: () => {
+          window.open("https://www.linkedin.com/in/sharlibeicon/", "_blank")
+        },
       },
       {
         id: "Twitter",
         title: "Twitter",
         icon: twitter,
-        hotkey: "ctrl+T",
+        hotkey: "ctrl+X",
         parent: "Social Media",
-        handler: () => {},
+        handler: () => {
+          window.open("https://twitter.com/SharliBeicon", "_blank")
+        },
+      },
+      {
+        id: "Theme Selection",
+        title: "🔁 Theme Selection",
+        hotkey: "ctrl+E",
+        section: "Actions",
+        children: ["Light Theme", "Dark Theme"],
+        handler: () => {
+          ninja.open({ parent: "Theme Selection" })
+          return { keepOpen: true }
+        },
       },
       {
         id: "Light Theme",
         title: "😎 Light Theme",
         hotkey: "ctrl+L",
-        section: "Theme Selection",
-        handler: () => {},
+        parent: "Theme Selection",
+        handler: () => {
+          document.documentElement.classList.remove("dark")
+        },
       },
       {
         id: "Dark Theme",
         title: "🌚 Dark Theme",
         hotkey: "ctrl+D",
-        section: "Theme Selection",
-        handler: () => {},
+        parent: "Theme Selection",
+        handler: () => {
+          document.documentElement.classList.add("dark")
+        },
+      },
+      {
+        id: "Translate Page",
+        title: "🇬🇧/🇪🇸 Translate Page",
+        hotkey: "ctrl+T",
+        section: "Actions",
+        children: ["English", "Spanish"],
+        handler: () => {
+          ninja.open({ parent: "Translate Page" })
+          return { keepOpen: true }
+        },
+      },
+      {
+        id: "English",
+        title: "🇬🇧 English",
+        hotkey: "ctrl+E",
+        parent: "Translate Page",
+        handler: () => {
+          window.location.replace("/")
+        },
+      },
+      {
+        id: "Spanish",
+        title: "🇪🇸 Spanish",
+        hotkey: "ctrl+S",
+        parent: "Translate Page",
+        handler: () => {
+          window.location.replace("/es")
+        },
       },
     ]
   }
 </script>
 
 <style>
-  @media print {
-    ninja-keys {
-      display: none;
-    }
-  }
-
   footer {
     background: #f7f7f7;
     border-top: 1px solid #e2e2e2;
@@ -95,8 +144,16 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     font-size: 14px;
-    width: 100%;
+    width: 450px;
+    left: 50%;
+    transform: translate(-50%);
     margin: 0 auto 0;
+    view-timeline-name: --revealing;
+    view-timeline-axis: block;
+
+    animation: linear 0.3s fadeIn;
+    animation-timeline: --revealing;
+    animation-range: entry 100% cover 10%;
   }
 
   kbd {
@@ -109,6 +166,18 @@
   @media print {
     footer {
       display: none;
+    }
+    ninja-keys {
+      display: none;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 </style>

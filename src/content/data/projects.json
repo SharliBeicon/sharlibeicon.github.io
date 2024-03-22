@@ -1,85 +1,172 @@
-[
-    {
-        "name": "Cenware",
-        "isActive": true,
-        "description": "Digital transformation project that aims to help small businesses in Cadiz Bay's area to growth",
-        "tags": [
-            "Side Project",
-            "TypeScript",
-            "React",
-            "GraphQL",
-            "Microservices"
-        ],
-        "url": "https://cenware.net"
-    },
-    {
-        "name": "PayRetailers Sandbox",
-        "isActive": false,
-        "description": "Sandbox integration and back office that mock final product features to attract potential partners",
-        "tags": [
-            "TypeScript",
-            "React",
-            ".NET Core",
-            "API Rest"
-        ],
-        "url": "https://www.payretailers.com/es/partners/"
-    },
-    {
-        "name": "+10 Energy plant Integrations",
-        "isActive": false,
-        "description": "End to end integrations of renewable energy plants into Bluence ecosystem. From requirements gathering to production deployment",
-        "tags": [
-            "C#",
-            ".NET Framework",
-            "JavaServer Pages",
-            "JavaScript",
-            "Team Leading"
-        ],
-        "url": "https://bluence.isotrol.com/es/"
-    },
-    {
-        "name": "RecRep Tool",
-        "isActive": false,
-        "description": "Tool for Bluence SCADA development teams. Takes real time data from a productive energy plant and replays it into development environments",
-        "tags": [
-            "C#",
-            ".NET Framework",
-            "Automation Protocols"
-        ],
-        "url": "https://bluence.isotrol.com/es/"
-    },
-    {
-        "name": "IFF Sensor Integration",
-        "isActive": false,
-        "description": "Integration of the 'Friend or Foe Identification' Sensor into the F110's frigates combat system",
-        "tags": [
-            "C++",
-            "Qt Framework",
-            "DDS"
-        ],
-        "url": "https://www.defensa.com/defensa-naval/secretos-tecnologicos-mastil-fragata-f110"
-    },    
-    {
-        "name": "C4IP | User Service",
-        "isActive": false,
-        "description": "User Management Service for modern Spanish Army's combat ships ",
-        "tags": [
-            "C++",
-            "API Rest",
-            "Docker"
-        ],
-        "url": "https://www.infodefensa.com/texto-diario/mostrar/4351528/smart-8000-asi-futuro-buque-combate-navantia"
-    },
-    {
-        "name": "C4IP | ETL",
-        "isActive": false,
-        "description": "Loading/verification data and representation service from different sources",
-        "tags": [
-            "TypeScript",
-            "React",
-            "Docker",
-            "API Rest"
-        ],
-        "url": "https://www.infodefensa.com/texto-diario/mostrar/4351528/smart-8000-asi-futuro-buque-combate-navantia"
-    }
-]
+{
+    "en": [
+        {
+            "name": "Cenware",
+            "isActive": true,
+            "description": "Digital transformation project that aims to help small businesses in Cadiz Bay's area to growth",
+            "tags": [
+                "Side Project",
+                "TypeScript",
+                "React",
+                "GraphQL",
+                "Microservices"
+            ],
+            "url": "https://cenware.net"
+        },
+        {
+            "name": "PayRetailers Sandbox",
+            "isActive": false,
+            "description": "Sandbox integration and back office that mock final product features to attract potential partners",
+            "tags": [
+                "TypeScript",
+                "React",
+                ".NET Core",
+                "API Rest"
+            ],
+            "url": "https://www.payretailers.com/es/partners/"
+        },
+        {
+            "name": "+10 Energy plant Integrations",
+            "isActive": false,
+            "description": "End to end integrations of renewable energy plants into Bluence ecosystem. From requirements gathering to production deployment",
+            "tags": [
+                "C#",
+                ".NET Framework",
+                "JavaServer Pages",
+                "JavaScript",
+                "Team Leading"
+            ],
+            "url": "https://bluence.isotrol.com/es/"
+        },
+        {
+            "name": "RecRep Tool",
+            "isActive": false,
+            "description": "Tool for Bluence SCADA development teams. Takes real time data from a productive energy plant and replays it into development environments",
+            "tags": [
+                "C#",
+                ".NET Framework",
+                "Automation Protocols"
+            ],
+            "url": "https://bluence.isotrol.com/es/"
+        },
+        {
+            "name": "IFF Sensor Integration",
+            "isActive": false,
+            "description": "Integration of the 'Friend or Foe Identification' Sensor into the F110's frigates combat system",
+            "tags": [
+                "C++",
+                "Qt Framework",
+                "DDS"
+            ],
+            "url": "https://www.defensa.com/defensa-naval/secretos-tecnologicos-mastil-fragata-f110"
+        },    
+        {
+            "name": "C4IP | User Service",
+            "isActive": false,
+            "description": "User Management Service for modern Spanish Army's combat ships ",
+            "tags": [
+                "C++",
+                "API Rest",
+                "Docker"
+            ],
+            "url": "https://www.infodefensa.com/texto-diario/mostrar/4351528/smart-8000-asi-futuro-buque-combate-navantia"
+        },
+        {
+            "name": "C4IP | ETL",
+            "isActive": false,
+            "description": "Loading/verification data and representation service from different sources",
+            "tags": [
+                "TypeScript",
+                "React",
+                "Docker",
+                "API Rest"
+            ],
+            "url": "https://www.infodefensa.com/texto-diario/mostrar/4351528/smart-8000-asi-futuro-buque-combate-navantia"
+        }
+    ],
+    "es": [
+        {
+            "name": "Cenware",
+            "isActive": true,
+            "description": "Proyecto de transformación digital que busca ayudar a pequeñas empresas de la zona de la bahía de Cádiz en su crecimiento",
+            "tags": [
+                "Proyecto Paralelo",
+                "TypeScript",
+                "React",
+                "GraphQL",
+                "Microservicios"
+            ],
+            "url": "https://cenware.net"
+        },
+        {
+            "name": "PayRetailers Sandbox",
+            "isActive": false,
+            "description": "Ecosistema Sandbox que simula un entorno de back office real para captar potenciales clientes",
+            "tags": [
+                "TypeScript",
+                "React",
+                ".NET Core",
+                "API Rest"
+            ],
+            "url": "https://www.payretailers.com/es/partners/"
+        },
+        {
+            "name": "+10 Integraciones de plantas de energía",
+            "isActive": false,
+            "description": "Integraciones punto a punto de plantas de energía en los entornos Bluence, desde la toma de requisitos hasta despliegues a producción",
+            "tags": [
+                "C#",
+                ".NET Framework",
+                "JavaServer Pages",
+                "JavaScript",
+                "Lider de Equipo"
+            ],
+            "url": "https://bluence.isotrol.com/es/"
+        },
+        {
+            "name": "RecRep Tool",
+            "isActive": false,
+            "description": "Herramienta para los equipos de desarrollo de Bluence. Capta datos reales de plantas de energía renovables y los simula en entornos de desarrollo",
+            "tags": [
+                "C#",
+                ".NET Framework",
+                "Protocolos Industriales"
+            ],
+            "url": "https://bluence.isotrol.com/es/"
+        },
+        {
+            "name": "Integración sensor IFF",
+            "isActive": false,
+            "description": "Integración del sensor 'Friend or Foe Identification' en el sistema de combate de las fragatas F110",
+            "tags": [
+                "C++",
+                "Qt Framework",
+                "DDS"
+            ],
+            "url": "https://www.defensa.com/defensa-naval/secretos-tecnologicos-mastil-fragata-f110"
+        },    
+        {
+            "name": "C4IP | User Service",
+            "isActive": false,
+            "description": "Microservicio de gestión de usuarios para sistemas de combate y navegación",
+            "tags": [
+                "C++",
+                "API Rest",
+                "Docker"
+            ],
+            "url": "https://www.infodefensa.com/texto-diario/mostrar/4351528/smart-8000-asi-futuro-buque-combate-navantia"
+        },
+        {
+            "name": "C4IP | ETL",
+            "isActive": false,
+            "description": "Servicio de carga, verificación y representación de información para diferentes sistemas",
+            "tags": [
+                "TypeScript",
+                "React",
+                "Docker",
+                "API Rest"
+            ],
+            "url": "https://www.infodefensa.com/texto-diario/mostrar/4351528/smart-8000-asi-futuro-buque-combate-navantia"
+        }
+    ]
+}

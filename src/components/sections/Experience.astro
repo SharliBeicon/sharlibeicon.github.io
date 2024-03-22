@@ -1,13 +1,19 @@
 ---
 import Section from "@/components/Section.astro"
 import experience from "@/content/data/experience.json"
+interface Props {
+  lang: "en" | "es",
+  title: string
+}
+
+const { lang, title } = Astro.props
 ---
 
-<Section title="Experience">
+<Section title={title}>
   <div class="container">
     <ul>
       {
-        experience.map((item) => {
+        experience[lang].map((item) => {
           return (
             <li>
               <article>

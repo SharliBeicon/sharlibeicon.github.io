@@ -1,5 +1,9 @@
 ---
+interface Props {
+  translated: boolean
+}
 
+const { translated }  = Astro.props
 ---
 
 <center>
@@ -8,12 +12,28 @@
       id="language-toggle"
       class="check-toggle check-toggle-round-flat"
       type="checkbox"
+      checked={translated}
     />
     <label for="language-toggle"></label>
-    <span class="on">EN</span>
-    <span class="off">ES</span>
+    <span id="on" class="on">EN</span>
+    <span id="off" class="off">ES</span>
   </div>
 </center>
+
+<script is:inline>
+  const handleClick = () => {
+    if(document.getElementById("language-toggle").checked){
+      window.location.replace('/es')
+    }
+    else {
+      window.location.replace('/')
+    }
+  }
+
+  document
+    .getElementById("language-toggle")
+    .addEventListener("click", handleClick)
+</script>
 
 <style>
   .switch {

@@ -1,17 +1,24 @@
 ---
+import data from "@/content/data/header.json"
 import Section from "@/components/Section.astro"
 import { Image } from "astro:assets"
 import profileImg from "@/content/image/profile.webp"
+
+interface Props {
+  lang: "en" | "es"
+}
+
+const { lang } = Astro.props
 ---
 
 <Section>
   <div class="container">
-    <div class="info">
-      <h1>Carlos Tocino</h1>
-      <h3>AKA. Charlie Bacon</h3>
-      <h2>Software Engineer in Cádiz</h2>
-      <h4>Southern Spain ☀️🏖️</h4>
-      <p>carlostocinocubelo@gmail.com</p>
+    <div class="info en">
+      <h1>{data[lang].name}</h1>
+      <h3>{data[lang].aka}</h3>
+      <h2>{data[lang].position}</h2>
+      <h4>{data[lang].where} ☀️🏖️</h4>
+      <p>{data[lang].email}</p>
     </div>
     <figure>
       <Image

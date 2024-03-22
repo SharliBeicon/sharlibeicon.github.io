@@ -1,26 +1,54 @@
-[
-    {
-        "company": "PayRetailers",
-        "position": "Senior Software Engineer",
-        "duration": "December 2023 - Present",
-        "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-        "company": "Alten",
-        "position": "Software Engineer",
-        "duration": "May 2023 - December 2023",
-        "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-        "company": "Ghenova Digital",
-        "position": "Software Engineer",
-        "duration": "June 2022 - May 2023",
-        "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-        "company": "Isotrol",
-        "position": "Full-Stack Developer → Technical Team Lead",
-        "duration": "July 2018 - June 2023",
-        "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    }
-]
+{
+    "en": [
+        {
+            "company": "PayRetailers",
+            "position": "Senior Software Engineer",
+            "duration": "December 2023 - Present",
+            "summary": "Part of the security squad that works on developing secure payment gateway integrations. Currently, 4 integrations have been developed with the consequent achievement of PCI DDS compliance certificate."
+        },
+        {
+            "company": "Alten",
+            "position": "Software Engineer",
+            "duration": "May 2023 - December 2023",
+            "summary": "Design and development of combat and navigation microservices for Navantia S.A, as part of the C4IP project aiming at modernizing the architecture of the Spanish Navy systems."
+        },
+        {
+            "company": "Ghenova Digital",
+            "position": "Software Engineer",
+            "duration": "June 2022 - May 2023",
+            "summary": "Integration of sensors into the new combat system of the F110 frigates of the Spanish Navy. Integrating new functionalities into a legacy C++ codebase of millions of lines."
+        },
+        {
+            "company": "Isotrol",
+            "position": "Full-Stack Developer → Technical Team Lead",
+            "duration": "July 2018 - June 2023",
+            "summary": "Full-Stack development of renewable energy plant integrations within the Bluence environment. Successfully integrated more than 10 plants. From business development in .NET/C# to UI/UX design and implementation in JavaPages Server and JavaScript. Led a team during the last 10 months at Isotrol."
+        }
+    ],
+    "es": [
+        {
+            "company": "PayRetailers",
+            "position": "Ingeniero de Software Senior",
+            "duration": "Diciembre 2023 - Actualidad",
+            "summary": "Parte del equipo de seguridad desarrollando integraciones de pasarelas de pago securizadas. Hasta el momento, 4 integraciones desarrolladas con la consecuente obtención del certificado de cumplimiento de la normativa PCI DDS."
+        },
+        {
+            "company": "Alten",
+            "position": "Ingeniero de Software",
+            "duration": "Mayo 2023 - Diciembre 2023",
+            "summary": "Diseño y desarrollo de microservicios de combate y navegación para Navantia S.A, como parte del proyecto C4IP que busca la modernización en la arquitectura de los sistemas de la armada española."
+        },
+        {
+            "company": "Ghenova Digital",
+            "position": "Ingeniero de Software",
+            "duration": "Junio 2022 - Mayo 2023",
+            "summary": "Integración de sensores dentro del nuevo sistema de combate de las fragatas F110 de la armada española. Integrando nuevas funcionalidades en un código legacy C++ de millones de lineas."
+        },
+        {
+            "company": "Isotrol",
+            "position": "Desarrollador Full-Stack → Lider de Equipo Técnico",
+            "duration": "Julio 2018 - Junio 2023",
+            "summary": "Desarrollo Full-Stack de integraciones de plantas de energías renovables dentro del entorno Bluence. Más de 10 plantas integradas satisfactoriamente. Desde el desarrollo business en .NET/C#, hasta el diseño e implementación de UI/UX en JavaPages Server y JavaScript. Lideré un equipo durante los últimos 10 meses en Isotrol."
+        }
+    ]
+}
