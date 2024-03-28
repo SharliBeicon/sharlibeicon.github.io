@@ -4,7 +4,7 @@
             "company": "PayRetailers",
             "position": "Senior Software Engineer",
             "duration": "December 2023 - Present",
-            "summary": "Part of the security squad that works on developing secure payment gateway integrations. Currently, 4 integrations have been developed with the consequent achievement of PCI DDS compliance certificate."
+            "summary": "Part of the security squad that works on developing secure payment gateway integrations. Currently, 4 integrations have been developed with the consequent achievement of PCI DSS compliance certificate."
         },
         {
             "company": "Alten",
@@ -21,7 +21,7 @@
         {
             "company": "Isotrol",
             "position": "Full-Stack Developer → Technical Team Lead",
-            "duration": "July 2018 - June 2023",
+            "duration": "July 2018 - June 2022",
             "summary": "Full-Stack development of renewable energy plant integrations within the Bluence environment. Successfully integrated more than 10 plants. From business development in .NET/C# to UI/UX design and implementation in JavaPages Server and JavaScript. Led a team during the last 10 months at Isotrol."
         }
     ],
