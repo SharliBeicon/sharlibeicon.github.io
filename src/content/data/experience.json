@@ -30,7 +30,7 @@
             "company": "PayRetailers",
             "position": "Ingeniero de Software Senior",
             "duration": "Diciembre 2023 - Actualidad",
-            "summary": "Parte del equipo de seguridad desarrollando integraciones de pasarelas de pago securizadas. Hasta el momento, 4 integraciones desarrolladas con la consecuente obtención del certificado de cumplimiento de la normativa PCI DDS."
+            "summary": "Parte del equipo de seguridad desarrollando integraciones de pasarelas de pago securizadas. Hasta el momento, 4 integraciones desarrolladas con la consecuente obtención del certificado de cumplimiento de la normativa PCI DSS."
         },
         {
             "company": "Alten",
@@ -47,7 +47,7 @@
         {
             "company": "Isotrol",
             "position": "Desarrollador Full-Stack → Lider de Equipo Técnico",
-            "duration": "Julio 2018 - Junio 2023",
+            "duration": "Julio 2018 - Junio 2022",
             "summary": "Desarrollo Full-Stack de integraciones de plantas de energías renovables dentro del entorno Bluence. Más de 10 plantas integradas satisfactoriamente. Desde el desarrollo business en .NET/C#, hasta el diseño e implementación de UI/UX en JavaPages Server y JavaScript. Lideré un equipo durante los últimos 10 meses en Isotrol."
         }
     ]
