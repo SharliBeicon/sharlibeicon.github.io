@@ -1,6 +1,19 @@
 {
     "en": [
         {
+            "name": "Romeo5",
+            "isActive": true,
+            "description": "Flight Information Display and Situational Awareness tool for Air Traffic Controllers and AFIS",
+            "tags": [
+                "Rust 🦀",
+                "Kubernetes",
+                "gRPC",
+                "Apache Kafka",
+                "Microservices"
+            ],
+            "url": "https://databeacon.aero/romeo5/"
+        },
+        {
             "name": "Cenware",
             "isActive": true,
             "description": "Digital transformation project that aims to help small businesses in Cadiz Bay's area to growth",
@@ -59,7 +72,7 @@
                 "DDS"
             ],
             "url": "https://www.defensa.com/defensa-naval/secretos-tecnologicos-mastil-fragata-f110"
-        },    
+        },
         {
             "name": "C4IP | User Service",
             "isActive": false,
@@ -85,6 +98,19 @@
         }
     ],
     "es": [
+        {
+            "name": "Romeo5",
+            "isActive": true,
+            "description": "Herramienta de visualización de información de vuelo y conciencia situacional para controladores de tráfico aéreo y AFIS",
+            "tags": [
+                "Rust 🦀",
+                "Kubernetes",
+                "gRPC",
+                "Apache Kafka",
+                "Microservices"
+            ],
+            "url": "https://databeacon.aero/romeo5/"
+        },
         {
             "name": "Cenware",
             "isActive": true,
@@ -144,7 +170,7 @@
                 "DDS"
             ],
             "url": "https://www.defensa.com/defensa-naval/secretos-tecnologicos-mastil-fragata-f110"
-        },    
+        },
         {
             "name": "C4IP | User Service",
             "isActive": false,

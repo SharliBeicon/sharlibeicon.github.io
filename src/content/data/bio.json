@@ -13,10 +13,10 @@
             },
             "text2": ", a project that aims to help small businesses to achieve a successful digital transformation; and I'm currently working at",
             "href2": {
-                "text": "PayRetailers",
-                "link": "https://www.payretailers.com/"
+                "text": "DataBeacon",
+                "link": "https://databeacon.aero/"
             },
-            "text3": " as a Senior Software Engineer, processing payments across all Latin America."
+            "text3": " as a Software Engineer, in the core developer team where I'm focusing on Rust which is my favorite language at the moment."
         },
         "extra": {
             "text1": "I'm also vinyl collector (check my ",
@@ -24,7 +24,7 @@
                 "link": "https://www.discogs.com/es/user/SharliBeicon/collection",
                 "text": "discogs"
             },
-            "text2": "!), lifelong gamer, meme lover and, in short, a geek."
+            "text2": "!), lifelong gamer, meme lover and, in short, a geek. I use NeoVim, btw."
         }
     },
     "es": {
@@ -41,10 +41,10 @@
             },
             "text2": ", un proyecto que busca ayudar a pequeñas empresas a lograr una transformación digital exitosa; y actualmente trabajo en ",
             "href2": {
-                "text": "PayRetailers",
-                "link": "https://www.payretailers.com/"
+                "text": "DataBeacon",
+                "link": "https://databeacon.aero/"
             },
-            "text3": " como Ingeniero de Software Senior, procesando pagos por toda América Latina."
+            "text3": " como Ingeniero de Software en el equipo principal de desarrolladores donde me estoy centrando en Rust, que es mi lenguaje favorito ahora mismo."
         },
         "extra": {
             "text1": "También soy coleccionista de vinilos (¡checkea mi ",
@@ -52,7 +52,7 @@
                 "link": "https://www.discogs.com/es/user/SharliBeicon/collection",
                 "text": "discogs"
             },
-            "text2": "!), gamer desde que tengo uso de razón, amante de los memes y, en definitiva, un friki."
+            "text2": "!), gamer desde que tengo uso de razón, amante de los memes y, en definitiva, un friki. I use NeoVim, btw."
         }
     }
 }

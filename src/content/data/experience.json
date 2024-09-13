@@ -1,10 +1,16 @@
 {
     "en": [
         {
+            "company": "DataBeacon",
+            "position": "Software Engineer",
+            "duration": "August 2024 - present",
+            "summary": "Part of the core developer team, working on the development of the DataBeacon suite, a software solution for the aviation industry that aims to improve the efficiency of the air traffic control process."
+        },
+        {
             "company": "PayRetailers",
-            "position": "Senior Software Engineer",
-            "duration": "December 2023 - Present",
-            "summary": "Part of the security squad that works on developing secure payment gateway integrations. Currently, 4 integrations have been developed with the consequent achievement of PCI DSS compliance certificate."
+            "position": "Software Engineer",
+            "duration": "December 2023 - July 2024",
+            "summary": "Part of the security squad that works on developing secure payment gateway integrations. Succesfully integrated several partners with the consequent achievement of PCI DSS compliance certificate."
         },
         {
             "company": "Alten",
@@ -27,10 +33,16 @@
     ],
     "es": [
         {
+            "company": "DataBeacon",
+            "position": "Ingeniero de Software",
+            "duration": "Agosto 2024 - Actualidad",
+            "summary": "Parte del equipo principal de desarrolladores, trabajando en el desarrollo de la suite DataBeacon, una solución de software para la industria de la aviación que busca mejorar la eficiencia del proceso de control de tráfico aéreo."
+        },
+        {
             "company": "PayRetailers",
-            "position": "Ingeniero de Software Senior",
-            "duration": "Diciembre 2023 - Actualidad",
-            "summary": "Parte del equipo de seguridad desarrollando integraciones de pasarelas de pago securizadas. Hasta el momento, 4 integraciones desarrolladas con la consecuente obtención del certificado de cumplimiento de la normativa PCI DSS."
+            "position": "Ingeniero de Software",
+            "duration": "Diciembre 2023 - Julio 2024",
+            "summary": "Parte del equipo de seguridad desarrollando integraciones de pasarelas de pago securizadas. Numerosos partners integrados con la consecuente obtención del certificado de cumplimiento de la normativa PCI DSS."
         },
         {
             "company": "Alten",

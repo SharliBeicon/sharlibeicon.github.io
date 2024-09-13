@@ -1,27 +1,30 @@
-
 {
     "en": [
+        "Rust",
         ".NET/C#",
         "C++",
         "TypeScript",
         "React",
         "Algorithms/Data Structures",
         "Microservices",
+        "Kubernetes",
+        "Apache Kafka",
         "SQL and NoSQL Databases",
-        "Linux",
-        "OOP/SOLID",
-        "Interpersonal leadership skills"
+        "AWS",
+        "Linux"
     ],
     "es": [
+        "Rust",
         ".NET/C#",
         "C++",
         "TypeScript",
         "React",
         "Algoritmos/Estructuras de Datos",
         "Microservicios",
+        "Kubernetes",
+        "Apache Kafka",
         "Bases de Datos SQL y NoSQL",
-        "Linux",
-        "POO/SOLID",
-        "Habilidades de Liderazgo"
+        "AWS",
+        "Linux"
     ]
 }
