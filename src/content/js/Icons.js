@@ -11,7 +11,7 @@ const Icons = {
                 ></path></svg
             >
   `,
-  linkedin: `<svg
+    linkedin: `<svg
                 style="margin-right: 8px" 
                 height="16"
                 width="16"
@@ -23,7 +23,7 @@ const Icons = {
                 ></path></svg
             >
   `,
-  twitter: `<svg
+    twitter: `<svg
                 style="margin-right: 8px"
                 width="16"
                 height="16"
