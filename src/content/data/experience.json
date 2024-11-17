@@ -1,66 +1,66 @@
 {
-    "en": [
-        {
-            "company": "DataBeacon",
-            "position": "Software Engineer",
-            "duration": "August 2024 - present",
-            "summary": "Part of the core developer team, working on DataBeacon suite, a software solution with many products for the aviation industry that aims to improve the efficiency of the air traffic control process."
-        },
-        {
-            "company": "PayRetailers",
-            "position": "Software Engineer",
-            "duration": "December 2023 - July 2024",
-            "summary": "Part of the security squad that works on developing secure payment gateway integrations. Succesfully integrated several partners with the consequent achievement of PCI DSS compliance certificate."
-        },
-        {
-            "company": "Alten",
-            "position": "Software Engineer",
-            "duration": "May 2023 - December 2023",
-            "summary": "Design and development of combat and navigation microservices for Navantia S.A, as part of the C4IP project aiming at modernizing the architecture of the Spanish Navy systems."
-        },
-        {
-            "company": "Ghenova Digital",
-            "position": "Software Engineer",
-            "duration": "June 2022 - May 2023",
-            "summary": "Integration of sensors into the new combat system of the F110 frigates of the Spanish Navy. Integrating new functionalities into a legacy C++ codebase of millions of lines."
-        },
-        {
-            "company": "Isotrol",
-            "position": "Full-Stack Developer → Technical Team Lead",
-            "duration": "July 2018 - June 2022",
-            "summary": "Full-Stack development of renewable energy plant integrations within the Bluence environment. Successfully integrated more than 10 plants. From business development in .NET/C# to UI/UX design and implementation in JavaPages Server and JavaScript. Led a team during the last 10 months at Isotrol."
-        }
-    ],
-    "es": [
-        {
-            "company": "DataBeacon",
-            "position": "Ingeniero de Software",
-            "duration": "Agosto 2024 - Actualidad",
-            "summary": "Parte del equipo principal de desarrolladores, trabajando en el desarrollo de la suite DataBeacon, una solución de software para la industria de la aviación que busca mejorar la eficiencia del proceso de control de tráfico aéreo."
-        },
-        {
-            "company": "PayRetailers",
-            "position": "Ingeniero de Software",
-            "duration": "Diciembre 2023 - Julio 2024",
-            "summary": "Parte del equipo de seguridad desarrollando integraciones de pasarelas de pago securizadas. Numerosos partners integrados con la consecuente obtención del certificado de cumplimiento de la normativa PCI DSS."
-        },
-        {
-            "company": "Alten",
-            "position": "Ingeniero de Software",
-            "duration": "Mayo 2023 - Diciembre 2023",
-            "summary": "Diseño y desarrollo de microservicios de combate y navegación para Navantia S.A, como parte del proyecto C4IP que busca la modernización en la arquitectura de los sistemas de la armada española."
-        },
-        {
-            "company": "Ghenova Digital",
-            "position": "Ingeniero de Software",
-            "duration": "Junio 2022 - Mayo 2023",
-            "summary": "Integración de sensores dentro del nuevo sistema de combate de las fragatas F110 de la armada española. Integrando nuevas funcionalidades en un código legacy C++ de millones de lineas."
-        },
-        {
-            "company": "Isotrol",
-            "position": "Desarrollador Full-Stack → Lider de Equipo Técnico",
-            "duration": "Julio 2018 - Junio 2022",
-            "summary": "Desarrollo Full-Stack de integraciones de plantas de energías renovables dentro del entorno Bluence. Más de 10 plantas integradas satisfactoriamente. Desde el desarrollo business en .NET/C#, hasta el diseño e implementación de UI/UX en JavaPages Server y JavaScript. Lideré un equipo durante los últimos 10 meses en Isotrol."
-        }
-    ]
+  "en": [
+    {
+      "company": "DataBeacon",
+      "position": "Software Engineer",
+      "duration": "August 2024 - present",
+      "summary": "Part of the core development team of all DataBeacon tools, software solutions for the aviation industry which improves the efficiency of the air traffic control process. Taking an active role from architecture design to development."
+    },
+    {
+      "company": "PayRetailers",
+      "position": "Software Engineer",
+      "duration": "December 2023 - July 2024",
+      "summary": "Developed secure payment gateway integrations. Succesfully integrated several partners with the consequent achievement of PCI DSS compliance certificate."
+    },
+    {
+      "company": "Alten",
+      "position": "Software Engineer",
+      "duration": "May 2023 - December 2023",
+      "summary": "Design and development of combat and navigation microservices for Navantia S.A, as part of the C4IP project aiming at modernizing the architecture of the Spanish Navy systems."
+    },
+    {
+      "company": "Ghenova Digital",
+      "position": "Software Engineer",
+      "duration": "June 2022 - May 2023",
+      "summary": "Integration of sensors into the new combat system of the F110 frigates of the Spanish Navy. Integrating new functionalities into a legacy C++ codebase of millions of lines."
+    },
+    {
+      "company": "Isotrol",
+      "position": "Full-Stack Developer → Technical Team Lead",
+      "duration": "July 2018 - June 2022",
+      "summary": "Full-Stack development of renewable energy plant integrations within the Bluence environment. Successfully integrated more than 10 plants. From business development in .NET/C# to UI/UX design and implementation in JavaPages Server and JavaScript. Led a team during the last 10 months at Isotrol."
+    }
+  ],
+  "es": [
+    {
+      "company": "DataBeacon",
+      "position": "Ingeniero de Software",
+      "duration": "Agosto 2024 - Actualidad",
+      "summary": "Parte del equipo principal de desarrolladores, trabajando en el desarrollo de la suite DataBeacon, una solución de software para la industria de la aviación que busca mejorar la eficiencia del proceso de control de tráfico aéreo."
+    },
+    {
+      "company": "PayRetailers",
+      "position": "Ingeniero de Software",
+      "duration": "Diciembre 2023 - Julio 2024",
+      "summary": "Parte del equipo de seguridad desarrollando integraciones de pasarelas de pago securizadas. Numerosos partners integrados con la consecuente obtención del certificado de cumplimiento de la normativa PCI DSS."
+    },
+    {
+      "company": "Alten",
+      "position": "Ingeniero de Software",
+      "duration": "Mayo 2023 - Diciembre 2023",
+      "summary": "Diseño y desarrollo de microservicios de combate y navegación para Navantia S.A, como parte del proyecto C4IP que busca la modernización en la arquitectura de los sistemas de la armada española."
+    },
+    {
+      "company": "Ghenova Digital",
+      "position": "Ingeniero de Software",
+      "duration": "Junio 2022 - Mayo 2023",
+      "summary": "Integración de sensores dentro del nuevo sistema de combate de las fragatas F110 de la armada española. Integrando nuevas funcionalidades en un código legacy C++ de millones de lineas."
+    },
+    {
+      "company": "Isotrol",
+      "position": "Desarrollador Full-Stack → Lider de Equipo Técnico",
+      "duration": "Julio 2018 - Junio 2022",
+      "summary": "Desarrollo Full-Stack de integraciones de plantas de energías renovables dentro del entorno Bluence. Más de 10 plantas integradas satisfactoriamente. Desde el desarrollo business en .NET/C#, hasta el diseño e implementación de UI/UX en JavaPages Server y JavaScript. Lideré un equipo durante los últimos 10 meses en Isotrol."
+    }
+  ]
 }
