@@ -28,3 +28,7 @@
 .back {
     transform: rotateY(180deg);
 }
+
+.custom-links a {
+    @apply text-custom-darkeraccent dark:text-custom-accent hover:text-custom-accent dark:hover:text-custom-darkeraccent cursor-pointer;
+}

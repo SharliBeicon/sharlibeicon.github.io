@@ -1,10 +1,9 @@
-name: Github Deployment
+name: Publish on GitHub Pages
 
 on:
   push:
     branches: [main]
 
-  workflow_dispatch:
 permissions:
   contents: read
   pages: write
@@ -13,18 +12,25 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Clone repository
         uses: actions/checkout@v4
-      - name: Install and build
-        uses: withastro/action@v2
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
+
+      - name: Setup Deno environment
+        uses: denoland/setup-deno@v2
+
+      - name: Build site
+        run: deno task build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "_site"
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
