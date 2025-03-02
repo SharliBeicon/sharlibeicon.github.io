@@ -1,0 +1,24 @@
+- title: /Me
+  items:
+    - text: About
+      path: /about
+    - text: Projects
+      path: /projects
+    - text: Contact
+      path: /contact
+    - text: CV
+      path: /contact
+- title: /Site
+  items:
+    - text: Blog
+      path: /about
+    - text: Live timeline
+      path: /vinyl
+- title: /Misc
+  items:
+    - text: Uses
+      path: /about
+    - text: Vinyl
+      path: /vinyl
+    - text: Bookmarks
+      path: /timeline
