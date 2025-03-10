@@ -1,0 +1,9 @@
+{{ layout "layouts/base_themed.vto" }}
+
+{{ set inner }}
+  <div class="flex gap-12 max-w-lg md:max-w-3xl lg:max-w-6xl mx-auto my-12">
+    {{ include "navigation.vto" { home: true, card: "px-8 sticky top-4 overflow-y-auto h-fit", flex: "p-4 flex-col gap-8 justify-center" } }}
+    {{ page }}
+  </div>
+{{ /set }}
+

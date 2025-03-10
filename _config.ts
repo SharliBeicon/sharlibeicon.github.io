@@ -12,8 +12,7 @@ const site = lume({
   location: new URL("https://charliebacon.dev"),
 });
 
-site.copy("assets/js");
-site.copy("assets/img");
+site.copy("assets");
 
 site.use(
   googleFonts({

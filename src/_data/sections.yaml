@@ -13,7 +13,7 @@
     - text: Blog
       path: /about
     - text: Live timeline
-      path: /vinyl
+      path: /timeline
 - title: /Misc
   items:
     - text: Uses

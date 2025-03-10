@@ -16,31 +16,116 @@ export default {
             light: "#EEEEEE",
           },
         },
-        typography: {
+        typography: ({ theme }) => ({
           DEFAULT: {
             css: {
+              "--tw-prose-body": theme("colors.custom.mediumdark"),
+              "--tw-prose-headings": theme("colors.custom.accent"),
               p: {
+                fontSize: "1.125rem",
+                lineHeight: "1.75rem",
+                fontWeight: "300",
                 fontFamily: "Fira Sans",
+                color: "var(--tw-prose-body)",
+                marginTop: "0.75rem",
+                marginBottom: "0.75rem",
+              },
+              ol: {
+                fontSize: "1.125rem",
+                lineHeight: "1.75rem",
+                fontWeight: "300",
+                fontFamily: "Fira Sans",
+                color: "var(--tw-prose-body)",
+              },
+              ul: {
+                fontSize: "1.125rem",
+                lineHeight: "1.75rem",
+                fontWeight: "300",
+                fontFamily: "Fira Sans",
+                color: "var(--tw-prose-body)",
+                marginTop: "0.75rem",
+                marginBottom: "0.75rem",
+                li: {
+                  marginTop: "0.5rem",
+                  marginBottom: "0.5rem",
+                },
               },
               h1: {
                 fontFamily: "Fira Sans Condensed",
+                color: "var(--tw-prose-headings)",
+                marginBottom: "0.5rem",
+                marginTop: "1rem",
               },
               h2: {
+                marginTop: "1rem",
                 fontFamily: "Fira Sans Condensed",
+                color: "var(--tw-prose-headings)",
+                marginBottom: "0.5rem",
               },
               h3: {
+                marginTop: "1rem",
                 fontFamily: "Fira Sans Condensed",
+                color: "var(--tw-prose-headings)",
+                marginBottom: "0.5rem",
               },
               h4: {
+                marginTop: "1rem",
                 fontFamily: "Fira Sans Condensed",
+                color: "var(--tw-prose-headings)",
+                marginBottom: "0.5rem",
               },
               code: {
                 fontFamily: "Fira Mono",
               },
-              textAlign: "justify",
             },
           },
-        },
+          lg: {
+            css: {
+              h1: { marginBottom: "0" },
+              h2: { marginTop: "1rem", marginBottom: "0.5rem" },
+              h3: { marginTop: "1rem", marginBottom: "0.5rem" },
+              h4: { marginTop: "1rem", marginBottom: "0.5rem" },
+              p: {
+                marginTop: "0.75rem",
+                marginBottom: "0.75rem",
+              },
+              ul: {
+                marginTop: "0.75rem",
+                marginBottom: "0.75rem",
+                li: {
+                  marginTop: "0.5rem",
+                  marginBottom: "0.5rem",
+                },
+              },
+            },
+          },
+          xl: {
+            css: {
+              h1: { marginBottom: "0" },
+              h2: { marginTop: "1rem", marginBottom: "0.5rem" },
+              h3: { marginTop: "1rem", marginBottom: "0.5rem" },
+              h4: { marginTop: "1rem", marginBottom: "0.5rem" },
+              p: {
+                marginTop: "0.75rem",
+                marginBottom: "0.75rem",
+              },
+              ul: {
+                li: {
+                  marginTop: "0.5rem",
+                  marginBottom: "0.5rem",
+                },
+                marginTop: "0.75rem",
+                marginBottom: "0.75rem",
+              },
+            },
+          },
+          invert: {
+            css: {
+              "--tw-prose-body": theme("colors.custom.light"),
+              "--tw-prose-headings": theme("colors.custom.darkeraccent"),
+            },
+          },
+        }),
       },
       fontFamily: {
         text: ["Fira Sans"],
