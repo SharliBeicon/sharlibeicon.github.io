@@ -1,0 +1,48 @@
+{
+  "en": {
+    "intro": {
+      "text1": "Hello there! My name is Carlos Tocino (Charlie Bacon for non-Spanish speakers). I've been in the software engineering industry for ",
+      "bold": "+6",
+      "text2": " years, delivering products and leading teams effectively. However, I've been building stuff (software and not software) for +13 years."
+    },
+    "about": {
+      "text1": "I'm graduated in computer engineering from University of Cádiz and currently working at",
+      "href1": {
+        "text": "DataBeacon",
+        "link": "https://databeacon.aero/"
+      },
+      "text2": " as a Software Engineer in their core development team. Using Rust programming language 🦀."
+    },
+    "extra": {
+      "text1": "I'm also vinyl collector (check my ",
+      "href1": {
+        "link": "https://www.discogs.com/es/user/SharliBeicon/collection",
+        "text": "discogs"
+      },
+      "text2": "!), lifelong gamer, meme lover and, in short, a geek. I use NeoVim, btw."
+    }
+  },
+  "es": {
+    "intro": {
+      "text1": "¡Hola! Mi nombre es Carlos Tocino (Charlie Bacon para los que no le hayan dado a traducir la página 😂). He estado en la industria de la ingeniería de software durante ",
+      "bold": "+6",
+      "text2": " años, entregando productos y liderando equipos de manera efectiva. Sin embargo, llevo construyendo cosas (software y no software) desde hace +13 años."
+    },
+    "about": {
+      "text1": "Me gradué en ingeniería informática en la Universidad de Cádiz. Actualmente trabajo en ",
+      "href1": {
+        "text": "DataBeacon",
+        "link": "https://databeacon.aero/"
+      },
+      "text2": " como Ingeniero de Software en el equipo principal de desarrolladores donde me estoy centrando en Rust 🦀."
+    },
+    "extra": {
+      "text1": "También soy coleccionista de vinilos (¡checkea mi ",
+      "href1": {
+        "link": "https://www.discogs.com/es/user/SharliBeicon/collection",
+        "text": "discogs"
+      },
+      "text2": "!), gamer desde que tengo uso de razón, amante de los memes y, en definitiva, un friki. I use NeoVim, btw."
+    }
+  }
+}
