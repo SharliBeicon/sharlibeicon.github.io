@@ -2,3 +2,4 @@ _site
 .zig-cache
 zig-out
 .DS_Store
+_cache

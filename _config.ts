@@ -5,6 +5,8 @@ import googleFonts from "lume/plugins/google_fonts.ts";
 import tailwindConfig from "./tailwind.config.ts";
 import prism from "lume/plugins/prism.ts";
 import inline from "lume/plugins/inline.ts";
+import favicon from "lume/plugins/favicon.ts";
+import minifyHTML from "lume/plugins/minify_html.ts";
 
 import "npm:prismjs@1.29.0/components/prism-rust.js";
 
@@ -14,6 +16,12 @@ const site = lume({
 });
 
 site.copy("assets");
+
+site.use(
+  favicon({
+    input: "/public/favicon.svg",
+  }),
+);
 
 site.use(
   googleFonts({
@@ -55,5 +63,11 @@ site.data("currentYear", new Date().getFullYear());
 site.use(inline());
 site.use(tailwindcss(tailwindConfig));
 site.use(postcss());
+
+site.use(
+  minifyHTML({
+    extensions: [".html", ".js"],
+  }),
+);
 
 export default site;
