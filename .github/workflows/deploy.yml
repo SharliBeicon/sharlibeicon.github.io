@@ -17,6 +17,22 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
 
+      - name: Setup Emscripten
+        uses: mymindstorm/setup-emsdk@v14
+
+      - name: Setup Zig Compiler
+        uses: mlugg/setup-zig@v1
+        with:
+          version: 0.14.0
+
+      - name: Compile Live Timeline for wasm32-emscripten
+        run: |
+          cd live_timeline
+          zig build -Dtarget=wasm32-emscripten
+          rm zig-out/htmlout/index.html
+          mv zig-out/htmlout/* ../src/assets/static
+          cd ..
+
       - name: Setup Deno environment
         uses: denoland/setup-deno@v2
 
