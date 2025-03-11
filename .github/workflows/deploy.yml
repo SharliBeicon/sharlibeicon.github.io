@@ -25,6 +25,13 @@ jobs:
       - name: Setup Emscripten
         uses: mymindstorm/setup-emsdk@v14
 
+      - name: Get Emscripten path
+        id: emscripten-path
+        run: |
+          EMSDK_PATH=$(dirname $(which emcc))/../upstream/emscripten
+          echo "EMSDK_PATH=$EMSDK_PATH" >> $GITHUB_ENV
+          echo "Emscripten path: $EMSDK_PATH"
+
       - name: Setup Zig Compiler
         uses: mlugg/setup-zig@v1
         with:
@@ -33,7 +40,7 @@ jobs:
       - name: Compile Live Timeline for wasm32-emscripten
         run: |
           cd live_timeline
-          zig build -Dtarget=wasm32-emscripten
+          zig build -Dtarget=wasm32-emscripten --sysroot $EMSDK_PATH
           rm zig-out/htmlout/index.html
           mv zig-out/htmlout/* ../src/assets/static
           cd ..
