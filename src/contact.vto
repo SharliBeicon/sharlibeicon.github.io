@@ -1,3 +1,21 @@
 ---
-layout: layouts/left_nav.vto
+title: Contact
+description: Here are all my contact methods, feel free to reach me out through any of them.
+layout: layouts/section.vto
+
 ---
+<div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4">
+    {{ for contact of contacts }}
+        <a href="{{ contact.url }}">
+        {{ comp card_plain {slim: true, classes: "hover:bg-opacity-10 hover:dark:bg-opacity-10 hover:cursor-pointer"} }}
+            <div class="flex space-between gap-2 items-center">
+                <svg src="/assets/svg/{{ contact.icon }}" class="text-custom-accent dark:text-custom-darkeraccent h-[2rem] w-[2rem] fill-current" aria-hidden inline></svg>
+                <div class="flex flex-col">
+                    <h3 class="text-xl font-text text-custom-dark dark:text-custom-light"> {{ contact.name }} </h3>
+                    <div class="font-mono italic text-custom-mediumdark dark:text-custom-mediumlight break-all"> {{ contact.text }}</div>
+                </div>
+            </div>
+        {{ /comp }}
+        </a>
+    {{ /for }}
+</div>

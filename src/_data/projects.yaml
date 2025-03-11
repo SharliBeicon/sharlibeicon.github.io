@@ -1,0 +1,28 @@
+- name: Oxify
+  url: https://github.com/SharliBeicon/oxify
+  description: |
+    A Lightweight, customizable Spotify client built on top of Iced and Librespot.
+  tags:
+    - wip
+    - rust
+- name: El Telitairo
+  url: https://github.com/SharliBeicon/telitairos-bot
+  description: |
+    AI powered telegram bot.
+  tags:
+    - rust
+    - ai
+- name: Procedural maps
+  url: https://github.com/SharliBeicon/procedural-maps
+  description: |
+    Procedural map generation using constraint satisfaction.
+  tags:
+    - zig
+    - raylib
+- name: Particle system
+  url: https://github.com/SharliBeicon/zig-particle-system
+  description: |
+    A celular automata model which displays different kind of particles such as sand and water.
+  tags:
+    - zig
+    - raylib

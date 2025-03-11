@@ -4,6 +4,7 @@ import postcss from "lume/plugins/postcss.ts";
 import googleFonts from "lume/plugins/google_fonts.ts";
 import tailwindConfig from "./tailwind.config.ts";
 import prism from "lume/plugins/prism.ts";
+import inline from "lume/plugins/inline.ts";
 
 import "npm:prismjs@1.29.0/components/prism-rust.js";
 
@@ -51,6 +52,7 @@ site.data("commit", commitHash);
 
 site.data("currentYear", new Date().getFullYear());
 
+site.use(inline());
 site.use(tailwindcss(tailwindConfig));
 site.use(postcss());
 

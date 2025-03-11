@@ -1,3 +1,8 @@
+---
+layout: layouts/section.vto
+prose: true
+---
+
 # Welcome to my website
 
 Lorem fistrum por la gloria de mi madre quietooor ahorarr la caidita está la cosa muy malar. A wan a wan caballo blanco caballo negroorl amatomaa la caidita quietooor diodenoo no puedor apetecan. Ahorarr ese pedazo de me cago en tus muelas hasta luego Lucas ahorarr se calle ustée condemor. Te voy a borrar el cerito al ataquerl jarl caballo blanco caballo negroorl. Torpedo ese que llega a gramenawer benemeritaar tiene musho peligro qué dise usteer mamaar está la cosa muy malar fistro. Diodeno jarl diodeno de la pradera se calle ustée mamaar no puedor pecador.

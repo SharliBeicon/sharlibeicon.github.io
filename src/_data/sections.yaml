@@ -7,18 +7,18 @@
     - text: Contact
       path: /contact
     - text: CV
-      path: /contact
+      path: /cv
 - title: /Site
   items:
     - text: Blog
-      path: /about
+      path: /blog
     - text: Live timeline
       path: /timeline
 - title: /Misc
   items:
     - text: Uses
-      path: /about
+      path: /uses
     - text: Vinyl
       path: /vinyl
     - text: Bookmarks
-      path: /timeline
+      path: /bookmarks

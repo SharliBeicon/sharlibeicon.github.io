@@ -1,3 +1,5 @@
-<div class="p-3 rounded-md relative bg-custom-mediumdark dark:bg-custom-mediumlight shadow-[-5px_7px_10px_0px_rgba(0,0,0,0.2)] transition-all bg-opacity-5 dark:bg-opacity-5 p-8">
+<div class="{{ classes }} rounded-md relative transition-all {{if slim }} bg-custom-dark dark:bg-custom-light bg-opacity-5 dark:bg-opacity-5 p-3 {{ else }} bg-custom-mediumdark dark:bg-custom-mediumlight p-8 bg-opacity-5 dark:bg-opacity-5 shadow-[-3px_3px_3px_0px_rgba(0,0,0,0.2)]{{ /if }}">
   {{ content }}
 </div>
+
+
