@@ -12,7 +12,11 @@ layout: layouts/section.vto
                 <svg src="/assets/svg/{{ contact.icon }}" class="text-custom-accent dark:text-custom-darkeraccent h-[2rem] w-[2rem] fill-current" aria-hidden inline></svg>
                 <div class="flex flex-col">
                     <h3 class="text-xl font-text text-custom-dark dark:text-custom-light"> {{ contact.name }} </h3>
-                    <div class="font-mono italic text-custom-mediumdark dark:text-custom-mediumlight break-all"> {{ contact.text }}</div>
+                    {{ if contact.name === "Fediverse" }}
+                        <div class="font-mono italic text-custom-mediumdark dark:text-custom-mediumlight break-all"> <!--email_off-->{{ contact.text }}<!--/email_off--></div>
+                    {{ else }}
+                        <div class="font-mono italic text-custom-mediumdark dark:text-custom-mediumlight break-all"> {{ contact.text }} </div>
+                    {{ /if }}
                 </div>
             </div>
         {{ /comp }}
