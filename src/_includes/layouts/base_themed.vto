@@ -1,7 +1,8 @@
 {{ layout "layouts/base.vto" }}
 
 {{ set main }}
-  <div class="flex justify-end w-4/5">
+  <div class="flex px-4 w-5/6 md:w-4/5 gap-4 justify-between items-start">
+    {{ comp.mobile_nav() }}
     {{ comp.theme_toggle() }}
   </div>
   {{ inner }}

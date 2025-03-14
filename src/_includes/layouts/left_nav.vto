@@ -1,8 +1,10 @@
 {{ layout "layouts/base_themed.vto" }}
 
 {{ set inner }}
-  <div class="flex gap-12 max-w-lg md:max-w-3xl lg:max-w-6xl mx-auto my-12">
-    {{ include "navigation.vto" { home: true, card: "font-title px-8 sticky top-4 overflow-y-auto h-fit", flex: "p-4 flex-col gap-8 justify-center" } }}
+  <div class="flex gap-12 max-w-xs md:max-w-3xl lg:max-w-6xl mx-auto my-12">
+    <div class="hidden md:block">
+      {{ comp.navigation({ home: true, card: "font-title px-8 md:sticky md:top-4 ", flex: "p-4 flex-col gap-8 justify-center"}) }}
+    </div>
     {{ page }}
   </div>
 {{ /set }}

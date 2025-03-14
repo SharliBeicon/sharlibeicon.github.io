@@ -1,7 +1,7 @@
 {{ layout "layouts/base.vto" }}
 
-{{ set main }}
+{{ set inner }}
   <div class="max-w-sm md:max-w-xl lg:max-w-3xl mx-auto my-12">
-    {{ content  |> safe }}
+    {{ page |> safe }}
   </div>
 {{ /set }}
