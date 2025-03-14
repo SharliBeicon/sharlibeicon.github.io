@@ -3,14 +3,11 @@
     "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@97bdd3835ef26c34b183f5d7d747a741c94bfdde/"
   },
   "tasks": {
-    "tsc": "deno src/theme.ts src/assets/js/theme.js",
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
     "build": "deno task lume",
     "serve": "deno task lume -s"
   },
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "target": "es2020",
     "types": ["lume/types.ts"]
   }
 }

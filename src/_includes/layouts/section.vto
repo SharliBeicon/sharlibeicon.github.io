@@ -3,7 +3,7 @@
 {{ set page }}
   <div class="flex flex-col w-full">
     {{ if title }}
-      {{ comp card_plain }}
+      {{ comp card_plain {shadow: true}}}
         <article class="prose prose-sm md:prose lg:prose-xl dark:prose-invert">
               <div class="flex justify-between items-center">
                 <h1> {{ title }} </h1>
@@ -28,10 +28,11 @@
           <article class="prose prose-sm md:prose lg:prose-xl dark:prose-invert">
             {{ content |> safe }}
           </article>
-        {{ /comp }}
-      {{ else }}
-        {{ content |> safe }}
+          {{ /comp }}
+        {{ else }}
+          {{ content |> safe }}
       {{ /if }}
+
     {{ /if }}
   </div>
 {{ /set }}
