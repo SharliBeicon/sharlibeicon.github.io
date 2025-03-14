@@ -13,9 +13,9 @@ I've been playing with tech for as long as I can remember. Like any self-respect
   <img 
     src="/assets/img/assistant.webp" 
     alt="Home setup with canine assistan helping to find a bug" 
-    class="max-w-sm h-auto rounded-full shadow-md"
+    class="max-w-2xs md:max-w-sm h-auto rounded-full shadow-md"
   >
-  <figcaption class="text-center text-gray-500 mt-2 italic text-sm font-display">
+  <figcaption class="text-center text-gray-500 mt-2 italic text-xs md:text-sm font-display">
     Home setup. 2025 Colorized.
   </figcaption>
 </figure>
