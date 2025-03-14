@@ -39,3 +39,5 @@ I'm also a music nerdge and vinyl collector. Collection you can check out in the
 ## Other
 
 I like keyboards and coffee.
+
+I'm also currently deep diving into Brandon Sanderson's universe. In the last year I've read _Elantris_, the first _Mistborn_ trilogy and the first book of _The Stormlight Archive_.
