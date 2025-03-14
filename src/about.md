@@ -16,7 +16,7 @@ I've been playing with tech for as long as I can remember. Like any self-respect
     class="max-w-sm h-auto rounded-full shadow-md"
   >
   <figcaption class="text-center text-gray-500 mt-2 italic text-sm font-display">
-    Home setup with assistant sniffing bugs. 2024 Colorized.
+    Home setup. 2025 Colorized.
   </figcaption>
 </figure>
 

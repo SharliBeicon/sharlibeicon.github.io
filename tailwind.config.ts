@@ -16,12 +16,12 @@ export default {
             light: "#EEEEEE",
           },
         },
-        typography: ({ theme }) => ({
+        typography: () => ({
           DEFAULT: {
             css: {
-              "--tw-prose-body": theme("colors.custom.mediumdark"),
-              "--tw-prose-headings": theme("colors.custom.dark"),
-              "--tw-prose-links": theme("colors.custom.darkeraccent"),
+              "--tw-prose-body": "#393E46",
+              "--tw-prose-headings": "#222831",
+              "--tw-prose-links": "#007d84",
               a: {
                 color: "#007d84",
                 "&:hover": {
@@ -30,25 +30,45 @@ export default {
               },
               p: {
                 fontSize: "1.125rem",
-                lineHeight: "1.75rem",
+                lineHeight: "1.5rem",
                 fontWeight: "300",
-                fontFamily: theme("fontFamily.text"),
+                fontFamily: ["Hind Vadodara", "Verdana", "sans-serif"].join(
+                  ", ",
+                ),
                 color: "var(--tw-prose-body)",
                 marginTop: "0.75rem",
                 marginBottom: "0.75rem",
               },
               ol: {
                 fontSize: "1.125rem",
-                lineHeight: "1.75rem",
+                lineHeight: "1.5rem",
                 fontWeight: "300",
-                fontFamily: theme("fontFamily.text"),
+                fontFamily: ["Hind Vadodara", "Verdana", "sans-serif"].join(
+                  ", ",
+                ),
                 color: "var(--tw-prose-body)",
+              },
+              "tbody td": {
+                fontFamily: ["Hind Vadodara", "Verdana", "sans-serif"].join(
+                  ", ",
+                ),
+                fontSize: "1.125rem",
+                lineHeight: "1.5rem",
+              },
+              figcaption: {
+                fontFamily: ["Hind Vadodara", "Verdana", "sans-serif"].join(
+                  ", ",
+                ),
+                fontSize: "0.5rem",
+                lineHeight: "0.75rem",
               },
               ul: {
                 fontSize: "1.125rem",
-                lineHeight: "1.75rem",
+                lineHeight: "1.5rem",
                 fontWeight: "300",
-                fontFamily: theme("fontFamily.text"),
+                fontFamily: ["Hind Vadodara", "Verdana", "sans-serif"].join(
+                  ", ",
+                ),
                 color: "var(--tw-prose-body)",
                 marginTop: "0.75rem",
                 marginBottom: "0.75rem",
@@ -58,31 +78,40 @@ export default {
                 },
               },
               h1: {
-                fontFamily: theme("fontFamily.display"),
+                fontFamily: ["Open Sans", "Arial", "sans-serif"].join(", "),
                 color: "var(--tw-prose-headings)",
                 marginBottom: "0.5rem",
                 marginTop: "1rem",
+                fontWeight: "700",
               },
               h2: {
                 marginTop: "1rem",
-                fontFamily: theme("fontFamily.display"),
+                fontFamily: ["Rosario", "Georgia", "serif"].join(", "),
                 color: "var(--tw-prose-headings)",
                 marginBottom: "0.5rem",
               },
               h3: {
                 marginTop: "1rem",
-                fontFamily: theme("fontFamily.display"),
+                fontFamily: ["Rosario", "Georgia", "serif"].join(", "),
                 color: "var(--tw-prose-headings)",
                 marginBottom: "0.5rem",
               },
               h4: {
                 marginTop: "1rem",
-                fontFamily: theme("fontFamily.display"),
+                fontFamily: ["Rosario", "Georgia", "serif"].join(", "),
                 color: "var(--tw-prose-headings)",
                 marginBottom: "0.5rem",
               },
               code: {
-                fontFamily: theme("fontFamily.mono"),
+                fontFamily: [
+                  "JetBrains Mono",
+                  "Menlo",
+                  "Monaco",
+                  "Lucida Console",
+                  "Courier New",
+                  "Courier",
+                  "monospace",
+                ].join(", "),
               },
             },
           },
@@ -128,9 +157,9 @@ export default {
           },
           invert: {
             css: {
-              "--tw-prose-body": theme("colors.custom.light"),
-              "--tw-prose-headings": theme("colors.custom.mediumlight"),
-              "--tw-prose-links": theme("colors.custom.accent"),
+              "--tw-prose-body": "#EEEEEE",
+              "--tw-prose-headings": "#A8A8A8",
+              "--tw-prose-links": "#00ADB5",
               a: {
                 color: "#00ADB5",
                 "&:hover": {
@@ -142,34 +171,17 @@ export default {
         }),
       },
       fontFamily: {
-        text: [
-          "Fira Code",
-          "Menlo",
-          "Monaco",
-          "Lucida Console",
-          "Courier New",
-          "Courier",
-          "monospace",
-        ],
+        title: ["Open Sans", "Arial", "sans-serif"],
+        display: ["Rosario", "Georgia", "serif"],
+        text: ["Hind Vadodara", "Verdana", "sans-serif"],
         mono: [
-          "Fira Code",
+          "JetBrains Mono",
           "Menlo",
           "Monaco",
           "Lucida Console",
           "Courier New",
           "Courier",
           "monospace",
-        ],
-        display: [
-          '"Fira Sans"',
-          '"Segoe UI"',
-          "Roboto",
-          '"Helvetica Neue"',
-          "Arial",
-          "sans-serif",
-          '"Apple Color Emoji"',
-          '"Segoe UI Emoji"',
-          '"Segoe UI Symbol"',
         ],
       },
     },

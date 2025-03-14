@@ -11,12 +11,12 @@ layout: layouts/section.vto
             <div class="flex space-between gap-2 items-center">
                 <div class="flex flex-col gap-2">
                     <h3 class="text-xl font-text text-custom-dark dark:text-custom-light"> {{ project.name }} </h3>
-                    <div class="font-mono text-lg italic text-custom-mediumdark dark:text-custom-mediumlight break-all"> {{ project.description}}</div>
+                    <div class="font-text text-lg italic text-custom-mediumdark dark:text-custom-mediumlight break-all"> {{ project.description}}</div>
                 </div>
             </div>
             <ul class="p-0 m-0 inline-flex gap-4 mt-2">
                 {{ for tag of project.tags }}
-                    <li class="{{ if global_tags[tag] !== undefined }}{{ global_tags[tag].classes }}{{ else }} text-custom-mediumdark dark:text-custom-mediumlight bg-slate-200 dark:bg-neutral-700 {{ /if }} font-mono font-thin text-lg py-[1px] px-5 rounded-full ">
+                    <li class="{{ if global_tags[tag] !== undefined }}{{ global_tags[tag].classes }}{{ else }} text-custom-mediumdark dark:text-custom-mediumlight bg-slate-200 dark:bg-neutral-700 {{ /if }} font-mono text-sm text-lg py-[1px] px-5 rounded-full ">
                         {{ if global_tags[tag] !== undefined && global_tags[tag].name }}
                             {{ global_tags[tag].name }}
                         {{ else }}
@@ -34,7 +34,7 @@ layout: layouts/section.vto
                 <h3> More on </h3>
                 <svg src="/assets/svg/github.svg" class="h-[1.75rem] w-[1.75rem] fill-current" aria-hidden inline />
             </div>
-            <div class="font-mono text-lg italic text-custom-mediumdark dark:text-custom-mediumlight "> You can also check my contributions to the FOSS world! If you have project and you think I'm worthy to contribute to it, reach me out!!</div>
+            <div class="font-text text-lg italic text-custom-mediumdark dark:text-custom-mediumlight "> You can also check my contributions to the FOSS world! If you have project and you think I'm worthy to contribute to it, reach me out!!</div>
         {{ /comp }}
         </a>
 </div>
