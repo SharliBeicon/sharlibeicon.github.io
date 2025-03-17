@@ -1,0 +1,31 @@
+<div class="fixed bottom-6 left-0 w-full h-32 pointer-events-none overflow-hidden">
+  <img
+    src="/assets/gif/walking-avatar.gif"
+    alt="Walking avatar"
+    class="walking-avatar absolute h-24 opacity-90 transition-opacity"
+  >
+</div>
+
+<style>
+  @keyframes walkBackAndForth {
+    0% {
+      transform: translateX(-100%) scaleX(1);
+    }
+    45% {
+      transform: translateX(100vw) scaleX(1);
+    }
+    50% {
+      transform: translateX(100vw) scaleX(-1);
+    }
+    95% {
+      transform: translateX(-100%) scaleX(-1);
+    }
+    100% {
+      transform: translateX(-100%) scaleX(1);
+    }
+  }
+
+  .walking-avatar {
+    animation: walkBackAndForth 20s linear infinite;
+  }
+</style>
