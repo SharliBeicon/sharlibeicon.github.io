@@ -13,7 +13,7 @@ const WindowSize = struct {
             @round(@as(f32, @floatFromInt(rl.getMonitorWidth(display))) * 0.8),
         );
         const height: i32 = @intFromFloat(
-            @round(@as(f32, @floatFromInt(rl.getMonitorHeight(display))) * 0.75),
+            @round(@as(f32, @floatFromInt(rl.getMonitorHeight(display))) * 0.8),
         );
 
         return WindowSize{ .width = width, .height = height };
@@ -73,5 +73,5 @@ pub fn updateDrawFrame(args_ptr: ?*anyopaque) callconv(.c) void {
     const banner_y = @divTrunc(window_size.height, 2) - @divTrunc(args.banner.height, 2);
 
     rl.drawTexture(args.banner, banner_x, banner_y, rl.Color.white);
-    rl.drawText(text, @divTrunc(window_size.width, 2) - text_offset, banner_y, 20, rl.Color.light_gray);
+    rl.drawText(text, @divTrunc(window_size.width, 2) - text_offset, banner_y + args.banner.height, 20, rl.Color.light_gray);
 }
