@@ -10,6 +10,8 @@
       path: /cv
 - title: /Site
   items:
+    - text: Blog
+      path: /blog
     - text: Live timeline
       path: /timeline
 - title: /Misc
@@ -18,3 +20,5 @@
       path: /uses
     - text: Vinyl
       path: /vinyl
+    - text: Bookmarks
+      path: /bookmarks
