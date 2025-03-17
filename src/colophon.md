@@ -21,3 +21,7 @@ prose: true
 _(Section under construction)_
 
 This is a WIP of a mini-game embedded into the site. It's written in [Zig](https://ziglang.org/) and cross-compiled to WASM with [Emscripten](https://emscripten.org/).
+
+### Credits
+
+- All Bacon artworks by [@misscobain](https://www.instagram.com/misscobain_/)
