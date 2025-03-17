@@ -7,6 +7,7 @@ import prism from "lume/plugins/prism.ts";
 import inline from "lume/plugins/inline.ts";
 import favicon from "lume/plugins/favicon.ts";
 import minifyHTML from "lume/plugins/minify_html.ts";
+import date from "lume/plugins/date.ts";
 
 import "npm:prismjs@1.29.0/components/prism-rust.js";
 
@@ -17,6 +18,7 @@ const site = lume({
 
 site.copy("assets");
 
+site.use(date());
 site.use(
   favicon({
     input: "/public/favicon.svg",

@@ -1,0 +1,53 @@
+{{ set posts = search.pages(type, "date=desc") }}
+
+<div class="not-prose flex flex-col gap-8">
+  {{ if posts.length }}
+    {{ for post of posts }}
+      {{ if !post.post_draft }}
+        {{ comp card_plain {slim: true, classes: "group hover:bg-opacity-10 hover:dark:bg-opacity-10"} }}
+          <a href="{{ post.url }}" class="flex flex-col gap-2">
+              <div class="flex flex-col items-baseline">
+                <h3 class="text-2xl font-semibold font-title text-custom-dark dark:text-custom-light">{{ post.title }}</h3>
+                <p class="font-text text-lg font-normal"> Written on <time datetime={{ post.date |> date }}>{{ post.date |> date('HUMAN_DATE') }}</time></p>
+              </div>
+              {{ if post.description }}
+                    <div class="font-text text-lg italic text-custom-mediumdark dark:text-custom-mediumlight break-all"> {{ post.description}}</div>
+              {{ /if }}
+              {{ if post.tags }}
+                <div class="flex flex-row justify-between items-center">
+                  <ul class="p-0 m-0 inline-flex gap-4">
+                    {{ for tag of post.tags }}
+                      <li class="{{ if global_tags[tag] !== undefined }}{{ global_tags[tag].classes }}{{ else }} text-custom-mediumdark dark:text-custom-mediumlight bg-slate-200 dark:bg-neutral-700 {{ /if }} font-mono text-sm py-[1px] px-5 rounded-full">
+                        {{ if global_tags[tag] !== undefined && global_tags[tag].name }}
+                          {{ global_tags[tag].name }}
+                        {{ else }}
+                          {{ tag }}
+                        {{ /if }}
+                      </li>
+                    {{ /for }}
+                  </ul>
+                  <div class="flex font-text font-thin items-center gap-2 group-hover:-translate-x-4 transition-all">
+                      Read more
+                      <svg
+                        class="w-5 h-5 opacity-0 transition-opacity group-hover:opacity-100"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+                      ></path>
+                    </svg>
+                  </div>
+              {{ /if }}
+            </div>
+          </a>
+        {{ /comp }}
+      {{ /if }}
+    {{ /for }}
+  {{ else }}
+    <p class="font-text text-custom-mediumdark dark:text-custom-mediumlight italic">{{ empty_message }}</p>
+  {{ /if }}
+</div>
