@@ -53,7 +53,9 @@ pub fn main() anyerror!void {
 
 const LoopArgs = struct { banner: rl.Texture2D };
 
-pub fn updateDrawFrame(args: *const LoopArgs) callconv(.c) void {
+pub fn updateDrawFrame(args_ptr: ?*const anyopaque) callconv(.c) void {
+    const args: *const LoopArgs = @ptrCast(@alignCast(args_ptr orelse return));
+
     const window_size = WindowSize.get();
     if (builtin.os.tag == .emscripten) {
         rl.setWindowSize(window_size.width, window_size.height);
