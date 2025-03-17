@@ -30,7 +30,7 @@ pub fn main() anyerror!void {
     defer rl.unloadTexture(banner);
     rl.unloadImage(banner_img);
 
-    const loop_args = LoopArgs{
+    var loop_args = LoopArgs{
         .banner = banner,
     };
 
@@ -53,7 +53,7 @@ pub fn main() anyerror!void {
 
 const LoopArgs = struct { banner: rl.Texture2D };
 
-pub fn updateDrawFrame(args_ptr: ?*const anyopaque) callconv(.c) void {
+pub fn updateDrawFrame(args_ptr: ?*anyopaque) callconv(.c) void {
     const args: *const LoopArgs = @ptrCast(@alignCast(args_ptr orelse return));
 
     const window_size = WindowSize.get();
