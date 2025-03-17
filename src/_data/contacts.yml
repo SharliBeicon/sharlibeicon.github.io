@@ -1,7 +1,3 @@
-- name: Mail
-  url: mailto:carlostocinocubelo@gmail.com
-  text: "carlostocinocubelo@gmail.com"
-  icon: mail.svg
 - name: X
   url: https://x.com/charliebaconn
   text: "@charliebaconn"
