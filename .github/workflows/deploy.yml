@@ -39,9 +39,9 @@ jobs:
         with:
           version: 0.14.0
 
-      - name: Compile Live Timeline for wasm32-emscripten
+      - name: Compile Playground for wasm32-emscripten
         run: |
-          cd live_timeline
+          cd playground
           zig build -Dtarget=wasm32-emscripten --sysroot $EMSDK_PATH
           rm zig-out/htmlout/index.html
           mv zig-out/htmlout/* ../src/assets/static
