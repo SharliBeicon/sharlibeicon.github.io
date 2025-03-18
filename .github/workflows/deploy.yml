@@ -19,13 +19,30 @@ jobs:
         with:
           submodules: "recursive"
 
+      - name: Cache Linux dependencies
+        uses: actions/cache@v3
+        with:
+          path: /var/cache/apt
+          key: linux-dependencies-${{ runner.os }}-${{ hashFiles('**/playground/**') }}
+          restore-keys: |
+            linux-dependencies-${{ runner.os }}-
+
       - name: Install Linux dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y libwayland-dev wayland-protocols libxkbcommon-dev libx11-dev libxcursor-dev libxi-dev
 
       - name: Setup Emscripten
         uses: mymindstorm/setup-emsdk@v14
+
+      - name: Cache Emscripten path
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.EMSDK_PATH }}
+          key: emscripten-${{ runner.os }}-${{ hashFiles('**/playground/**') }}
+          restore-keys: |
+            emscripten-${{ runner.os }}-
 
       - name: Get Emscripten path
         id: emscripten-path
@@ -39,6 +56,14 @@ jobs:
         with:
           version: 0.14.0
 
+      - name: Cache Zig build output
+        uses: actions/cache@v3
+        with:
+          path: playground/zig-out
+          key: zig-build-${{ runner.os }}-${{ hashFiles('**/playground/**') }}
+          restore-keys: |
+            zig-build-${{ runner.os }}-
+
       - name: Compile Playground for wasm32-emscripten
         run: |
           cd playground
@@ -49,6 +74,14 @@ jobs:
 
       - name: Setup Deno environment
         uses: denoland/setup-deno@v2
+
+      - name: Cache Deno dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/deno
+          key: deno-cache-${{ runner.os }}-${{ hashFiles('deno.json', 'deno.lock') }}
+          restore-keys: |
+            deno-cache-${{ runner.os }}-
 
       - name: Build site
         run: deno task build
