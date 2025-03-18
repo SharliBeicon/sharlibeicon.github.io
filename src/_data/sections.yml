@@ -12,8 +12,8 @@
   items:
     - text: Blog
       path: /blog
-    - text: Live timeline
-      path: /timeline
+    - text: Playground
+      path: /playground
 - title: /Misc
   items:
     - text: Uses

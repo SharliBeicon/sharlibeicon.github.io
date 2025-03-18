@@ -1,11 +1,8 @@
-
 # Charlie Bacon's place
 
-<img style="display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;" src="https://github.com/user-attachments/assets/e25377c0-2732-4165-8d8e-8defa4952d8b">
-</img>
+<div display="center">
+  <img style="width: 50%;" src="https://github.com/user-attachments/assets/e25377c0-2732-4165-8d8e-8defa4952d8b"/>
+</div>
 
 - Site built with [Lume](https://lume.land/), static site generator for [Deno](https://deno.com/).
 

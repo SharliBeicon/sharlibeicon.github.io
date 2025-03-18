@@ -16,7 +16,7 @@ prose: true
 
 - Hosted in [Github Pages](https://pages.github.com/)
 
-### Live timeline
+### Playground
 
 _(Section under construction)_
 
