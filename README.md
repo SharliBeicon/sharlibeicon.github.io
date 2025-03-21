@@ -1,6 +1,6 @@
 # Charlie Bacon's place
 
-<div display="center">
+<div align="center">
   <img style="width: 50%;" src="https://github.com/user-attachments/assets/e25377c0-2732-4165-8d8e-8defa4952d8b"/>
 </div>
 
@@ -15,7 +15,7 @@
 
 - Hosted in [Github Pages](https://pages.github.com/)
 
-## Live timeline
+## Playground
 
 _(Section under construction)_
 
