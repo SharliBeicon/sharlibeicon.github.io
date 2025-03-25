@@ -23,6 +23,26 @@ I also have a <a href="https://www.keychron.com/pages/keychron-v1-custom-keyboar
 
 ## Software
 
-I'm a terminal hype driven guy, so It's expected for this section to change frequently.
+I'm a terminal hype driven guy, so It's expected for this section to change frequently. Most of the configuration files can be found on my [dotfiles](https://github.com/SharliBeicon/dotfiles) repo
 
-TBD.
+- **Code editor**: Neovim. -> [Config](https://github.com/SharliBeicon/nvBacon)
+- **Terminal**: Ghostty
+- **Browser**: Brave
+
+### Misc
+
+- Obsidian
+- Raycast
+- Starship
+- Yazi
+- Eza
+- Zoxide
+- Ripgrep
+- Thefuck
+- Brew
+- Halloy
+- Btop
+- Lazygit
+- Lazydocker
+- Macchina
+- Tokei
