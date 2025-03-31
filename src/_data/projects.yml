@@ -26,3 +26,9 @@
   tags:
     - zig
     - raylib
+- name: Terminal Space Invaders
+  url: https://github.com/SharliBeicon/rust-space-invaders
+  description: |
+    A terminal-based ASCII version of the game Space Invaders. Written in Rust
+  tags:
+    - rust
