@@ -3,5 +3,3 @@ _site
 zig-out
 .DS_Store
 _cache
-src/assets/static/index.wasm
-src/assets/static/index.js

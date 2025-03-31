@@ -1,21 +1,73 @@
 ---
 layout: layouts/timeline.vto
----
+--- 
+<canvas class="game_canvas" id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1" onmousedown="event.target.focus()" onkeydown="event.preventDefault()"></canvas>
+    <script type="text/javascript" src="/assets/wasm/odin.js"></script>
+    <script>
+        var odinMemoryInterface = new odin.WasmMemoryInterface();
+        odinMemoryInterface.setIntSize(4);
+        var odinImports = odin.setupDefaultImports(odinMemoryInterface);
 
-<canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+        var Module = {
+            instantiateWasm: (imports, successCallback) => {
+                const newImports = {
+                    ...odinImports,
+                    ...imports
+                }
 
-<script>
-  var Module = {
-    canvas: (function() {
-      var canvas = document.getElementById('canvas');
-      
-      canvas.addEventListener("click", function() {
-        canvas.focus();
-      });
-      
-      return canvas;
-    })(),
-  };
-</script>
+                return WebAssembly.instantiateStreaming(fetch("/assets/wasm/index.wasm"), newImports).then(function(output) {
+                    var e = output.instance.exports;
+                    odinMemoryInterface.setExports(e);
+                    odinMemoryInterface.setMemory(e.memory);
+                    return successCallback(output.instance);
+                });
+            },
+            onRuntimeInitialized: () => {
+                var e = wasmExports;
 
-<script src="/assets/static/index.js"></script>
+                e._start();
+                e.main_start();
+
+                function send_resize() {
+                    var canvas = document.getElementById('canvas');
+                    e.web_window_size_changed(canvas.width, canvas.height);
+                }
+
+                window.addEventListener('resize', function(event) {
+                    send_resize();
+                }, true);
+
+                send_resize();
+
+                function do_main_update() {
+                    if (!e.main_update()) {
+                        e.main_end();
+
+                        e._end();
+                        return;
+                    }
+                    window.requestAnimationFrame(do_main_update);
+                }
+
+                window.requestAnimationFrame(do_main_update);
+            },
+            print: (function() {
+                var element = document.getElementById("output");
+                if (element) element.value = '';
+                return function(text) {
+                    if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+                    console.log(text);
+                    if (element) {
+                      element.value += text + "\n";
+                      element.scrollTop = element.scrollHeight; 
+                    }
+                };
+            })(),
+            canvas: (function() {
+                return document.getElementById("canvas");
+            })()
+        };
+    </script>
+
+    <!-- Emscripten injects its javascript here -->
+<script async type="text/javascript" src="/assets/wasm/index.js"></script>
