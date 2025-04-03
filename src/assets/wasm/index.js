@@ -35,7 +35,7 @@ if (ENVIRONMENT_IS_NODE) {
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /var/folders/dd/r0j05p9d02z6ydpdjdmr7wdh0000gn/T/tmp415ly_3i.js
+// include: /var/folders/dd/r0j05p9d02z6ydpdjdmr7wdh0000gn/T/tmp5oqmvmt1.js
 
 Module["expectedDataFileDownloads"] ??= 0;
 Module["expectedDataFileDownloads"]++;
@@ -191,18 +191,7 @@ Module["expectedDataFileDownloads"]++;
         if (!check) throw msg + new Error().stack;
       }
       Module["FS_createPath"]("/", "img", true, true);
-      Module["FS_createPath"]("/img", "UI", true, true);
-      Module["FS_createPath"]("/img/UI", "Banners", true, true);
-      Module["FS_createPath"]("/img/UI", "Buttons", true, true);
-      Module["FS_createPath"]("/img/UI", "Icons", true, true);
-      Module["FS_createPath"]("/img/UI", "Pointers", true, true);
-      Module["FS_createPath"]("/img/UI", "Ribbons", true, true);
       Module["FS_createPath"]("/img", "characters", true, true);
-      Module["FS_createPath"]("/img", "resources", true, true);
-      Module["FS_createPath"]("/img/resources", "Gold Mine", true, true);
-      Module["FS_createPath"]("/img/resources", "Resources", true, true);
-      Module["FS_createPath"]("/img/resources", "Sheep", true, true);
-      Module["FS_createPath"]("/img/resources", "Trees", true, true);
       Module["FS_createPath"]("/img", "terrain", true, true);
 
       /** @constructor */
@@ -284,588 +273,224 @@ Module["expectedDataFileDownloads"]++;
   }
   loadPackage({
     files: [
-      { filename: "/img/.DS_Store", start: 0, end: 10244 },
-      { filename: "/img/UI/.DS_Store", start: 10244, end: 20488 },
-      { filename: "/img/UI/Banners/.DS_Store", start: 20488, end: 26636 },
+      { filename: "/IosevkaNerdFont-Medium.ttf", start: 0, end: 13097904 },
+      { filename: "/img/.DS_Store", start: 13097904, end: 13108148 },
+      { filename: "/img/characters/.DS_Store", start: 13108148, end: 13116344 },
       {
-        filename: "/img/UI/Banners/Banner_Connection_Down.png",
-        start: 26636,
-        end: 30543,
+        filename: "/img/characters/archer.png",
+        start: 13116344,
+        end: 13131584,
       },
       {
-        filename: "/img/UI/Banners/Banner_Connection_Left.png",
-        start: 30543,
-        end: 35059,
+        filename: "/img/characters/armored_axeman.png",
+        start: 13131584,
+        end: 13150105,
       },
       {
-        filename: "/img/UI/Banners/Banner_Connection_Right.png",
-        start: 35059,
-        end: 39699,
+        filename: "/img/characters/armored_orc.png",
+        start: 13150105,
+        end: 13169308,
       },
       {
-        filename: "/img/UI/Banners/Banner_Connection_Up.png",
-        start: 39699,
-        end: 44046,
+        filename: "/img/characters/armored_skeleton.png",
+        start: 13169308,
+        end: 13183387,
       },
       {
-        filename: "/img/UI/Banners/Banner_Horizontal.png",
-        start: 44046,
-        end: 48720,
+        filename: "/img/characters/elite_orc.png",
+        start: 13183387,
+        end: 13207254,
       },
       {
-        filename: "/img/UI/Banners/Banner_Vertical.png",
-        start: 48720,
-        end: 52910,
+        filename: "/img/characters/greatsword_skeleton.png",
+        start: 13207254,
+        end: 13225274,
       },
       {
-        filename: "/img/UI/Banners/Carved_3Slides.png",
-        start: 52910,
-        end: 54883,
+        filename: "/img/characters/knight.png",
+        start: 13225274,
+        end: 13245618,
       },
       {
-        filename: "/img/UI/Banners/Carved_9Slides.png",
-        start: 54883,
-        end: 59769,
+        filename: "/img/characters/knight_templar.png",
+        start: 13245618,
+        end: 13266056,
       },
       {
-        filename: "/img/UI/Banners/Carved_Regular.png",
-        start: 59769,
-        end: 60965,
-      },
-      { filename: "/img/UI/Buttons/Button_Blue.png", start: 60965, end: 61943 },
-      {
-        filename: "/img/UI/Buttons/Button_Blue_3Slides.png",
-        start: 61943,
-        end: 63770,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Blue_3Slides_Pressed.png",
-        start: 63770,
-        end: 65191,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Blue_9Slides.png",
-        start: 65191,
-        end: 68239,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Blue_9Slides_Pressed.png",
-        start: 68239,
-        end: 70761,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Blue_Pressed.png",
-        start: 70761,
-        end: 71577,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Disable.png",
-        start: 71577,
-        end: 72389,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Disable_3Slides.png",
-        start: 72389,
-        end: 73853,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Disable_9Slides.png",
-        start: 73853,
-        end: 76431,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Hover.png",
-        start: 76431,
-        end: 77428,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Hover_3Slides.png",
-        start: 77428,
-        end: 79284,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Hover_9Slides.png",
-        start: 79284,
-        end: 82354,
-      },
-      { filename: "/img/UI/Buttons/Button_Red.png", start: 82354, end: 83340 },
-      {
-        filename: "/img/UI/Buttons/Button_Red_3Slides.png",
-        start: 83340,
-        end: 85215,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Red_3Slides_Pressed.png",
-        start: 85215,
-        end: 86606,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Red_9Slides.png",
-        start: 86606,
-        end: 89683,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Red_9Slides_Pressed.png",
-        start: 89683,
-        end: 92170,
-      },
-      {
-        filename: "/img/UI/Buttons/Button_Red_Pressed.png",
-        start: 92170,
-        end: 92959,
-      },
-      { filename: "/img/UI/Icons/.DS_Store", start: 92959, end: 101155 },
-      { filename: "/img/UI/Icons/Disable_01.png", start: 101155, end: 101875 },
-      { filename: "/img/UI/Icons/Disable_02.png", start: 101875, end: 102548 },
-      { filename: "/img/UI/Icons/Disable_03.png", start: 102548, end: 103060 },
-      { filename: "/img/UI/Icons/Disable_04.png", start: 103060, end: 103401 },
-      { filename: "/img/UI/Icons/Disable_05.png", start: 103401, end: 103876 },
-      { filename: "/img/UI/Icons/Disable_06.png", start: 103876, end: 104360 },
-      { filename: "/img/UI/Icons/Disable_07.png", start: 104360, end: 104797 },
-      { filename: "/img/UI/Icons/Disable_08.png", start: 104797, end: 105232 },
-      { filename: "/img/UI/Icons/Disable_09.png", start: 105232, end: 105524 },
-      { filename: "/img/UI/Icons/Disable_10.png", start: 105524, end: 106044 },
-      { filename: "/img/UI/Icons/Pressed_01.png", start: 106044, end: 106642 },
-      { filename: "/img/UI/Icons/Pressed_02.png", start: 106642, end: 107264 },
-      { filename: "/img/UI/Icons/Pressed_03.png", start: 107264, end: 107791 },
-      { filename: "/img/UI/Icons/Pressed_04.png", start: 107791, end: 108123 },
-      { filename: "/img/UI/Icons/Pressed_05.png", start: 108123, end: 108606 },
-      { filename: "/img/UI/Icons/Pressed_06.png", start: 108606, end: 109086 },
-      { filename: "/img/UI/Icons/Pressed_07.png", start: 109086, end: 109509 },
-      { filename: "/img/UI/Icons/Pressed_08.png", start: 109509, end: 109953 },
-      { filename: "/img/UI/Icons/Pressed_09.png", start: 109953, end: 110241 },
-      { filename: "/img/UI/Icons/Pressed_10.png", start: 110241, end: 110764 },
-      { filename: "/img/UI/Icons/Regular_01.png", start: 110764, end: 111358 },
-      { filename: "/img/UI/Icons/Regular_02.png", start: 111358, end: 111984 },
-      { filename: "/img/UI/Icons/Regular_03.png", start: 111984, end: 112530 },
-      { filename: "/img/UI/Icons/Regular_04.png", start: 112530, end: 112856 },
-      { filename: "/img/UI/Icons/Regular_05.png", start: 112856, end: 113322 },
-      { filename: "/img/UI/Icons/Regular_06.png", start: 113322, end: 113804 },
-      { filename: "/img/UI/Icons/Regular_07.png", start: 113804, end: 114224 },
-      { filename: "/img/UI/Icons/Regular_08.png", start: 114224, end: 114652 },
-      { filename: "/img/UI/Icons/Regular_09.png", start: 114652, end: 114932 },
-      { filename: "/img/UI/Icons/Regular_10.png", start: 114932, end: 115442 },
-      { filename: "/img/UI/Pointers/01.png", start: 115442, end: 116039 },
-      { filename: "/img/UI/Pointers/02.png", start: 116039, end: 116907 },
-      { filename: "/img/UI/Pointers/03.png", start: 116907, end: 117347 },
-      { filename: "/img/UI/Pointers/04.png", start: 117347, end: 117808 },
-      { filename: "/img/UI/Pointers/05.png", start: 117808, end: 118242 },
-      { filename: "/img/UI/Pointers/06.png", start: 118242, end: 118670 },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Blue_3Slides.png",
-        start: 118670,
-        end: 121445,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Blue_Connection_Down.png",
-        start: 121445,
-        end: 122474,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Blue_Connection_Down_Pressed.png",
-        start: 122474,
-        end: 123290,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Blue_Connection_Left.png",
-        start: 123290,
-        end: 124404,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Blue_Connection_Left_Pressed.png",
-        start: 124404,
-        end: 125271,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Blue_Connection_Right.png",
-        start: 125271,
-        end: 126366,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Blue_Connection_Right_Pressed.png",
-        start: 126366,
-        end: 127230,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Blue_Connection_Up.png",
-        start: 127230,
-        end: 128271,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Blue_Connection_Up_Pressed.png",
-        start: 128271,
-        end: 129023,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Red_3Slides.png",
-        start: 129023,
-        end: 131806,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Red_Connection_Down.png",
-        start: 131806,
-        end: 132841,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Red_Connection_Down_Pressed.png",
-        start: 132841,
-        end: 133652,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Red_Connection_Left.png",
-        start: 133652,
-        end: 134781,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Red_Connection_Left_Pressed.png",
-        start: 134781,
-        end: 135653,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Red_Connection_Right.png",
-        start: 135653,
-        end: 136754,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Red_Connection_Right_Pressed.png",
-        start: 136754,
-        end: 137613,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Red_Connection_Up.png",
-        start: 137613,
-        end: 138664,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Red_Connection_Up_Pressed.png",
-        start: 138664,
-        end: 139417,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Yellow_3Slides.png",
-        start: 139417,
-        end: 142221,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Yellow_Connection_Down.png",
-        start: 142221,
-        end: 143268,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Yellow_Connection_Down_Pressed.png",
-        start: 143268,
-        end: 144092,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Yellow_Connection_Left.png",
-        start: 144092,
-        end: 145215,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Yellow_Connection_Left_Pressed.png",
-        start: 145215,
-        end: 146073,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Yellow_Connection_Right.png",
-        start: 146073,
-        end: 147192,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Yellow_Connection_Right_Pressed.png",
-        start: 147192,
-        end: 148056,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Yellow_Connection_Up.png",
-        start: 148056,
-        end: 149112,
-      },
-      {
-        filename: "/img/UI/Ribbons/Ribbon_Yellow_Connection_Up_Pressed.png",
-        start: 149112,
-        end: 149873,
-      },
-      { filename: "/img/characters/.DS_Store", start: 149873, end: 158069 },
-      { filename: "/img/characters/Archer.png", start: 158069, end: 173309 },
-      {
-        filename: "/img/characters/Armored Axeman.png",
-        start: 173309,
-        end: 191829,
-      },
-      {
-        filename: "/img/characters/Armored Orc.png",
-        start: 191829,
-        end: 211032,
-      },
-      {
-        filename: "/img/characters/Armored Skeleton.png",
-        start: 211032,
-        end: 225111,
-      },
-      { filename: "/img/characters/Elite Orc.png", start: 225111, end: 248978 },
-      {
-        filename: "/img/characters/Greatsword Skeleton.png",
-        start: 248978,
-        end: 266998,
-      },
-      {
-        filename: "/img/characters/Knight Templar.png",
-        start: 266998,
-        end: 287436,
-      },
-      { filename: "/img/characters/Knight.png", start: 287436, end: 307780 },
-      { filename: "/img/characters/Lancer.png", start: 307780, end: 336068 },
-      { filename: "/img/characters/Orc rider.png", start: 336068, end: 370850 },
-      { filename: "/img/characters/Orc.png", start: 370850, end: 383212 },
-      { filename: "/img/characters/Priest.png", start: 383212, end: 402217 },
-      {
-        filename: "/img/characters/Skeleton Archer.png",
-        start: 402217,
-        end: 412984,
-      },
-      { filename: "/img/characters/Skeleton.png", start: 412984, end: 424971 },
-      { filename: "/img/characters/Slime.png", start: 424971, end: 435230 },
-      { filename: "/img/characters/Soldier.png", start: 435230, end: 449316 },
-      { filename: "/img/characters/Swordsman.png", start: 449316, end: 469335 },
-      { filename: "/img/characters/Werebear.png", start: 469335, end: 488725 },
-      { filename: "/img/characters/Werewolf.png", start: 488725, end: 503093 },
-      { filename: "/img/characters/Wizard.png", start: 503093, end: 536738 },
-      { filename: "/img/resources/.DS_Store", start: 536738, end: 544934 },
-      {
-        filename: "/img/resources/Gold Mine/.DS_Store",
-        start: 544934,
-        end: 551082,
-      },
-      {
-        filename: "/img/resources/Gold Mine/GoldMine_Active.png",
-        start: 551082,
-        end: 557995,
-      },
-      {
-        filename: "/img/resources/Gold Mine/GoldMine_Destroyed.png",
-        start: 557995,
-        end: 563132,
-      },
-      {
-        filename: "/img/resources/Gold Mine/GoldMine_Inactive.png",
-        start: 563132,
-        end: 569678,
-      },
-      {
-        filename: "/img/resources/Resources/.DS_Store",
-        start: 569678,
-        end: 575826,
-      },
-      {
-        filename: "/img/resources/Resources/G_Idle.png",
-        start: 575826,
-        end: 577005,
-      },
-      {
-        filename: "/img/resources/Resources/G_Idle_(NoShadow).png",
-        start: 577005,
-        end: 578103,
-      },
-      {
-        filename: "/img/resources/Resources/G_Spawn.png",
-        start: 578103,
-        end: 584005,
-      },
-      {
-        filename: "/img/resources/Resources/M_Idle.png",
-        start: 584005,
-        end: 585347,
-      },
-      {
-        filename: "/img/resources/Resources/M_Idle_(NoShadow).png",
-        start: 585347,
-        end: 586608,
-      },
-      {
-        filename: "/img/resources/Resources/M_Spawn.png",
-        start: 586608,
-        end: 593638,
-      },
-      {
-        filename: "/img/resources/Resources/Resources.aseprite",
-        start: 593638,
-        end: 608536,
-      },
-      {
-        filename: "/img/resources/Resources/W_Idle.png",
-        start: 608536,
-        end: 609311,
-      },
-      {
-        filename: "/img/resources/Resources/W_Idle_(NoShadow).png",
-        start: 609311,
-        end: 610033,
-      },
-      {
-        filename: "/img/resources/Resources/W_Spawn.png",
-        start: 610033,
-        end: 614616,
-      },
-      {
-        filename: "/img/resources/Sheep/.DS_Store",
-        start: 614616,
-        end: 620764,
-      },
-      {
-        filename: "/img/resources/Sheep/HappySheep_All.png",
-        start: 620764,
-        end: 628093,
-      },
-      {
-        filename: "/img/resources/Sheep/HappySheep_Bouncing.png",
-        start: 628093,
-        end: 632237,
-      },
-      {
-        filename: "/img/resources/Sheep/HappySheep_Idle.png",
-        start: 632237,
-        end: 635329,
-      },
-      {
-        filename: "/img/resources/Sheep/Happy_Sheep.aseprite",
-        start: 635329,
-        end: 645616,
-      },
-      {
-        filename: "/img/resources/Trees/.DS_Store",
-        start: 645616,
-        end: 651764,
-      },
-      {
-        filename: "/img/resources/Trees/Tree.aseprite",
-        start: 651764,
-        end: 673219,
-      },
-      { filename: "/img/resources/Trees/Tree.png", start: 673219, end: 695153 },
-      { filename: "/img/terrain/.DS_Store", start: 695153, end: 709493 },
-      { filename: "/img/terrain/tile_000.png", start: 709493, end: 710244 },
-      { filename: "/img/terrain/tile_001.png", start: 710244, end: 711007 },
-      { filename: "/img/terrain/tile_002.png", start: 711007, end: 711757 },
-      { filename: "/img/terrain/tile_003.png", start: 711757, end: 712478 },
-      { filename: "/img/terrain/tile_004.png", start: 712478, end: 713201 },
-      { filename: "/img/terrain/tile_005.png", start: 713201, end: 713973 },
-      { filename: "/img/terrain/tile_006.png", start: 713973, end: 714755 },
-      { filename: "/img/terrain/tile_007.png", start: 714755, end: 715588 },
-      { filename: "/img/terrain/tile_008.png", start: 715588, end: 716351 },
-      { filename: "/img/terrain/tile_009.png", start: 716351, end: 717087 },
-      { filename: "/img/terrain/tile_010.png", start: 717087, end: 717817 },
-      { filename: "/img/terrain/tile_011.png", start: 717817, end: 718755 },
-      { filename: "/img/terrain/tile_012.png", start: 718755, end: 720002 },
-      { filename: "/img/terrain/tile_013.png", start: 720002, end: 721148 },
-      { filename: "/img/terrain/tile_014.png", start: 721148, end: 722149 },
-      { filename: "/img/terrain/tile_015.png", start: 722149, end: 723268 },
-      { filename: "/img/terrain/tile_016.png", start: 723268, end: 724341 },
-      { filename: "/img/terrain/tile_017.png", start: 724341, end: 725155 },
-      { filename: "/img/terrain/tile_018.png", start: 725155, end: 725923 },
-      { filename: "/img/terrain/tile_019.png", start: 725923, end: 726925 },
-      { filename: "/img/terrain/tile_020.png", start: 726925, end: 728040 },
-      { filename: "/img/terrain/tile_021.png", start: 728040, end: 728741 },
-      { filename: "/img/terrain/tile_022.png", start: 728741, end: 729573 },
-      { filename: "/img/terrain/tile_023.png", start: 729573, end: 730520 },
-      { filename: "/img/terrain/tile_024.png", start: 730520, end: 731350 },
-      { filename: "/img/terrain/tile_025.png", start: 731350, end: 732158 },
-      { filename: "/img/terrain/tile_026.png", start: 732158, end: 733233 },
-      { filename: "/img/terrain/tile_027.png", start: 733233, end: 733936 },
-      { filename: "/img/terrain/tile_028.png", start: 733936, end: 734756 },
-      { filename: "/img/terrain/tile_029.png", start: 734756, end: 735872 },
-      { filename: "/img/terrain/tile_030.png", start: 735872, end: 736856 },
-      { filename: "/img/terrain/tile_031.png", start: 736856, end: 737903 },
-      { filename: "/img/terrain/tile_032.png", start: 737903, end: 738905 },
-      { filename: "/img/terrain/tile_033.png", start: 738905, end: 739854 },
-      { filename: "/img/terrain/tile_034.png", start: 739854, end: 740936 },
-      { filename: "/img/terrain/tile_035.png", start: 740936, end: 741682 },
-      { filename: "/img/terrain/tile_036.png", start: 741682, end: 743130 },
-      { filename: "/img/terrain/tile_037.png", start: 743130, end: 744108 },
-      { filename: "/img/terrain/tile_038.png", start: 744108, end: 745055 },
-      { filename: "/img/terrain/tile_039.png", start: 745055, end: 746089 },
-      { filename: "/img/terrain/tile_040.png", start: 746089, end: 746982 },
-      { filename: "/img/terrain/tile_041.png", start: 746982, end: 748236 },
-      { filename: "/img/terrain/tile_042.png", start: 748236, end: 749155 },
-      { filename: "/img/terrain/tile_043.png", start: 749155, end: 750336 },
-      { filename: "/img/terrain/tile_044.png", start: 750336, end: 751548 },
-      { filename: "/img/terrain/tile_045.png", start: 751548, end: 752340 },
-      { filename: "/img/terrain/tile_046.png", start: 752340, end: 753291 },
-      { filename: "/img/terrain/tile_047.png", start: 753291, end: 753994 },
-      { filename: "/img/terrain/tile_048.png", start: 753994, end: 754849 },
-      { filename: "/img/terrain/tile_049.png", start: 754849, end: 755840 },
-      { filename: "/img/terrain/tile_050.png", start: 755840, end: 756928 },
-      { filename: "/img/terrain/tile_051.png", start: 756928, end: 758390 },
-      { filename: "/img/terrain/tile_052.png", start: 758390, end: 759552 },
-      { filename: "/img/terrain/tile_053.png", start: 759552, end: 760113 },
-      { filename: "/img/terrain/tile_054.png", start: 760113, end: 760817 },
-      { filename: "/img/terrain/tile_055.png", start: 760817, end: 761577 },
-      { filename: "/img/terrain/tile_056.png", start: 761577, end: 762436 },
-      { filename: "/img/terrain/tile_057.png", start: 762436, end: 763201 },
-      { filename: "/img/terrain/tile_058.png", start: 763201, end: 763758 },
-      { filename: "/img/terrain/tile_059.png", start: 763758, end: 764503 },
-      { filename: "/img/terrain/tile_060.png", start: 764503, end: 765301 },
-      { filename: "/img/terrain/tile_061.png", start: 765301, end: 766273 },
-      { filename: "/img/terrain/tile_062.png", start: 766273, end: 767252 },
-      { filename: "/img/terrain/tile_063.png", start: 767252, end: 768116 },
-      { filename: "/img/terrain/tile_064.png", start: 768116, end: 769232 },
-      { filename: "/img/terrain/tile_065.png", start: 769232, end: 770167 },
-      { filename: "/img/terrain/tile_066.png", start: 770167, end: 771298 },
-      { filename: "/img/terrain/tile_067.png", start: 771298, end: 772264 },
-      { filename: "/img/terrain/tile_068.png", start: 772264, end: 773125 },
-      { filename: "/img/terrain/tile_069.png", start: 773125, end: 774087 },
-      { filename: "/img/terrain/tile_070.png", start: 774087, end: 775132 },
-      { filename: "/img/terrain/tile_071.png", start: 775132, end: 776128 },
-      { filename: "/img/terrain/tile_072.png", start: 776128, end: 777346 },
-      { filename: "/img/terrain/tile_073.png", start: 777346, end: 778312 },
-      { filename: "/img/terrain/tile_074.png", start: 778312, end: 779317 },
-      { filename: "/img/terrain/tile_075.png", start: 779317, end: 780068 },
-      { filename: "/img/terrain/tile_076.png", start: 780068, end: 780919 },
-      { filename: "/img/terrain/tile_077.png", start: 780919, end: 781953 },
-      { filename: "/img/terrain/tile_078.png", start: 781953, end: 782982 },
-      { filename: "/img/terrain/tile_079.png", start: 782982, end: 784224 },
-      { filename: "/img/terrain/tile_080.png", start: 784224, end: 785182 },
-      { filename: "/img/terrain/tile_081.png", start: 785182, end: 786201 },
-      { filename: "/img/terrain/tile_082.png", start: 786201, end: 786455 },
-      { filename: "/img/terrain/tile_083.png", start: 786455, end: 786727 },
-      { filename: "/img/terrain/tile_084.png", start: 786727, end: 786964 },
-      { filename: "/img/terrain/tile_085.png", start: 786964, end: 787209 },
-      { filename: "/img/terrain/tile_086.png", start: 787209, end: 787907 },
-      { filename: "/img/terrain/tile_087.png", start: 787907, end: 788532 },
-      { filename: "/img/terrain/tile_088.png", start: 788532, end: 789199 },
-      { filename: "/img/terrain/tile_089.png", start: 789199, end: 789872 },
-      { filename: "/img/terrain/tile_090.png", start: 789872, end: 790422 },
-      { filename: "/img/terrain/tile_091.png", start: 790422, end: 790867 },
-      { filename: "/img/terrain/tile_092.png", start: 790867, end: 791128 },
-      { filename: "/img/terrain/tile_093.png", start: 791128, end: 791563 },
-      { filename: "/img/terrain/tile_094.png", start: 791563, end: 791897 },
-      { filename: "/img/terrain/tile_095.png", start: 791897, end: 792551 },
-      { filename: "/img/terrain/tile_096.png", start: 792551, end: 793155 },
-      { filename: "/img/terrain/tile_097.png", start: 793155, end: 793754 },
-      { filename: "/img/terrain/tile_098.png", start: 793754, end: 794371 },
-      { filename: "/img/terrain/tile_099.png", start: 794371, end: 794886 },
-      { filename: "/img/terrain/tile_100.png", start: 794886, end: 795271 },
-      { filename: "/img/terrain/tile_101.png", start: 795271, end: 795517 },
-      { filename: "/img/terrain/tile_102.png", start: 795517, end: 795872 },
-      { filename: "/img/terrain/tile_103.png", start: 795872, end: 796182 },
-      { filename: "/img/terrain/tile_104.png", start: 796182, end: 796693 },
-      { filename: "/img/terrain/tile_105.png", start: 796693, end: 797263 },
-      { filename: "/img/terrain/tile_106.png", start: 797263, end: 797843 },
-      { filename: "/img/terrain/tile_107.png", start: 797843, end: 798307 },
-      { filename: "/img/terrain/tile_108.png", start: 798307, end: 798790 },
-      { filename: "/img/terrain/tile_109.png", start: 798790, end: 799417 },
-      { filename: "/img/terrain/tile_110.png", start: 799417, end: 799949 },
-      { filename: "/img/terrain/tile_111.png", start: 799949, end: 800564 },
-      { filename: "/img/terrain/tile_112.png", start: 800564, end: 801136 },
-      { filename: "/img/terrain/tile_113.png", start: 801136, end: 801688 },
-      { filename: "/img/terrain/tile_114.png", start: 801688, end: 802278 },
+        filename: "/img/characters/lancer.png",
+        start: 13266056,
+        end: 13294345,
+      },
+      { filename: "/img/characters/orc.png", start: 13294345, end: 13306707 },
+      {
+        filename: "/img/characters/orc_rider.png",
+        start: 13306707,
+        end: 13341489,
+      },
+      {
+        filename: "/img/characters/priest.png",
+        start: 13341489,
+        end: 13360494,
+      },
+      {
+        filename: "/img/characters/skeleton.png",
+        start: 13360494,
+        end: 13372481,
+      },
+      {
+        filename: "/img/characters/skeleton_archer.png",
+        start: 13372481,
+        end: 13383248,
+      },
+      { filename: "/img/characters/slime.png", start: 13383248, end: 13393507 },
+      {
+        filename: "/img/characters/soldier.png",
+        start: 13393507,
+        end: 13407593,
+      },
+      {
+        filename: "/img/characters/swordsman.png",
+        start: 13407593,
+        end: 13427612,
+      },
+      {
+        filename: "/img/characters/werebear.png",
+        start: 13427612,
+        end: 13447002,
+      },
+      {
+        filename: "/img/characters/werewolf.png",
+        start: 13447002,
+        end: 13461370,
+      },
+      {
+        filename: "/img/characters/wizard.png",
+        start: 13461370,
+        end: 13495015,
+      },
+      { filename: "/img/terrain/.DS_Store", start: 13495015, end: 13509355 },
+      { filename: "/img/terrain/tile_000.png", start: 13509355, end: 13510106 },
+      { filename: "/img/terrain/tile_001.png", start: 13510106, end: 13510869 },
+      { filename: "/img/terrain/tile_002.png", start: 13510869, end: 13511619 },
+      { filename: "/img/terrain/tile_003.png", start: 13511619, end: 13512340 },
+      { filename: "/img/terrain/tile_004.png", start: 13512340, end: 13513063 },
+      { filename: "/img/terrain/tile_005.png", start: 13513063, end: 13513835 },
+      { filename: "/img/terrain/tile_006.png", start: 13513835, end: 13514617 },
+      { filename: "/img/terrain/tile_007.png", start: 13514617, end: 13515450 },
+      { filename: "/img/terrain/tile_008.png", start: 13515450, end: 13516213 },
+      { filename: "/img/terrain/tile_009.png", start: 13516213, end: 13516949 },
+      { filename: "/img/terrain/tile_010.png", start: 13516949, end: 13517679 },
+      { filename: "/img/terrain/tile_011.png", start: 13517679, end: 13518617 },
+      { filename: "/img/terrain/tile_012.png", start: 13518617, end: 13519864 },
+      { filename: "/img/terrain/tile_013.png", start: 13519864, end: 13521010 },
+      { filename: "/img/terrain/tile_014.png", start: 13521010, end: 13522011 },
+      { filename: "/img/terrain/tile_015.png", start: 13522011, end: 13523130 },
+      { filename: "/img/terrain/tile_016.png", start: 13523130, end: 13524203 },
+      { filename: "/img/terrain/tile_017.png", start: 13524203, end: 13525017 },
+      { filename: "/img/terrain/tile_018.png", start: 13525017, end: 13525785 },
+      { filename: "/img/terrain/tile_019.png", start: 13525785, end: 13526787 },
+      { filename: "/img/terrain/tile_020.png", start: 13526787, end: 13527902 },
+      { filename: "/img/terrain/tile_021.png", start: 13527902, end: 13528603 },
+      { filename: "/img/terrain/tile_022.png", start: 13528603, end: 13529435 },
+      { filename: "/img/terrain/tile_023.png", start: 13529435, end: 13530382 },
+      { filename: "/img/terrain/tile_024.png", start: 13530382, end: 13531212 },
+      { filename: "/img/terrain/tile_025.png", start: 13531212, end: 13532020 },
+      { filename: "/img/terrain/tile_026.png", start: 13532020, end: 13533095 },
+      { filename: "/img/terrain/tile_027.png", start: 13533095, end: 13533798 },
+      { filename: "/img/terrain/tile_028.png", start: 13533798, end: 13534618 },
+      { filename: "/img/terrain/tile_029.png", start: 13534618, end: 13535734 },
+      { filename: "/img/terrain/tile_030.png", start: 13535734, end: 13536718 },
+      { filename: "/img/terrain/tile_031.png", start: 13536718, end: 13537765 },
+      { filename: "/img/terrain/tile_032.png", start: 13537765, end: 13538767 },
+      { filename: "/img/terrain/tile_033.png", start: 13538767, end: 13539716 },
+      { filename: "/img/terrain/tile_034.png", start: 13539716, end: 13540798 },
+      { filename: "/img/terrain/tile_035.png", start: 13540798, end: 13541544 },
+      { filename: "/img/terrain/tile_036.png", start: 13541544, end: 13542992 },
+      { filename: "/img/terrain/tile_037.png", start: 13542992, end: 13543970 },
+      { filename: "/img/terrain/tile_038.png", start: 13543970, end: 13544917 },
+      { filename: "/img/terrain/tile_039.png", start: 13544917, end: 13545951 },
+      { filename: "/img/terrain/tile_040.png", start: 13545951, end: 13546844 },
+      { filename: "/img/terrain/tile_041.png", start: 13546844, end: 13548098 },
+      { filename: "/img/terrain/tile_042.png", start: 13548098, end: 13549017 },
+      { filename: "/img/terrain/tile_043.png", start: 13549017, end: 13550198 },
+      { filename: "/img/terrain/tile_044.png", start: 13550198, end: 13551410 },
+      { filename: "/img/terrain/tile_045.png", start: 13551410, end: 13552202 },
+      { filename: "/img/terrain/tile_046.png", start: 13552202, end: 13553153 },
+      { filename: "/img/terrain/tile_047.png", start: 13553153, end: 13553856 },
+      { filename: "/img/terrain/tile_048.png", start: 13553856, end: 13554711 },
+      { filename: "/img/terrain/tile_049.png", start: 13554711, end: 13555702 },
+      { filename: "/img/terrain/tile_050.png", start: 13555702, end: 13556790 },
+      { filename: "/img/terrain/tile_051.png", start: 13556790, end: 13558252 },
+      { filename: "/img/terrain/tile_052.png", start: 13558252, end: 13559414 },
+      { filename: "/img/terrain/tile_053.png", start: 13559414, end: 13559975 },
+      { filename: "/img/terrain/tile_054.png", start: 13559975, end: 13560679 },
+      { filename: "/img/terrain/tile_055.png", start: 13560679, end: 13561439 },
+      { filename: "/img/terrain/tile_056.png", start: 13561439, end: 13562298 },
+      { filename: "/img/terrain/tile_057.png", start: 13562298, end: 13563063 },
+      { filename: "/img/terrain/tile_058.png", start: 13563063, end: 13563620 },
+      { filename: "/img/terrain/tile_059.png", start: 13563620, end: 13564365 },
+      { filename: "/img/terrain/tile_060.png", start: 13564365, end: 13565163 },
+      { filename: "/img/terrain/tile_061.png", start: 13565163, end: 13566135 },
+      { filename: "/img/terrain/tile_062.png", start: 13566135, end: 13567114 },
+      { filename: "/img/terrain/tile_063.png", start: 13567114, end: 13567978 },
+      { filename: "/img/terrain/tile_064.png", start: 13567978, end: 13569094 },
+      { filename: "/img/terrain/tile_065.png", start: 13569094, end: 13570029 },
+      { filename: "/img/terrain/tile_066.png", start: 13570029, end: 13571160 },
+      { filename: "/img/terrain/tile_067.png", start: 13571160, end: 13572126 },
+      { filename: "/img/terrain/tile_068.png", start: 13572126, end: 13572987 },
+      { filename: "/img/terrain/tile_069.png", start: 13572987, end: 13573949 },
+      { filename: "/img/terrain/tile_070.png", start: 13573949, end: 13574994 },
+      { filename: "/img/terrain/tile_071.png", start: 13574994, end: 13575990 },
+      { filename: "/img/terrain/tile_072.png", start: 13575990, end: 13577208 },
+      { filename: "/img/terrain/tile_073.png", start: 13577208, end: 13578174 },
+      { filename: "/img/terrain/tile_074.png", start: 13578174, end: 13579179 },
+      { filename: "/img/terrain/tile_075.png", start: 13579179, end: 13579930 },
+      { filename: "/img/terrain/tile_076.png", start: 13579930, end: 13580781 },
+      { filename: "/img/terrain/tile_077.png", start: 13580781, end: 13581815 },
+      { filename: "/img/terrain/tile_078.png", start: 13581815, end: 13582844 },
+      { filename: "/img/terrain/tile_079.png", start: 13582844, end: 13584086 },
+      { filename: "/img/terrain/tile_080.png", start: 13584086, end: 13585044 },
+      { filename: "/img/terrain/tile_081.png", start: 13585044, end: 13586063 },
+      { filename: "/img/terrain/tile_082.png", start: 13586063, end: 13586317 },
+      { filename: "/img/terrain/tile_083.png", start: 13586317, end: 13586589 },
+      { filename: "/img/terrain/tile_084.png", start: 13586589, end: 13586826 },
+      { filename: "/img/terrain/tile_085.png", start: 13586826, end: 13587071 },
+      { filename: "/img/terrain/tile_086.png", start: 13587071, end: 13587769 },
+      { filename: "/img/terrain/tile_087.png", start: 13587769, end: 13588394 },
+      { filename: "/img/terrain/tile_088.png", start: 13588394, end: 13589061 },
+      { filename: "/img/terrain/tile_089.png", start: 13589061, end: 13589734 },
+      { filename: "/img/terrain/tile_090.png", start: 13589734, end: 13590284 },
+      { filename: "/img/terrain/tile_091.png", start: 13590284, end: 13590729 },
+      { filename: "/img/terrain/tile_092.png", start: 13590729, end: 13590990 },
+      { filename: "/img/terrain/tile_093.png", start: 13590990, end: 13591425 },
+      { filename: "/img/terrain/tile_094.png", start: 13591425, end: 13591759 },
+      { filename: "/img/terrain/tile_095.png", start: 13591759, end: 13592413 },
+      { filename: "/img/terrain/tile_096.png", start: 13592413, end: 13593017 },
+      { filename: "/img/terrain/tile_097.png", start: 13593017, end: 13593616 },
+      { filename: "/img/terrain/tile_098.png", start: 13593616, end: 13594233 },
+      { filename: "/img/terrain/tile_099.png", start: 13594233, end: 13594748 },
+      { filename: "/img/terrain/tile_100.png", start: 13594748, end: 13595133 },
+      { filename: "/img/terrain/tile_101.png", start: 13595133, end: 13595379 },
+      { filename: "/img/terrain/tile_102.png", start: 13595379, end: 13595734 },
+      { filename: "/img/terrain/tile_103.png", start: 13595734, end: 13596044 },
+      { filename: "/img/terrain/tile_104.png", start: 13596044, end: 13596555 },
+      { filename: "/img/terrain/tile_105.png", start: 13596555, end: 13597125 },
+      { filename: "/img/terrain/tile_106.png", start: 13597125, end: 13597705 },
+      { filename: "/img/terrain/tile_107.png", start: 13597705, end: 13598169 },
+      { filename: "/img/terrain/tile_108.png", start: 13598169, end: 13598652 },
+      { filename: "/img/terrain/tile_109.png", start: 13598652, end: 13599279 },
+      { filename: "/img/terrain/tile_110.png", start: 13599279, end: 13599811 },
+      { filename: "/img/terrain/tile_111.png", start: 13599811, end: 13600426 },
+      { filename: "/img/terrain/tile_112.png", start: 13600426, end: 13600998 },
+      { filename: "/img/terrain/tile_113.png", start: 13600998, end: 13601550 },
+      { filename: "/img/terrain/tile_114.png", start: 13601550, end: 13602140 },
     ],
-    remote_package_size: 802278,
+    remote_package_size: 13602140,
   });
 })();
 
-// end include: /var/folders/dd/r0j05p9d02z6ydpdjdmr7wdh0000gn/T/tmp415ly_3i.js
-// include: /var/folders/dd/r0j05p9d02z6ydpdjdmr7wdh0000gn/T/tmpk8w2gek_.js
+// end include: /var/folders/dd/r0j05p9d02z6ydpdjdmr7wdh0000gn/T/tmp5oqmvmt1.js
+// include: /var/folders/dd/r0j05p9d02z6ydpdjdmr7wdh0000gn/T/tmp_dkd3kn_.js
 
 // All the pre-js content up to here must remain later on, we need to run
 // it.
@@ -875,8 +500,8 @@ if (
 )
   Module["preRun"] = [];
 var necessaryPreJSTasks = Module["preRun"].slice();
-// end include: /var/folders/dd/r0j05p9d02z6ydpdjdmr7wdh0000gn/T/tmpk8w2gek_.js
-// include: /var/folders/dd/r0j05p9d02z6ydpdjdmr7wdh0000gn/T/tmpq5vca0uh.js
+// end include: /var/folders/dd/r0j05p9d02z6ydpdjdmr7wdh0000gn/T/tmp_dkd3kn_.js
+// include: /var/folders/dd/r0j05p9d02z6ydpdjdmr7wdh0000gn/T/tmpt9q0jsam.js
 
 if (!Module["preRun"])
   throw "Module.preRun should exist because file support used it; did a pre-js delete it?";
@@ -884,7 +509,7 @@ necessaryPreJSTasks.forEach((task) => {
   if (Module["preRun"].indexOf(task) < 0)
     throw "All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?";
 });
-// end include: /var/folders/dd/r0j05p9d02z6ydpdjdmr7wdh0000gn/T/tmpq5vca0uh.js
+// end include: /var/folders/dd/r0j05p9d02z6ydpdjdmr7wdh0000gn/T/tmpt9q0jsam.js
 
 // Sometimes an existing Module object exists with properties
 // meant to overwrite the default module functionality. Here
@@ -10987,36 +10612,36 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp("fetchSettings");
 }
 var ASM_CONSTS = {
-  133944: () => {
+  143304: () => {
     if (document.fullscreenElement) return 1;
   },
-  133990: () => {
+  143350: () => {
     return document.getElementById("canvas").width;
   },
-  134042: () => {
+  143402: () => {
     return parseInt(document.getElementById("canvas").style.width);
   },
-  134110: () => {
+  143470: () => {
     document.exitFullscreen();
   },
-  134137: () => {
+  143497: () => {
     setTimeout(function () {
       Module.requestFullscreen(false, false);
     }, 100);
   },
-  134210: () => {
+  143570: () => {
     if (document.fullscreenElement) return 1;
   },
-  134256: () => {
+  143616: () => {
     return document.getElementById("canvas").width;
   },
-  134308: () => {
+  143668: () => {
     return screen.width;
   },
-  134333: () => {
+  143693: () => {
     document.exitFullscreen();
   },
-  134360: () => {
+  143720: () => {
     setTimeout(function () {
       Module.requestFullscreen(false, true);
       setTimeout(function () {
@@ -11024,85 +10649,85 @@ var ASM_CONSTS = {
       }, 100);
     }, 100);
   },
-  134493: () => {
+  143853: () => {
     return window.innerWidth;
   },
-  134519: () => {
+  143879: () => {
     return window.innerHeight;
   },
-  134546: () => {
+  143906: () => {
     if (document.fullscreenElement) return 1;
   },
-  134592: () => {
+  143952: () => {
     return document.getElementById("canvas").width;
   },
-  134644: () => {
+  144004: () => {
     return parseInt(document.getElementById("canvas").style.width);
   },
-  134712: () => {
+  144072: () => {
     if (document.fullscreenElement) return 1;
   },
-  134758: () => {
+  144118: () => {
     return document.getElementById("canvas").width;
   },
-  134810: () => {
+  144170: () => {
     return screen.width;
   },
-  134835: () => {
+  144195: () => {
     return window.innerWidth;
   },
-  134861: () => {
+  144221: () => {
     return window.innerHeight;
   },
-  134888: () => {
+  144248: () => {
     if (document.fullscreenElement) return 1;
   },
-  134934: () => {
+  144294: () => {
     return document.getElementById("canvas").width;
   },
-  134986: () => {
+  144346: () => {
     return screen.width;
   },
-  135011: () => {
+  144371: () => {
     document.exitFullscreen();
   },
-  135038: () => {
+  144398: () => {
     if (document.fullscreenElement) return 1;
   },
-  135084: () => {
+  144444: () => {
     return document.getElementById("canvas").width;
   },
-  135136: () => {
+  144496: () => {
     return parseInt(document.getElementById("canvas").style.width);
   },
-  135204: () => {
+  144564: () => {
     document.exitFullscreen();
   },
-  135231: ($0) => {
+  144591: ($0) => {
     document.getElementById("canvas").style.opacity = $0;
   },
-  135289: () => {
+  144649: () => {
     return screen.width;
   },
-  135314: () => {
+  144674: () => {
     return screen.height;
   },
-  135340: () => {
+  144700: () => {
     return window.screenX;
   },
-  135367: () => {
+  144727: () => {
     return window.screenY;
   },
-  135394: ($0) => {
+  144754: ($0) => {
     navigator.clipboard.writeText(UTF8ToString($0));
   },
-  135447: ($0) => {
+  144807: ($0) => {
     document.getElementById("canvas").style.cursor = UTF8ToString($0);
   },
-  135518: () => {
+  144878: () => {
     document.getElementById("canvas").style.cursor = "none";
   },
-  135575: ($0, $1, $2, $3) => {
+  144935: ($0, $1, $2, $3) => {
     try {
       navigator
         .getGamepads()
@@ -11115,19 +10740,19 @@ var ASM_CONSTS = {
       } catch (e) {}
     }
   },
-  135831: ($0) => {
+  145191: ($0) => {
     document.getElementById("canvas").style.cursor = UTF8ToString($0);
   },
-  135902: () => {
+  145262: () => {
     if (document.fullscreenElement) return 1;
   },
-  135948: () => {
+  145308: () => {
     return window.innerWidth;
   },
-  135974: () => {
+  145334: () => {
     return window.innerHeight;
   },
-  136001: () => {
+  145361: () => {
     if (document.pointerLockElement) return 1;
   },
 };
