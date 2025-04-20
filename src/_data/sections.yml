@@ -7,7 +7,7 @@
     - text: Contact
       path: /contact
     - text: CV
-      path: /cv
+      path: /assets/static/cv.pdf
 - title: /Site
   items:
     - text: Blog

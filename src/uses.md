@@ -23,11 +23,11 @@ I also have a <a href="https://www.keychron.com/pages/keychron-v1-custom-keyboar
 
 ## Software
 
-I'm a terminal hype driven guy, so It's expected for this section to change frequently. Most of the configuration files can be found on my [dotfiles](https://github.com/SharliBeicon/dotfiles) repo
+I'm a terminal hype driven guy, so It's expected for this section to change frequently. Most of the configuration files can be found on my [dotfiles](https://github.com/SharliBeicon/nix-dotfiles) repo
 
-- **Code editor**: Neovim. -> [Config](https://github.com/SharliBeicon/nvBacon)
-- **Terminal**: Ghostty
-- **Browser**: Brave
+- **Code editor**: Neovim. -> [Config](https://github.com/SharliBeicon/nix-dotfiles/tree/main/nvim)
+- **Terminal**: WezTerm
+- **Browser**: Zen
 
 ### Misc
 
