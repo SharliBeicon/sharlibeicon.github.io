@@ -8,17 +8,9 @@
       path: /contact
     - text: CV
       path: /assets/static/cv.pdf
-- title: /Site
-  items:
-    - text: Blog
-      path: /blog
-    - text: Playground
-      path: /playground
 - title: /Misc
   items:
     - text: Uses
       path: /uses
     - text: Vinyl
       path: /vinyl
-    - text: Bookmarks
-      path: /bookmarks
