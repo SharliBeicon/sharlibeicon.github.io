@@ -1,0 +1,33 @@
+---
+import SSHAnimation from "./SSHAnimation.astro";
+import Terminal from "./Terminal.astro";
+---
+
+<div class="h-full">
+  <div id="ssh-container" class="h-full">
+    <SSHAnimation />
+  </div>
+
+  <div id="main-terminal" class="h-full hidden absolute top-0 left-0 w-full">
+    <Terminal />
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sshContainer = document.getElementById("ssh-container");
+    const mainTerminal = document.getElementById("main-terminal");
+
+    // Listen for the SSH animation completion
+    document.addEventListener("ssh-animation-complete", () => {
+      if (sshContainer) {
+        sshContainer.style.display = "none";
+      }
+
+      if (mainTerminal) {
+        mainTerminal.style.display = "block";
+        mainTerminal.classList.remove("hidden");
+      }
+    });
+  });
+</script>

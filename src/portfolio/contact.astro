@@ -1,0 +1,60 @@
+---
+const contactInfo = [
+  { icon: "📧", label: "Email", value: "charlie@charliebacon.dev" },
+  { icon: "🐙", label: "GitHub", value: "github.com/charliebacon" },
+  { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/charliebacon" },
+  { icon: "🐦", label: "Twitter", value: "@charliebacon_dev" },
+  { icon: "📍", label: "Location", value: "Remote / San Francisco Bay Area" }
+];
+
+const availableFor = [
+  "Discuss a project or opportunity",
+  "Talk about technology and development", 
+  "Collaborate on open source projects",
+  "Just say hello!"
+];
+---
+
+<div class="portfolio-content text-[var(--fg0)]">
+  <h1 class="text-2xl font-bold text-[var(--yellow)] mb-4">Get In Touch</h1>
+  <div class="border-b border-[var(--bg2)] mb-6"></div>
+  
+  <p class="mb-6 text-[var(--fg1)]">
+    I'm always interested in new opportunities and collaborations!
+  </p>
+
+  <div class="grid gap-3 mb-6">
+    {contactInfo.map(contact => (
+      <div class="flex items-center gap-3">
+        <span class="text-lg">{contact.icon}</span>
+        <span class="text-[var(--blue)] font-medium w-20">{contact.label}:</span>
+        <span class="text-[var(--fg0)]">{contact.value}</span>
+      </div>
+    ))}
+  </div>
+
+  <div class="mb-6">
+    <h3 class="text-lg font-semibold text-[var(--green)] mb-3">Feel free to reach out if you'd like to:</h3>
+    <ul class="space-y-2">
+      {availableFor.map(item => (
+        <li class="flex items-center gap-2">
+          <span class="text-[var(--yellow)]">•</span>
+          <span class="text-[var(--fg1)]">{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+    <div class="flex items-center gap-2">
+      <span class="text-[var(--purple)]">⏱️</span>
+      <span class="text-[var(--blue)]">Response time:</span>
+      <span class="text-[var(--fg1)]">Usually within 24 hours</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="text-[var(--purple)]">📮</span>
+      <span class="text-[var(--blue)]">Best contact method:</span>
+      <span class="text-[var(--fg1)]">Email</span>
+    </div>
+  </div>
+</div>

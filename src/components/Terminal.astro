@@ -1,0 +1,558 @@
+---
+// Import Astro components 
+import AboutComponent from "../portfolio/about.astro";
+import ExperienceComponent from "../portfolio/experience.astro";
+import SkillsComponent from "../portfolio/skills.astro";
+import ContactComponent from "../portfolio/contact.astro";
+import ProjectsComponent from "../portfolio/projects.astro";
+import EducationComponent from "../portfolio/education.astro";
+import HobbiesComponent from "../portfolio/hobbies.astro";
+import PhilosophyComponent from "../portfolio/philosophy.astro";
+import TechDetailsComponent from "../portfolio/tech-details.astro";
+import SecretsComponent from "../portfolio/secrets.astro";
+
+// All available files
+const allFileNames = [
+  'about.txt',
+  'experience.txt', 
+  'skills.txt',
+  'contact.txt',
+  'projects.txt', 
+  'education.txt',
+  'hobbies.txt',
+  'philosophy.txt',
+  'tech-details.txt',
+  'secrets.txt'
+];
+
+// Terminal configuration
+const prompt = "charlie@machine:~$";
+
+// Command definitions
+const commands = [
+  { name: 'ls', description: 'List all files' },
+  { name: 'cat <filename>', description: 'Display file contents' },
+  { name: 'help', description: 'Show this help message' },
+  { name: 'clear', description: 'Clear the terminal' },
+  { name: 'whoami', description: 'Display current user' },
+  { name: 'pwd', description: 'Show current directory' },
+  { name: 'date', description: 'Show current date and time' },
+  { name: 'history', description: 'Show command history' },
+  { name: 'tree', description: 'Show file tree structure' },
+  { name: 'echo <message>', description: 'Display a message' },
+  { name: 'fortune', description: 'Get a random programming quote' },
+  { name: 'uname', description: 'Show system information' },
+  { name: 'uptime', description: 'Show system uptime' },
+  { name: 'theme <dark|light>', description: 'Switch between dark and light themes' },
+  { name: 'exit', description: 'Close the terminal session' },
+  { name: 'quit', description: 'Close the terminal session' }
+];
+
+// Fortune quotes
+const fortunes = [
+  "A bug in the code is worth two in the documentation.",
+  "The best way to get the right answer is to ask the wrong question.",
+  "Code never lies, comments sometimes do.",
+  "Programming is like writing a book... except if you miss a single comma, the whole thing makes no sense.",
+  "There are only 10 types of people: those who understand binary and those who don't.",
+  "Why do programmers prefer dark mode? Because light attracts bugs!"
+];
+
+// System info
+const systemInfo = {
+  username: "charlie",
+  hostname: "machine",
+  homeDir: "/home/charlie",
+  osName: "CharlieOS 1.0.0 (Terminal Portfolio) x86_64",
+  startTime: new Date("2024-01-01")
+};
+---
+
+<div
+  class="h-full flex flex-col bg-[var(--background0)] text-[var(--fg0)] min-h-96"
+  data-file-names={JSON.stringify(allFileNames)}
+  data-prompt={prompt}
+  data-commands={JSON.stringify(commands)}
+  data-fortunes={JSON.stringify(fortunes)}
+  data-system-info={JSON.stringify(systemInfo)}
+>
+  <!-- Pre-rendered Astro components (hidden) -->
+  <div style="display: none;">
+    <div id="component-about.txt"><AboutComponent /></div>
+    <div id="component-experience.txt"><ExperienceComponent /></div>
+    <div id="component-skills.txt"><SkillsComponent /></div>
+    <div id="component-contact.txt"><ContactComponent /></div>
+    <div id="component-projects.txt"><ProjectsComponent /></div>
+    <div id="component-education.txt"><EducationComponent /></div>
+    <div id="component-hobbies.txt"><HobbiesComponent /></div>
+    <div id="component-philosophy.txt"><PhilosophyComponent /></div>
+    <div id="component-tech-details.txt"><TechDetailsComponent /></div>
+    <div id="component-secrets.txt"><SecretsComponent /></div>
+  </div>
+
+  <div id="terminal-output" class="flex-1 overflow-y-auto min-h-[300px]">
+    <div class="px-4 pt-4 pb-8"></div>
+  </div>
+
+  <!-- Hidden Input -->
+  <input
+    type="text"
+    id="terminal-input"
+    class="absolute opacity-0 pointer-events-none -z-10"
+    autocomplete="off"
+    spellcheck="false"
+    tabindex="0"
+  />
+</div>
+
+<script>
+  // Command history
+  let commandHistory: string[] = [];
+  let historyIndex = -1;
+
+  // Get data from HTML attributes (passed from server)
+  const terminalElement = document.querySelector('[data-file-names]') as HTMLElement;
+  const fileNames = JSON.parse(terminalElement.dataset.fileNames || '[]');
+  const promptText = terminalElement.dataset.prompt || 'charlie@machine:~$';
+  const commands = JSON.parse(terminalElement.dataset.commands || '[]');
+  const fortunes = JSON.parse(terminalElement.dataset.fortunes || '[]');
+  const systemInfo = JSON.parse(terminalElement.dataset.systemInfo || '{}');
+
+  // Helper functions that now use the pre-processed data
+  function getFileContent(filename: string): string | null {
+    // Check if it's an Astro component
+    const componentElement = document.getElementById(`component-${filename}`);
+    if (componentElement) {
+      return componentElement.innerHTML;
+    }
+    
+    // No fallback needed since all files are now components
+    return null;
+  }
+
+  function getFileNames(): string[] {
+    return fileNames;
+  }
+
+  function getFileType(filename: string): string {
+    // All files are now Astro components
+    return 'astro';
+  }
+
+  // Command execution functions
+  const commandHandlers = {
+    help: () => {
+      const commandList = commands
+        .map((cmd: any) => `  ${cmd.name.padEnd(24)} - ${cmd.description}`)
+        .join('\n');
+      return `<pre class="whitespace-pre-wrap">Available commands:
+${commandList}
+
+Available files:
+  ${getFileNames().join(", ")}
+
+Try: cat about.txt or theme dark</pre>`;
+    },
+
+    ls: () => {
+      const fileList = getFileNames()
+        .map((file) => {
+          // All files are now Astro components, so use purple color
+          const color = "var(--purple)";
+          return `<span style="color: ${color}">${file}</span>`;
+        })
+        .join("  ");
+      return fileList;
+    },
+
+    cat: (filename: string) => {
+      if (!filename) {
+        return [
+          '<span class="text-[var(--red)]">cat: missing file operand</span>',
+          "Try: cat &lt;filename&gt;"
+        ];
+      }
+      const content = getFileContent(filename);
+      if (content) {
+        // Check if content contains HTML tags
+        const hasHTML = /<[^>]+>/.test(content);
+        
+        if (hasHTML) {
+          // Return HTML content directly for rendering
+          return content;
+        } else {
+          // Wrap plain text in <pre> for proper formatting
+          return `<pre class="whitespace-pre-wrap">${content.trim()}</pre>`;
+        }
+      } else {
+        return `<span class="text-[var(--red)]">cat: ${filename}: No such file or directory</span>`;
+      }
+    },
+
+    whoami: () => systemInfo.username,
+    pwd: () => systemInfo.homeDir,
+    date: () => new Date().toString(),
+    
+    history: () => {
+      return commandHistory
+        .slice()
+        .reverse()
+        .map((cmd, index) => `${index + 1}  ${cmd}`);
+    },
+
+    fortune: () => {
+      const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+      return `<span class="text-[var(--yellow)]">${randomFortune}</span>`;
+    },
+
+    uname: () => systemInfo.osName,
+
+    uptime: () => {
+      const now = new Date();
+      const startTime = new Date(systemInfo.startTime);
+      const uptime = Math.floor(
+        (now.getTime() - startTime.getTime()) / (1000 * 60 * 60 * 24),
+      );
+      return `System up ${uptime} days, 1 user, load average: 0.42, 0.15, 0.08`;
+    },
+
+    echo: (message: string) => message || "",
+
+    tree: () => {
+      const files = getFileNames().sort();
+      const treeLines = ['.'];
+      
+      files.forEach((file, index) => {
+        const isLast = index === files.length - 1;
+        const prefix = isLast ? '└── ' : '├── ';
+        treeLines.push(prefix + file);
+      });
+      
+      treeLines.push('');
+      treeLines.push(`0 directories, ${files.length} files`);
+      
+      return `<pre>${treeLines.join('\n')}</pre>`;
+    },
+
+    theme: (themeArg: string) => {
+      if (!themeArg) {
+        return [
+          '<span class="text-[var(--red)]">theme: missing argument</span>',
+          "Usage: theme &lt;dark|light&gt;"
+        ];
+      } else if (themeArg === "dark" || themeArg === "light") {
+        const html = document.documentElement;
+        html.setAttribute("data-theme", themeArg);
+        return `<span class="text-[var(--green)]">Theme switched to ${themeArg} mode</span>`;
+      } else {
+        return [
+          '<span class="text-[var(--red)]">theme: invalid argument</span>',
+          "Available themes: dark, light"
+        ];
+      }
+    },
+
+    exit: () => {
+      setTimeout(() => window.close(), 1000);
+      return `<span class="text-[var(--yellow)]">Goodbye! Closing terminal session...</span>`;
+    }
+  };
+
+  // Initialize terminal
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("terminal-input") as HTMLInputElement;
+    const output = document.getElementById("terminal-output") as HTMLDivElement;
+    let currentInput = "";
+
+    // Debounced scroll function for better performance
+    let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
+    function scrollToBottom() {
+      const output = document.getElementById("terminal-output");
+      if (output) {
+        // Cancel any pending scroll
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
+        }
+        // Use a small delay to ensure content is fully rendered
+        scrollTimeout = setTimeout(() => {
+          // Calculate the maximum scroll position and set it
+          const maxScroll = output.scrollHeight - output.clientHeight;
+          output.scrollTop = maxScroll;
+          scrollTimeout = null;
+        }, 10);
+      }
+    }
+
+    function addToOutput(content: string) {
+      const output = document.getElementById("terminal-output");
+      const contentContainer = output?.querySelector("div");
+      if (output && contentContainer) {
+        const line = document.createElement("div");
+        line.innerHTML = content;
+        line.className = "mb-1";
+        line.style.lineHeight = "1.2";
+        contentContainer.appendChild(line);
+
+        // Scroll to bottom
+        scrollToBottom();
+      }
+    }
+
+    // Show initial prompt at the top
+    addToOutput(
+      `<span class="text-[var(--green)]">${promptText}</span> <span class="cursor-inline">█</span>`,
+    );
+
+    // Focus input on page load with multiple attempts
+    function focusInput() {
+      if (input) {
+        input.focus();
+        // Ensure the input is actually focused
+        if (document.activeElement !== input) {
+          setTimeout(focusInput, 100);
+        }
+      }
+    }
+
+    // Initial focus
+    focusInput();
+
+    // Focus on window focus
+    window.addEventListener("focus", focusInput);
+
+    // Focus when page becomes visible
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) {
+        focusInput();
+      }
+    });
+
+    // Update the current prompt line as user types
+    function updateCurrentPrompt() {
+      const output = document.getElementById("terminal-output");
+      const contentContainer = output?.querySelector("div");
+      if (output && contentContainer && contentContainer.lastElementChild) {
+        contentContainer.lastElementChild.innerHTML = `<span class="text-[var(--green)]">${promptText}</span> ${currentInput}<span class="cursor-inline">█</span>`;
+      }
+    }
+
+    // Handle input events
+    input?.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const command = currentInput.trim();
+
+        // Replace the current prompt line with the final command (no cursor)
+        const output = document.getElementById("terminal-output");
+        const contentContainer = output?.querySelector("div");
+        if (output && contentContainer && contentContainer.lastElementChild) {
+          contentContainer.lastElementChild.innerHTML = `<span class="text-[var(--green)]">${promptText}</span> ${command}`;
+        }
+
+        if (command) {
+          executeCommand(command);
+          commandHistory.unshift(command);
+          historyIndex = -1;
+        } else {
+          // Show new prompt even for empty commands
+          addToOutput(
+            `<span class="text-[var(--green)]">${promptText}</span> <span class="cursor-inline">█</span>`,
+          );
+        }
+        currentInput = "";
+        input.value = "";
+      } else if (e.key === "Backspace") {
+        e.preventDefault();
+        currentInput = currentInput.slice(0, -1);
+        updateCurrentPrompt();
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        if (historyIndex < commandHistory.length - 1) {
+          historyIndex++;
+          currentInput = commandHistory[historyIndex] || "";
+          updateCurrentPrompt();
+        }
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        if (historyIndex > 0) {
+          historyIndex--;
+          currentInput = commandHistory[historyIndex] || "";
+          updateCurrentPrompt();
+        } else if (historyIndex === 0) {
+          historyIndex = -1;
+          currentInput = "";
+          updateCurrentPrompt();
+        }
+      } else if (e.key === "Tab") {
+        e.preventDefault();
+        autocompleteCommand();
+      } else if (e.key.length === 1) {
+        // Handle regular character input
+        e.preventDefault();
+        currentInput += e.key;
+        updateCurrentPrompt();
+      }
+    });
+
+    // Focus input when clicking anywhere on terminal
+    document.addEventListener("click", (e) => {
+      // Only focus if we're not clicking on a selectable element
+      const target = e.target as HTMLElement;
+      if (!target.closest("input, textarea, button, a")) {
+        e.preventDefault();
+        focusInput();
+      }
+    });
+
+    // Also focus on mousedown for immediate response
+    document.addEventListener("mousedown", (e) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest("input, textarea, button, a")) {
+        e.preventDefault();
+        focusInput();
+      }
+    });
+
+    // Autocomplete function
+    function autocompleteCommand() {
+      const args = currentInput.split(" ");
+      const command = args[0];
+      const partialArg = args[args.length - 1] || "";
+
+      // Only autocomplete for commands that take file arguments
+      if (command == "cat" && args.length > 1) {
+        const availableFiles = getFileNames();
+        const matches = availableFiles.filter((file) =>
+          file.toLowerCase().startsWith(partialArg.toLowerCase()),
+        );
+
+        if (matches.length === 1) {
+          // Single match - complete it
+          args[args.length - 1] = matches[0];
+          currentInput = args.join(" ");
+          updateCurrentPrompt();
+        } else if (matches.length > 1) {
+          // Multiple matches - show them
+          addToOutput(
+            `<span class="text-[var(--green)]">${promptText}</span> ${currentInput}`,
+          );
+          const matchList = matches
+            .map((file) => {
+              // All files are now Astro components (purple)
+              const color = "var(--purple)";
+              return `<span style="color: ${color}">${file}</span>`;
+            })
+            .join("  ");
+          addToOutput(matchList);
+          addToOutput(
+            `<span class="text-[var(--green)]">${promptText}</span> ${currentInput}<span class="cursor-inline">█</span>`,
+          );
+        }
+      }
+    }
+
+    function executeCommand(command: string) {
+      const args = command.split(" ");
+      const cmd = args[0].toLowerCase();
+      const restArgs = args.slice(1);
+
+      // Helper function to add output
+      function addCommandOutput(output: string | string[]) {
+        if (Array.isArray(output)) {
+          output.forEach(line => addToOutput(line));
+        } else {
+          addToOutput(output);
+        }
+      }
+
+      // Handle special commands first
+      if (cmd === "clear") {
+        const contentContainer = output.querySelector("div");
+        if (contentContainer) {
+          contentContainer.innerHTML = "";
+        }
+        // Add fresh prompt after clearing
+        addToOutput(
+          `<span class="text-[var(--green)]">${promptText}</span> <span class="cursor-inline">█</span>`,
+        );
+        return; // Don't add another new prompt
+      }
+
+      if (cmd === "exit" || cmd === "quit") {
+        addCommandOutput(commandHandlers.exit());
+        return; // Don't add new prompt
+      }
+
+      if (cmd === "") {
+        // Empty command, just add new prompt
+        addToOutput(
+          `<span class="text-[var(--green)]">${promptText}</span> <span class="cursor-inline">█</span>`,
+        );
+        return;
+      }
+
+      // Execute command using handlers
+      try {
+        let result;
+        switch (cmd) {
+          case "help":
+            result = commandHandlers.help();
+            break;
+          case "ls":
+            result = commandHandlers.ls();
+            break;
+          case "cat":
+            result = commandHandlers.cat(args[1]);
+            break;
+          case "whoami":
+            result = commandHandlers.whoami();
+            break;
+          case "pwd":
+            result = commandHandlers.pwd();
+            break;
+          case "date":
+            result = commandHandlers.date();
+            break;
+          case "history":
+            result = commandHandlers.history();
+            break;
+          case "fortune":
+            result = commandHandlers.fortune();
+            break;
+          case "uname":
+            result = commandHandlers.uname();
+            break;
+          case "uptime":
+            result = commandHandlers.uptime();
+            break;
+          case "echo":
+            result = commandHandlers.echo(restArgs.join(" "));
+            break;
+          case "tree":
+            result = commandHandlers.tree();
+            break;
+          case "theme":
+            result = commandHandlers.theme(args[1]);
+            break;
+          default:
+            result = [
+              `<span class="text-[var(--red)]">bash: ${cmd}: command not found</span>`,
+              'Type "help" for available commands.'
+            ];
+        }
+
+        addCommandOutput(result);
+
+      } catch (error) {
+        addToOutput(`<span class="text-[var(--red)]">Error executing command: ${cmd}</span>`);
+      }
+
+      // Add new prompt after command execution (except for clear and exit/quit)
+      if (cmd !== "clear" && cmd !== "exit" && cmd !== "quit") {
+        addToOutput(
+          `<span class="text-[var(--green)]">${promptText}</span> <span class="cursor-inline">█</span>`,
+        );
+      }
+    }
+  });
+</script>

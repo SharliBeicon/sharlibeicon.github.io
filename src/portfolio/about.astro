@@ -1,0 +1,39 @@
+---
+const skills = [
+  'Full-stack web development',
+  'Modern JavaScript/TypeScript', 
+  'React, Node.js, and various frameworks',
+  'DevOps and cloud technologies'
+];
+
+const contact = {
+  location: 'Your imagination',
+  email: 'charlie@charliebacon.dev',
+  github: 'github.com/charliebacon'
+};
+---
+
+<div class="portfolio-content">
+  <h1 class="text-2xl text-[var(--yellow)] mb-4 font-bold">Charlie Bacon - Software Developer</h1>
+  
+  <p class="mb-4 text-[var(--fg0)]">
+    Hello! I'm Charlie, a passionate software developer with expertise in:
+  </p>
+  
+  <ul class="list-disc list-inside mb-6 text-[var(--blue)] space-y-1">
+    {skills.map(skill => (
+      <li class="pl-2">{skill}</li>
+    ))}
+  </ul>
+  
+  <p class="mb-6 text-[var(--fg1)]">
+    I love building elegant solutions to complex problems and 
+    creating user experiences that make a difference.
+  </p>
+  
+  <div class="contact-info space-y-2">
+    <p class="text-[var(--green)]">📍 <span class="text-[var(--cyan)]">Location:</span> {contact.location}</p>
+    <p class="text-[var(--green)]">📧 <span class="text-[var(--cyan)]">Email:</span> {contact.email}</p>
+    <p class="text-[var(--green)]">🐙 <span class="text-[var(--cyan)]">GitHub:</span> {contact.github}</p>
+  </div>
+</div>

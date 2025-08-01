@@ -1,0 +1,53 @@
+---
+const experiences = [
+  {
+    title: 'Senior Software Developer',
+    company: 'TechCorp',
+    period: '2022-Present',
+    achievements: [
+      'Led development of microservices architecture',
+      'Improved application performance by 40%',
+      'Mentored junior developers'
+    ]
+  },
+  {
+    title: 'Full-Stack Developer',
+    company: 'StartupXYZ',
+    period: '2020-2022',
+    achievements: [
+      'Built complete web applications from scratch',
+      'Implemented CI/CD pipelines',
+      'Collaborated with design team on UX improvements'
+    ]
+  },
+  {
+    title: 'Junior Developer',
+    company: 'CodeFactory',
+    period: '2018-2020',
+    achievements: [
+      'Developed responsive web interfaces',
+      'Worked on REST API development',
+      'Participated in agile development processes'
+    ]
+  }
+];
+---
+
+<div class="portfolio-content">
+  <h1 class="text-2xl text-[var(--yellow)] mb-6 font-bold">Professional Experience</h1>
+  
+  {experiences.map((exp, index) => (
+    <div class="mb-8 last:mb-0">
+      <div class="mb-3">
+        <h2 class="text-xl text-[var(--green)] font-semibold">{exp.title}</h2>
+        <p class="text-[var(--cyan)]">{exp.company} <span class="text-[var(--fg1)]">({exp.period})</span></p>
+      </div>
+      
+      <ul class="list-disc list-inside text-[var(--blue)] space-y-1">
+        {exp.achievements.map(achievement => (
+          <li class="pl-2">{achievement}</li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>

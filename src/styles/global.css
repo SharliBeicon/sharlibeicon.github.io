@@ -1,0 +1,126 @@
+@layer base, utils, components;
+
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Iosevka Term Web";
+  font-display: swap;
+  font-stretch: normal;
+  font-style: normal;
+  src: url("/fonts/IosevkaTerm-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Iosevka Term Web";
+  font-display: swap;
+  font-stretch: expanded;
+  font-style: normal;
+  src: url("/fonts/IosevkaTerm-ExtendedLight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Iosevka Term Web";
+  font-display: swap;
+  font-stretch: normal;
+  font-style: oblique;
+  src: url("/fonts/IosevkaTerm-LightOblique.woff2") format("woff2");
+}
+
+@layer base {
+  :root {
+    --font-family:
+      "Iosevka Term Web", Menlo, Monaco, monospace, "Symbols Nerd Font";
+  }
+
+  html {
+    font-family: var(--font-family);
+  }
+
+  pre {
+    line-height: var(--text-sm--line-height);
+    font-family: var(--font-family);
+  }
+
+  /* Dark theme (default) */
+  :root,
+  [data-theme="dark"] {
+    --background0: #121212;
+    --background1: #1a1a1a;
+    --background2: #2a2a2a;
+    --fg0: #dcdcdc;
+    --fg1: #b8b8b8;
+    --red: #ff6b6b;
+    --green: #51cf66;
+    --yellow: #ffd43b;
+    --blue: #74c0fc;
+    --magenta: #da77f2;
+    --cyan: #3bc9db;
+    --white: #f8f9fa;
+    --orange: #ff922b;
+    --bg-selection: rgba(255, 255, 255, 0.2);
+    --border-color: rgba(220, 220, 220, 0.15);
+    --border-hover: rgba(220, 220, 220, 0.25);
+  }
+
+  /* Light theme */
+  [data-theme="light"] {
+    --background0: #fafafa;
+    --background1: #f0f0f0;
+    --background2: #e0e0e0;
+    --fg0: #2e3440;
+    --fg1: #3b4252;
+    --red: #bf616a;
+    --green: #a3be8c;
+    --yellow: #ebcb8b;
+    --blue: #5e81ac;
+    --magenta: #b48ead;
+    --cyan: #88c0d0;
+    --white: #2e3440;
+    --orange: #d08770;
+    --bg-selection: rgba(0, 0, 0, 0.1);
+    --border-color: rgba(46, 52, 64, 0.15);
+    --border-hover: rgba(46, 52, 64, 0.25);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.6;
+    font-size: 18px;
+    background: var(--background0);
+    color: var(--fg0);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+}
+
+@layer components {
+  #terminal-input {
+    caret-color: transparent;
+  }
+
+  #terminal-output {
+    scrollbar-width: thin;
+    scrollbar-color: var(--fg1) var(--background1);
+  }
+
+  #terminal-output::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  #terminal-output::-webkit-scrollbar-track {
+    background: var(--background1);
+  }
+
+  #terminal-output::-webkit-scrollbar-thumb {
+    background: var(--fg1);
+    border-radius: 4px;
+  }
+
+  /* Smooth scrolling for terminal output */
+  #terminal-output {
+    scroll-behavior: smooth;
+  }
+}

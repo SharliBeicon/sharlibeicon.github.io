@@ -1,0 +1,39 @@
+---
+const skillCategories = [
+  {
+    category: 'Languages',
+    skills: ['JavaScript/TypeScript', 'Python', 'Go', 'Rust', 'SQL']
+  },
+  {
+    category: 'Frontend',
+    skills: ['React/Next.js', 'Vue.js', 'Astro', 'Tailwind CSS', 'WebGL/Three.js']
+  },
+  {
+    category: 'Backend',
+    skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'Redis']
+  },
+  {
+    category: 'DevOps',
+    skills: ['Docker', 'Kubernetes', 'AWS/GCP', 'GitHub Actions', 'Terraform']
+  }
+];
+---
+
+<div class="portfolio-content">
+  <h1 class="text-2xl text-[var(--yellow)] mb-6 font-bold">Technical Skills</h1>
+  
+  <div class="space-y-6">
+    {skillCategories.map(({ category, skills }) => (
+      <div>
+        <h2 class="text-lg text-[var(--green)] mb-3 font-semibold">{category}:</h2>
+        <div class="flex flex-wrap gap-2">
+          {skills.map(skill => (
+            <span class="px-3 py-1 bg-[var(--background1)] text-[var(--blue)] rounded border border-[var(--border-color)] text-sm">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
