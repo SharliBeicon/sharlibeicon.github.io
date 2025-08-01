@@ -1,84 +1,118 @@
 ---
-const projects = [
-  {
-    name: "TuiFolio",
-    year: "2024",
-    description: "Terminal-style portfolio website built with Astro",
-    tech: ["Astro", "TypeScript", "Tailwind CSS", "WebTUI"],
-    note: "You're looking at it!",
-    icon: "🚀"
-  },
-  {
-    name: "GameHub",
-    year: "2023", 
-    description: "Real-time multiplayer game platform",
-    tech: ["React", "Node.js", "Socket.io", "PostgreSQL"],
-    features: ["Live chat", "matchmaking", "tournaments"],
-    icon: "🎮"
-  },
-  {
-    name: "DataViz Pro",
-    year: "2023",
-    description: "Interactive data visualization dashboard", 
-    tech: ["D3.js", "React", "Python FastAPI"],
-    features: ["Real-time updates", "custom charts"],
-    icon: "📊"
-  },
-  {
-    name: "DevTools Suite",
-    year: "2022",
-    description: "CLI tools for developer productivity",
-    tech: ["Go", "Cobra CLI"],
-    features: ["Code generation", "project scaffolding"],
-    icon: "🛠️"
-  }
-];
+
 ---
 
-<div class="portfolio-content text-[var(--fg0)]">
-  <h1 class="text-2xl font-bold text-[var(--yellow)] mb-4">Featured Projects</h1>
-  <div class="border-b border-[var(--bg2)] mb-6"></div>
+<div class="text-[var(--fg0)]">
+  <div class="pl-4">
+    <div class="text-[var(--cyan)] mb-2">PROJECTS</div>
+    <div class="text-[var(--yellow)] mb-1">
+      ================================================================================
+    </div>
 
-  <div class="space-y-6">
-    {projects.map(project => (
-      <div class="border border-[var(--bg2)] rounded-lg p-4 bg-[var(--background1)]">
-        <div class="flex items-start gap-3 mb-3">
-          <span class="text-2xl">{project.icon}</span>
-          <div class="flex-1">
-            <div class="flex items-center gap-2 mb-1">
-              <h3 class="text-lg font-bold text-[var(--green)]">{project.name}</h3>
-              <span class="text-sm text-[var(--fg2)] bg-[var(--bg2)] px-2 py-1 rounded">
-                {project.year}
-              </span>
-            </div>
-            <p class="text-[var(--fg1)] mb-3">{project.description}</p>
-          </div>
+    <div class="mb-4">
+      <div class="text-[var(--red)] mb-2">Oxify</div>
+      <div class="pl-4 text-[var(--fg0)]">
+        <div class="mb-2">
+          A Lightweight, customizable Spotify client built on top of Iced and
+          Librespot.
         </div>
-
-        <div class="mb-3">
-          <span class="text-[var(--blue)] font-medium">Tech Stack: </span>
-          <div class="flex flex-wrap gap-1 mt-1">
-            {project.tech.map(tech => (
-              <span class="text-xs bg-[var(--bg2)] text-[var(--fg0)] px-2 py-1 rounded">
-                {tech}
-              </span>
-            ))}
-          </div>
+        <div class="mb-2">
+          <span class="text-[var(--white)]">Repository:</span>
+          <a
+            class="text-[var(--blue)] hover:text-[var(--cyan)] underline"
+            target="_blank"
+            href="https://codeberg.org/CharlieBacon/oxify"
+            >https://codeberg.org/CharlieBacon/oxify</a
+          >
         </div>
-
-        {project.features && (
-          <div class="mb-3">
-            <span class="text-[var(--purple)] font-medium">Features: </span>
-            <span class="text-[var(--fg1)]">{project.features.join(", ")}</span>
-          </div>
-        )}
-
-        {project.note && (
-          <div class="text-[var(--yellow)] font-medium italic">
-            {project.note}
-          </div>
-        )}
+        <div class="text-[var(--green)]">
+          [<span class="text-[var(--yellow)]">wip</span>] [<span
+            class="text-[var(--red)]">rust</span
+          >]
+        </div>
       </div>
-    ))}
+
+      <div class="text-[var(--blue)] mt-4 mb-2">El Telitairo</div>
+      <div class="pl-4 text-[var(--fg0)]">
+        <div class="mb-2">AI powered telegram bot.</div>
+        <div class="mb-2">
+          <span class="text-[var(--white)]">Repository:</span>
+          <a
+            class="text-[var(--blue)] hover:text-[var(--cyan)] underline"
+            target="_blank"
+            href="https://github.com/SharliBeicon/telitairos-bot"
+            >https://github.com/SharliBeicon/telitairos-bot</a
+          >
+        </div>
+        <div class="text-[var(--green)]">
+          [<span class="text-[var(--red)]">rust</span>] [<span
+            class="text-[var(--magenta)]">ai</span
+          >]
+        </div>
+      </div>
+
+      <div class="text-[var(--green)] mt-4 mb-2">Procedural Maps</div>
+      <div class="pl-4 text-[var(--fg0)]">
+        <div class="mb-2">
+          Procedural map generation using constraint satisfaction.
+        </div>
+        <div class="mb-2">
+          <span class="text-[var(--white)]">Repository:</span>
+          <a
+            class="text-[var(--blue)] hover:text-[var(--cyan)] underline"
+            target="_blank"
+            href="https://github.com/SharliBeicon/procedural-maps"
+            >https://github.com/SharliBeicon/procedural-maps</a
+          >
+        </div>
+        <div class="text-[var(--green)]">
+          [<span class="text-[var(--orange)]">zig</span>] [<span
+            class="text-[var(--cyan)]">raylib</span
+          >]
+        </div>
+      </div>
+
+      <div class="text-[var(--magenta)] mt-4 mb-2">Particle System</div>
+      <div class="pl-4 text-[var(--fg0)]">
+        <div class="mb-2">
+          A celular automata model which displays different kind of particles
+          such as sand and water.
+        </div>
+        <div class="mb-2">
+          <span class="text-[var(--white)]">Repository:</span>
+          <a
+            class="text-[var(--blue)] hover:text-[var(--cyan)] underline"
+            target="_blank"
+            href="https://github.com/SharliBeicon/zig-particle-system"
+            >https://github.com/SharliBeicon/zig-particle-system</a
+          >
+        </div>
+        <div class="text-[var(--green)]">
+          [<span class="text-[var(--orange)]">zig</span>] [<span
+            class="text-[var(--cyan)]">raylib</span
+          >]
+        </div>
+      </div>
+
+      <div class="text-[var(--orange)] mt-4 mb-2">Terminal Space Invaders</div>
+      <div class="pl-4 text-[var(--fg0)]">
+        <div class="mb-2">
+          A terminal-based ASCII version of the game Space Invaders. Written in
+          Rust.
+        </div>
+        <div class="mb-2">
+          <span class="text-[var(--white)]">Repository:</span>
+          <a
+            class="text-[var(--blue)] hover:text-[var(--cyan)] underline"
+            target="_blank"
+            href="https://github.com/SharliBeicon/rust-space-invaders"
+            >https://github.com/SharliBeicon/rust-space-invaders</a
+          >
+        </div>
+        <div class="text-[var(--green)]">
+          [<span class="text-[var(--red)]">rust</span>]
+        </div>
+      </div>
+    </div>
   </div>
 </div>

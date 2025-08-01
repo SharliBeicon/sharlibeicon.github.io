@@ -67,19 +67,19 @@
     --background0: #fafafa;
     --background1: #f0f0f0;
     --background2: #e0e0e0;
-    --fg0: #2e3440;
-    --fg1: #3b4252;
-    --red: #bf616a;
-    --green: #a3be8c;
-    --yellow: #ebcb8b;
-    --blue: #5e81ac;
-    --magenta: #b48ead;
-    --cyan: #88c0d0;
-    --white: #2e3440;
-    --orange: #d08770;
-    --bg-selection: rgba(0, 0, 0, 0.1);
-    --border-color: rgba(46, 52, 64, 0.15);
-    --border-hover: rgba(46, 52, 64, 0.25);
+    --fg0: #1a1a1a;
+    --fg1: #2d2d2d;
+    --red: #c92a2a;
+    --green: #2b8a3e;
+    --yellow: #f08c00;
+    --blue: #1971c2;
+    --magenta: #862e9c;
+    --cyan: #0c8599;
+    --white: #1a1a1a;
+    --orange: #d9480f;
+    --bg-selection: rgba(0, 0, 0, 0.15);
+    --border-color: rgba(26, 26, 26, 0.2);
+    --border-hover: rgba(26, 26, 26, 0.35);
   }
 
   body {

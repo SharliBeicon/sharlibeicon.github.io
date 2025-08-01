@@ -2,9 +2,9 @@
 const secretFacts = [
   "This terminal is built with vanilla JavaScript",
   "The prompt shows charlie@machine for that authentic feel",
-  "There are 9+ files to explore", 
+  "There are 9+ files to explore",
   "The blinking cursor is pure CSS magic",
-  "You can use arrow keys to navigate command history"
+  "You can use arrow keys to navigate command history",
 ];
 
 const konamiStatus = "Not implemented... yet 👾";
@@ -12,7 +12,9 @@ const konamiStatus = "Not implemented... yet 👾";
 
 <div class="portfolio-content text-[var(--fg0)]">
   <div class="text-center mb-6">
-    <h1 class="text-2xl font-bold text-[var(--yellow)] mb-2">🤫 You found the secret file!</h1>
+    <h1 class="text-2xl font-bold text-[var(--yellow)] mb-2">
+      🤫 You found the secret file!
+    </h1>
     <div class="border-b border-[var(--bg2)]"></div>
   </div>
 
@@ -21,19 +23,25 @@ const konamiStatus = "Not implemented... yet 👾";
   </p>
 
   <!-- Secret Facts -->
-  <div class="bg-[var(--background1)] border border-[var(--bg2)] rounded-lg p-4 mb-6">
+  <div
+    class="bg-[var(--background1)] border border-[var(--bg2)] rounded-lg p-4 mb-6"
+  >
     <ul class="space-y-3">
-      {secretFacts.map(fact => (
-        <li class="flex items-start gap-3">
-          <span class="text-[var(--purple)] mt-1">🔍</span>
-          <span class="text-[var(--fg1)]">{fact}</span>
-        </li>
-      ))}
+      {
+        secretFacts.map((fact) => (
+          <li class="flex items-start gap-3">
+            <span class="text-[var(--purple)] mt-1">🔍</span>
+            <span class="text-[var(--fg1)]">{fact}</span>
+          </li>
+        ))
+      }
     </ul>
   </div>
 
   <!-- Konami Code Status -->
-  <div class="bg-[var(--purple)] bg-opacity-10 border border-[var(--purple)] rounded-lg p-4 mb-6">
+  <div
+    class="bg-[var(--purple)] bg-opacity-10 border border-[var(--purple)] rounded-lg p-4 mb-6"
+  >
     <div class="flex items-center gap-3">
       <span class="text-lg">🎮</span>
       <span class="text-[var(--blue)] font-medium">Konami Code Status:</span>

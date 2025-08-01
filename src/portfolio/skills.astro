@@ -1,39 +1,68 @@
 ---
-const skillCategories = [
-  {
-    category: 'Languages',
-    skills: ['JavaScript/TypeScript', 'Python', 'Go', 'Rust', 'SQL']
-  },
-  {
-    category: 'Frontend',
-    skills: ['React/Next.js', 'Vue.js', 'Astro', 'Tailwind CSS', 'WebGL/Three.js']
-  },
-  {
-    category: 'Backend',
-    skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'Redis']
-  },
-  {
-    category: 'DevOps',
-    skills: ['Docker', 'Kubernetes', 'AWS/GCP', 'GitHub Actions', 'Terraform']
-  }
-];
+
 ---
 
-<div class="portfolio-content">
-  <h1 class="text-2xl text-[var(--yellow)] mb-6 font-bold">Technical Skills</h1>
-  
-  <div class="space-y-6">
-    {skillCategories.map(({ category, skills }) => (
-      <div>
-        <h2 class="text-lg text-[var(--green)] mb-3 font-semibold">{category}:</h2>
-        <div class="flex flex-wrap gap-2">
-          {skills.map(skill => (
-            <span class="px-3 py-1 bg-[var(--background1)] text-[var(--blue)] rounded border border-[var(--border-color)] text-sm">
-              {skill}
-            </span>
-          ))}
-        </div>
+<div class="text-[var(--fg0)]">
+  <div class="pl-4">
+    <div class="text-[var(--cyan)] mb-2">TECHNICAL SKILLS</div>
+    <div class="text-[var(--yellow)] mb-1">
+      ================================================================================
+    </div>
+
+    <div class="mb-4">
+      <div class="text-[var(--red)] mb-2">Systems Level Programming:</div>
+      <div class="pl-4 text-[var(--fg0)]">
+        - Rust<br />
+        - C/C++<br />
+        - Zig<br />
+        - C#
       </div>
-    ))}
+
+      <div class="text-[var(--blue)] mt-3 mb-2">
+        Web Oriented Languages & Libraries:
+      </div>
+      <div class="pl-4 text-[var(--fg0)]">
+        - TypeScript<br />
+        - React<br />
+        - CSS
+      </div>
+
+      <div class="text-[var(--green)] mt-3 mb-2">
+        DevOps & Infrastructure Tools:
+      </div>
+      <div class="pl-4 text-[var(--fg0)]">
+        - Docker<br />
+        - Kubernetes<br />
+        - Nix
+      </div>
+
+      <div class="text-[var(--cyan)] mt-3 mb-2">Cloud Services:</div>
+      <div class="pl-4 text-[var(--fg0)]">
+        - AWS<br />
+        - Vercel
+      </div>
+
+      <div class="text-[var(--magenta)] mt-3 mb-2">Core Computer Science:</div>
+      <div class="pl-4 text-[var(--fg0)]">
+        - Data Structures & Algorithms<br />
+        - SQL and No-SQL Databases<br />
+        - Linux
+      </div>
+    </div>
+
+    <div class="text-[var(--cyan)] mb-2">SOFT SKILLS</div>
+    <div class="text-[var(--yellow)] mb-1">
+      ================================================================================
+    </div>
+
+    <div class="mb-4 text-[var(--fg0)]">
+      <div class="text-[var(--orange)] mb-2">Personal & Professional:</div>
+      <div class="pl-4">
+        - Fast Learning<br />
+        - Leadership<br />
+        - Effective Communication<br />
+        - Critical Thinking
+      </div>
+    </div>
   </div>
 </div>

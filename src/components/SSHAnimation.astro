@@ -52,11 +52,11 @@ const animationConfig = {
   initialDelay: 500,
   typingSpeed: {
     min: 80,
-    max: 160
+    max: 160,
   },
   cursor: "█",
   responseDelay: 300,
-  finalizeDelay: 500
+  finalizeDelay: 500,
 };
 ---
 
@@ -70,10 +70,16 @@ const animationConfig = {
 </div>
 
 <script>
-  // Get data from HTML attributes 
-  const animationElement = document.querySelector('#ssh-animation') as HTMLElement;
-  const animationSteps = JSON.parse(animationElement.dataset.animationSteps || '[]');
-  const animationConfig = JSON.parse(animationElement.dataset.animationConfig || '{}');
+  // Get data from HTML attributes
+  const animationElement = document.querySelector(
+    "#ssh-animation",
+  ) as HTMLElement;
+  const animationSteps = JSON.parse(
+    animationElement.dataset.animationSteps || "[]",
+  );
+  const animationConfig = JSON.parse(
+    animationElement.dataset.animationConfig || "{}",
+  );
 
   document.addEventListener("DOMContentLoaded", () => {
     const sshOutput = document.getElementById("ssh-output");
@@ -122,7 +128,12 @@ const animationConfig = {
         setTimeout(typeNextChar, animationConfig.finalizeDelay);
       },
 
-      typeResponse: (response: string, originalContent: string, lastLine: HTMLElement, callback: () => void) => {
+      typeResponse: (
+        response: string,
+        originalContent: string,
+        lastLine: HTMLElement,
+        callback: () => void,
+      ) => {
         let currentResponse = "";
         let index = 0;
 
@@ -140,22 +151,26 @@ const animationConfig = {
         }
 
         setTimeout(typeResponseChar, animationConfig.responseDelay);
-      }
+      },
     };
 
     function runAnimation() {
       const currentStep = animationSteps[step];
 
       if (currentStep.prompt && currentStep.command) {
-        animationHelpers.typeCommand(currentStep.prompt, currentStep.command, () => {
-          step++;
-          setTimeout(runAnimation, currentStep.delay);
-        });
+        animationHelpers.typeCommand(
+          currentStep.prompt,
+          currentStep.command,
+          () => {
+            step++;
+            setTimeout(runAnimation, currentStep.delay);
+          },
+        );
       } else if (currentStep.response) {
         // Simulate typing the response letter by letter
         const response = currentStep.response;
         const lastLine = sshOutput?.lastElementChild as HTMLElement;
-        
+
         if (!lastLine) return;
 
         const originalContent = lastLine.innerHTML.replace(
@@ -163,14 +178,21 @@ const animationConfig = {
           "",
         );
 
-        animationHelpers.typeResponse(response, originalContent, lastLine, () => {
-          step++;
-          setTimeout(runAnimation, currentStep.delay);
-        });
+        animationHelpers.typeResponse(
+          response,
+          originalContent,
+          lastLine,
+          () => {
+            step++;
+            setTimeout(runAnimation, currentStep.delay);
+          },
+        );
       } else if (currentStep.text) {
         // Add system message - display instantly for SSH output
         const color = currentStep.color || "var(--fg0)";
-        animationHelpers.addLine(`<span style="color: ${color}">${currentStep.text}</span>`);
+        animationHelpers.addLine(
+          `<span style="color: ${color}">${currentStep.text}</span>`,
+        );
 
         if (currentStep.waitForInput) {
           // Simulate user thinking and then typing response

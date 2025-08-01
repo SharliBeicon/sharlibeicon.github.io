@@ -8,42 +8,44 @@ import EducationComponent from "../portfolio/education.astro";
 import TechDetailsComponent from "../portfolio/tech-details.astro";
 import ReadmeComponent from "../portfolio/readme.astro";
 
-
 const fileNames = [
-  { file: 'about', ext: 'md' },
-  { file: 'contact', ext: 'json' },
-  { file: 'education', ext: 'txt' },
-  { file: 'experience', ext: 'md' },
-  { file: 'projects', ext: 'txt' },
-  { file: 'README', ext: 'md' },
-  { file: 'skills', ext: 'txt' },
-  { file: 'tech-details', ext: 'txt' },
+  { file: "about", ext: "md" },
+  { file: "contact", ext: "json" },
+  { file: "education", ext: "txt" },
+  { file: "experience", ext: "md" },
+  { file: "projects", ext: "txt" },
+  { file: "README", ext: "md" },
+  { file: "skills", ext: "txt" },
+  { file: "tech-details", ext: "txt" },
 ];
 
 const prompt = "charlie@machine:~$";
 
 const commands = [
-  { name: 'ls', description: 'List all files' },
-  { name: "cat [filename]", description: 'Display file contents' },
-  { name: 'help', description: 'Show this help message' },
-  { name: 'clear', description: 'Clear the terminal' },
-  { name: 'whoami', description: 'Display current user' },
-  { name: 'pwd', description: 'Show current directory' },
-  { name: 'date', description: 'Show current date and time' },
-  { name: 'history', description: 'Show command history' },
-  { name: 'tree', description: 'Show file tree structure' },
-  { name: 'echo [message]', description: 'Display a message' },
-  { name: 'uname', description: 'Show system information' },
-  { name: 'uptime', description: 'Show system uptime' },
-  { name: 'theme [dark|light]', description: 'Switch between dark and light themes' },
-  { name: '[exit|quit]', description: 'Close the terminal session' },
+  { name: "ls", description: "List all files" },
+  { name: "cat [filename]", description: "Display file contents" },
+  { name: "help", description: "Show this help message" },
+  { name: "clear", description: "Clear the terminal" },
+  { name: "whoami", description: "Display current user" },
+  { name: "pwd", description: "Show current directory" },
+  { name: "date", description: "Show current date and time" },
+  { name: "history", description: "Show command history" },
+  { name: "tree", description: "Show file tree structure" },
+  { name: "echo [message]", description: "Display a message" },
+  { name: "uname", description: "Show system information" },
+  { name: "uptime", description: "Show system uptime" },
+  {
+    name: "theme [dark|light]",
+    description: "Switch between dark and light themes",
+  },
+  { name: "[exit|quit]", description: "Close the terminal session" },
 ];
 
 const systemInfo = {
   username: "Charlie Bacon",
   homeDir: "/home/charlie",
   osName: "CharlieOS 1.0.0 (Portfolio) x86_64",
-  startTime: new Date("2024-01-01")
+  startTime: new Date("2024-01-01"),
 };
 ---
 
@@ -54,7 +56,7 @@ const systemInfo = {
   data-commands={JSON.stringify(commands)}
   data-system-info={JSON.stringify(systemInfo)}
 >
-  <!-- Pre-rendered Astro components (hidden) -->
+  <!-- Pre-rendered components (hidden) -->
   <div style="display: none;">
     <div id="component-about"><AboutComponent /></div>
     <div id="component-experience"><ExperienceComponent /></div>
@@ -83,19 +85,21 @@ const systemInfo = {
 
 <script>
   const extColors = {
-    md: 'blue',
-    txt: 'white',
-    json: 'yellow',
+    md: "blue",
+    txt: "white",
+    json: "yellow",
   };
   let commandHistory: string[] = [];
   let historyIndex = -1;
 
   // Get data from HTML attributes (passed from server)
-  const terminalElement = document.querySelector('[data-file-names]') as HTMLElement;
-  const fileNames = JSON.parse(terminalElement.dataset.fileNames || '[]');
-  const promptText = terminalElement.dataset.prompt || 'charlie@machine:~$';
-  const commands = JSON.parse(terminalElement.dataset.commands || '[]');
-  const systemInfo = JSON.parse(terminalElement.dataset.systemInfo || '{}');
+  const terminalElement = document.querySelector(
+    "[data-file-names]",
+  ) as HTMLElement;
+  const fileNames = JSON.parse(terminalElement.dataset.fileNames || "[]");
+  const promptText = terminalElement.dataset.prompt || "charlie@machine:~$";
+  const commands = JSON.parse(terminalElement.dataset.commands || "[]");
+  const systemInfo = JSON.parse(terminalElement.dataset.systemInfo || "{}");
 
   function getFileContent(filename: string): string | null {
     const componentElement = document.getElementById(`component-${filename}`);
@@ -105,7 +109,7 @@ const systemInfo = {
   }
 
   function substringUntilDot(str) {
-    const dotIndex = str.indexOf('.');
+    const dotIndex = str.indexOf(".");
     if (dotIndex === -1) {
       return str;
     } else {
@@ -117,7 +121,7 @@ const systemInfo = {
     help: () => {
       const commandList = commands
         .map((cmd: any) => `  ${cmd.name.padEnd(24)} - ${cmd.description}`)
-        .join('\n');
+        .join("\n");
       return `<pre class="whitespace-pre-wrap">Available commands:
 ${commandList}</pre>`;
     },
@@ -125,7 +129,7 @@ ${commandList}</pre>`;
     ls: () => {
       const fileList = fileNames
         .map((f) => {
-          const color = `var(--${extColors[f.ext] ?? 'black'})`;
+          const color = `var(--${extColors[f.ext] ?? "black"})`;
           return `<span class="text-[${color}]">${f.file}.${f.ext}</span>`;
         })
         .join("  ");
@@ -136,13 +140,13 @@ ${commandList}</pre>`;
       if (!filename) {
         return [
           '<span class="text-[var(--red)]">cat: missing file operand</span>',
-          "Try: cat &lt;filename&gt;"
+          "Try: cat &lt;filename&gt;",
         ];
       }
       const filenameForContent = substringUntilDot(filename.toLowerCase());
       const content = getFileContent(filenameForContent);
       if (content) {
-          return content;
+        return content;
       } else {
         return `<span class="text-[var(--red)]">cat: ${filename}: No such file or directory</span>`;
       }
@@ -151,7 +155,7 @@ ${commandList}</pre>`;
     whoami: () => systemInfo.username,
     pwd: () => systemInfo.homeDir,
     date: () => new Date().toString(),
-    
+
     history: () => {
       return commandHistory
         .slice()
@@ -174,25 +178,25 @@ ${commandList}</pre>`;
 
     tree: () => {
       const files = fileNames.map((f) => `${f.file}.${f.ext}`);
-      const treeLines = ['.'];
-      
+      const treeLines = ["."];
+
       files.forEach((file, index) => {
         const isLast = index === files.length - 1;
-        const prefix = isLast ? '└── ' : '├── ';
+        const prefix = isLast ? "└── " : "├── ";
         treeLines.push(prefix + file);
       });
-      
-      treeLines.push('');
+
+      treeLines.push("");
       treeLines.push(`0 directories, ${files.length} files`);
-      
-      return `<pre>${treeLines.join('\n')}</pre>`;
+
+      return `<pre>${treeLines.join("\n")}</pre>`;
     },
 
     theme: (themeArg: string) => {
       if (!themeArg) {
         return [
           '<span class="text-[var(--red)]">theme: missing argument</span>',
-          "Usage: theme &lt;dark|light&gt;"
+          "Usage: theme &lt;dark|light&gt;",
         ];
       } else if (themeArg === "dark" || themeArg === "light") {
         const html = document.documentElement;
@@ -201,7 +205,7 @@ ${commandList}</pre>`;
       } else {
         return [
           '<span class="text-[var(--red)]">theme: invalid argument</span>',
-          "Available themes: dark, light"
+          "Available themes: dark, light",
         ];
       }
     },
@@ -209,7 +213,7 @@ ${commandList}</pre>`;
     exit: () => {
       setTimeout(() => window.close(), 1000);
       return `<span class="text-[var(--yellow)]">Goodbye! Closing terminal session...</span>`;
-    }
+    },
   };
 
   // Initialize terminal
@@ -387,7 +391,7 @@ ${commandList}</pre>`;
           // Multiple matches - show them
           const matchList = matches
             .map((f) => {
-              const color = `var(--${extColors[f.ext] ?? 'black'})`;
+              const color = `var(--${extColors[f.ext] ?? "black"})`;
               return `<span class="text-[${color}]">${f.file}.${f.ext}</span>`;
             })
             .join("  ");
@@ -407,7 +411,7 @@ ${commandList}</pre>`;
       // Helper function to add output
       function addCommandOutput(output: string | string[]) {
         if (Array.isArray(output)) {
-          output.forEach(line => addToOutput(line));
+          output.forEach((line) => addToOutput(line));
         } else {
           addToOutput(output);
         }
@@ -481,14 +485,15 @@ ${commandList}</pre>`;
           default:
             result = [
               `<span class="text-[var(--red)]">bash: ${cmd}: command not found</span>`,
-              'Type "help" for available commands.'
+              'Type "help" for available commands.',
             ];
         }
 
         addCommandOutput(result);
-
       } catch (error) {
-        addToOutput(`<span class="text-[var(--red)]">Error executing command: ${cmd}</span>`);
+        addToOutput(
+          `<span class="text-[var(--red)]">Error executing command: ${cmd}</span>`,
+        );
       }
 
       // Add new prompt after command execution (except for clear and exit/quit)
