@@ -1,5 +1,4 @@
 ---
-// Animation configuration
 const animationSteps = [
   {
     prompt: "user@local-machine:~$",
@@ -49,12 +48,11 @@ const animationSteps = [
   },
 ];
 
-// Animation configuration
 const animationConfig = {
-  initialDelay: 800,
+  initialDelay: 500,
   typingSpeed: {
-    min: 100,
-    max: 150
+    min: 80,
+    max: 160
   },
   cursor: "█",
   responseDelay: 300,
@@ -72,7 +70,7 @@ const animationConfig = {
 </div>
 
 <script>
-  // Get data from HTML attributes (passed from server)
+  // Get data from HTML attributes 
   const animationElement = document.querySelector('#ssh-animation') as HTMLElement;
   const animationSteps = JSON.parse(animationElement.dataset.animationSteps || '[]');
   const animationConfig = JSON.parse(animationElement.dataset.animationConfig || '{}');
@@ -81,7 +79,6 @@ const animationConfig = {
     const sshOutput = document.getElementById("ssh-output");
     let step = 0;
 
-    // Helper functions
     const animationHelpers = {
       addLine: (content: string, className = "") => {
         if (sshOutput) {
@@ -194,7 +191,6 @@ const animationConfig = {
       }
     }
 
-    // Start the animation after initial delay
     setTimeout(() => {
       runAnimation();
     }, animationConfig.initialDelay);
