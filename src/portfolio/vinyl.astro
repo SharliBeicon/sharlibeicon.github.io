@@ -1,0 +1,86 @@
+---
+
+---
+
+<div class="text-[var(--fg0)]">
+  <div class="pl-4">
+    <div class="mb-4">
+      <div class="text-[var(--fg1)] mb-2">#!/bin/bash</div>
+
+      <div class="text-[var(--fg1)] mb-4">
+        # Run it with `./vinyl.sh` or `bash vinyl.sh`
+      </div>
+
+      <div class="text-[var(--fg0)]">
+        <span class="text-[var(--blue)]">echo</span>
+        <span class="text-[var(--green)]">"Opening vinyl collection..."</span
+        ><br />
+        <span class="text-[var(--blue)]">echo</span>
+        <span class="text-[var(--green)]"
+          >"Connecting to Discogs database..."</span
+        ><br />
+        <span class="text-[var(--blue)]">sleep</span>
+        <span class="text-[var(--red)]">1</span><br />
+        <br />
+        <span class="text-[var(--yellow)]"
+          ># Open browser to Discogs profile</span
+        ><br />
+        <span class="text-[var(--magenta)]">DISCOGS_URL</span>=<span
+          class="text-[var(--green)]"
+          >"https://www.discogs.com/user/sharlibeicon/collection"</span
+        ><br />
+        <br />
+        <span class="text-[var(--blue)]">if</span>
+        <span class="text-[var(--blue)]">command</span>
+        <span class="text-[var(--red)]">-v</span>
+        <span class="text-[var(--blue)]">open</span>
+        <span class="text-[var(--red)]">>/dev/null</span>
+        <span class="text-[var(--red)]">2>&1</span>; <span
+          class="text-[var(--blue)]">then</span
+        ><br />
+        <span class="text-[var(--fg0)]"> </span><span
+          class="text-[var(--yellow)]"># macOS</span
+        ><br />
+        <span class="text-[var(--fg0)]"> </span><span class="text-[var(--blue)]"
+          >open</span
+        >
+        <span class="text-[var(--magenta)]">"$DISCOGS_URL"</span><br />
+        <span class="text-[var(--blue)]">elif</span>
+        <span class="text-[var(--blue)]">command</span>
+        <span class="text-[var(--red)]">-v</span>
+        <span class="text-[var(--blue)]">xdg-open</span>
+        <span class="text-[var(--red)]">>/dev/null</span>
+        <span class="text-[var(--red)]">2>&1</span>; <span
+          class="text-[var(--blue)]">then</span
+        ><br />
+        <span class="text-[var(--fg0)]"> </span><span
+          class="text-[var(--yellow)]"># Linux</span
+        ><br />
+        <span class="text-[var(--fg0)]"> </span><span class="text-[var(--blue)]"
+          >xdg-open</span
+        >
+        <span class="text-[var(--magenta)]">"$DISCOGS_URL"</span><br />
+        <span class="text-[var(--blue)]">else</span><br />
+        <span class="text-[var(--fg0)]"> </span><span class="text-[var(--blue)]"
+          >echo</span
+        >
+        <span class="text-[var(--red)]"
+          >"Error: Cannot open browser automatically"</span
+        ><br />
+        <span class="text-[var(--fg0)]"> </span><span class="text-[var(--blue)]"
+          >echo</span
+        >
+        <span class="text-[var(--green)]"
+          >"Please visit manually: $DISCOGS_URL"</span
+        ><br />
+        <span class="text-[var(--blue)]">fi</span><br />
+        <br />
+        <span class="text-[var(--blue)]">echo</span>
+        <span class="text-[var(--green)]"
+          >"Enjoy browsing the collection! 🎶"</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
+

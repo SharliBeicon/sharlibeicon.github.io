@@ -7,6 +7,7 @@ import ProjectsComponent from "../portfolio/projects.astro";
 import EducationComponent from "../portfolio/education.astro";
 import TechDetailsComponent from "../portfolio/tech-details.astro";
 import ReadmeComponent from "../portfolio/readme.astro";
+import VinylComponent from "../portfolio/vinyl.astro";
 
 const fileNames = [
   { file: "about", ext: "md" },
@@ -17,6 +18,7 @@ const fileNames = [
   { file: "README", ext: "md" },
   { file: "skills", ext: "txt" },
   { file: "tech-details", ext: "txt" },
+  { file: "vinyl", ext: "sh" },
 ];
 
 const prompt = "charlie@machine:~$";
@@ -37,6 +39,11 @@ const commands = [
   {
     name: "theme [dark|light]",
     description: "Switch between dark and light themes",
+  },
+  { name: "./vinyl.sh", description: "Execute vinyl collection script" },
+  {
+    name: "bash vinyl.sh",
+    description: "Execute vinyl collection script with bash",
   },
   { name: "[exit|quit]", description: "Close the terminal session" },
 ];
@@ -66,6 +73,7 @@ const systemInfo = {
     <div id="component-education"><EducationComponent /></div>
     <div id="component-tech-details"><TechDetailsComponent /></div>
     <div id="component-readme"><ReadmeComponent /></div>
+    <div id="component-vinyl"><VinylComponent /></div>
   </div>
 
   <div id="terminal-output" class="flex-1 overflow-y-auto min-h-[300px]">
@@ -88,6 +96,7 @@ const systemInfo = {
     md: "blue",
     txt: "white",
     json: "yellow",
+    sh: "green",
   };
   let commandHistory: string[] = [];
   let historyIndex = -1;
@@ -376,8 +385,7 @@ ${commandList}</pre>`;
       const command = args[0];
       const partialArg = args[args.length - 1] || "";
 
-      // Only autocomplete for commands that take file arguments
-      if (command == "cat" && args.length > 1) {
+      if (command === "cat" && args.length > 1) {
         const matches = fileNames.filter((f) =>
           f.file.toLowerCase().startsWith(partialArg.toLowerCase()),
         );
@@ -393,6 +401,58 @@ ${commandList}</pre>`;
             .map((f) => {
               const color = `var(--${extColors[f.ext] ?? "black"})`;
               return `<span class="text-[${color}]">${f.file}.${f.ext}</span>`;
+            })
+            .join("  ");
+          addToOutput(matchList);
+          addToOutput(
+            `<span class="text-[var(--green)]">${promptText}</span> ${currentInput}<span class="cursor-inline">█</span>`,
+          );
+        }
+      } else if (command === "bash" && args.length > 1) {
+        // Autocomplete for bash command with script files
+        const scriptMatches = fileNames.filter(
+          (f) =>
+            f.ext === "sh" &&
+            f.file.toLowerCase().startsWith(partialArg.toLowerCase()),
+        );
+
+        if (scriptMatches.length === 1) {
+          // Single match - complete it
+          args[args.length - 1] =
+            `${scriptMatches[0].file}.${scriptMatches[0].ext}`;
+          currentInput = args.join(" ");
+          updateCurrentPrompt();
+        } else if (scriptMatches.length > 1) {
+          // Multiple matches - show them
+          const matchList = scriptMatches
+            .map((f) => {
+              const color = `var(--${extColors[f.ext]})`;
+              return `<span class="text-[${color}]">${f.file}.${f.ext}</span>`;
+            })
+            .join("  ");
+          addToOutput(matchList);
+          addToOutput(
+            `<span class="text-[var(--green)]">${promptText}</span> ${currentInput}<span class="cursor-inline">█</span>`,
+          );
+        }
+      } else if (currentInput.startsWith("./") && args.length === 1) {
+        const scriptName = currentInput.substring(2); // Remove "./"
+        const scriptMatches = fileNames.filter(
+          (f) =>
+            f.ext === "sh" &&
+            f.file.toLowerCase().startsWith(scriptName.toLowerCase()),
+        );
+
+        if (scriptMatches.length === 1) {
+          // Single match - complete it
+          currentInput = `./${scriptMatches[0].file}.${scriptMatches[0].ext}`;
+          updateCurrentPrompt();
+        } else if (scriptMatches.length > 1) {
+          // Multiple matches - show them
+          const matchList = scriptMatches
+            .map((f) => {
+              const color = `var(--${extColors[f.ext]})`;
+              return `<span class="text-[${color}]">./${f.file}.${f.ext}</span>`;
             })
             .join("  ");
           addToOutput(matchList);
@@ -440,6 +500,35 @@ ${commandList}</pre>`;
         addToOutput(
           `<span class="text-[var(--green)]">${promptText}</span> <span class="cursor-inline">█</span>`,
         );
+        return;
+      }
+
+      // Handle vinyl script execution
+      if (cmd === "./vinyl.sh" || (cmd === "bash" && args[1] === "vinyl.sh")) {
+        addCommandOutput(
+          `<span class="text-[var(--green)]">Opening vinyl collection...</span>`,
+        );
+        addCommandOutput(
+          `<span class="text-[var(--green)]">Connecting to Discogs database...</span>`,
+        );
+
+        setTimeout(() => {
+          addCommandOutput(
+            `<span class="text-[var(--green)]">Enjoy browsing the collection! 🎶</span>`,
+          );
+          window.open(
+            "https://www.discogs.com/user/sharlibeicon/collection",
+            "_blank",
+          );
+
+          // Add new prompt after the messages
+          setTimeout(() => {
+            addToOutput(
+              `<span class="text-[var(--green)]">${promptText}</span> <span class="cursor-inline">█</span>`,
+            );
+          }, 100);
+        }, 1000);
+
         return;
       }
 

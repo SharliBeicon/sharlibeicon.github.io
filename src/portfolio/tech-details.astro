@@ -1,109 +1,19 @@
 ---
-const techStack = [
-  { name: "Astro", purpose: "static site generation" },
-  { name: "TypeScript", purpose: "type safety" },
-  { name: "Tailwind CSS", purpose: "styling" },
-  { name: "Vanilla JavaScript", purpose: "terminal logic" },
-];
 
-const features = [
-  "Real file system at build time",
-  "Server-side rendering",
-  "Client-side interactivity",
-  "Responsive design",
-];
-
-const terminalFeatures = [
-  "Command history (arrow keys)",
-  "Tab completion for files",
-  "Realistic typing delays",
-  "SSH connection animation",
-];
 ---
 
-<div class="portfolio-content text-[var(--fg0)]">
-  <h1 class="text-2xl font-bold text-[var(--yellow)] mb-4">
-    Fun Portfolio Facts
-  </h1>
-  <div class="border-b border-[var(--bg2)] mb-6"></div>
-
-  <!-- Tech Stack -->
-  <div class="mb-8">
-    <div class="flex items-center gap-3 mb-4">
-      <span class="text-2xl">🎯</span>
-      <h3 class="text-lg font-bold text-[var(--green)]">
-        This portfolio is built with:
-      </h3>
+<div class="text-[var(--fg0)]">
+  <div class="pl-4">
+    <div class="text-[var(--cyan)] mb-2">TECHNICAL SPECIFICATIONS</div>
+    <div class="text-[var(--yellow)] mb-1">
+      ================================================================================
     </div>
-
-    <div class="ml-11 grid gap-3">
-      {
-        techStack.map((tech) => (
-          <div class="flex items-center gap-3 bg-[var(--background1)] border border-[var(--bg2)] rounded p-3">
-            <span class="text-[var(--blue)] font-medium min-w-[120px]">
-              {tech.name}
-            </span>
-            <span class="text-[var(--fg2)]">for</span>
-            <span class="text-[var(--fg1)]">{tech.purpose}</span>
-          </div>
-        ))
-      }
-    </div>
-  </div>
-
-  <!-- Features -->
-  <div class="mb-8">
-    <div class="flex items-center gap-3 mb-4">
-      <span class="text-2xl">🚀</span>
-      <h3 class="text-lg font-bold text-[var(--green)]">Features:</h3>
-    </div>
-
-    <div class="ml-11">
-      <ul class="space-y-2">
-        {
-          features.map((feature) => (
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--yellow)] mt-1">•</span>
-              <span class="text-[var(--fg1)]">{feature}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </div>
-
-  <!-- Terminal Features -->
-  <div class="mb-8">
-    <div class="flex items-center gap-3 mb-4">
-      <span class="text-2xl">💡</span>
-      <h3 class="text-lg font-bold text-[var(--green)]">
-        The terminal simulation includes:
-      </h3>
-    </div>
-
-    <div class="ml-11">
-      <ul class="space-y-2">
-        {
-          terminalFeatures.map((feature) => (
-            <li class="flex items-start gap-2">
-              <span class="text-[var(--blue)] mt-1">▶</span>
-              <span class="text-[var(--fg1)]">{feature}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </div>
-
-  <!-- Footer Message -->
-  <div
-    class="bg-[var(--green)] bg-opacity-10 border border-[var(--green)] rounded-lg p-4"
-  >
-    <div class="flex items-center gap-3">
-      <span class="text-2xl">🔧</span>
-      <p class="text-[var(--green)] font-bold">
-        Built using idiomatic Astro patterns for maximum performance!
-      </p>
-    </div>
+      <pre
+        class="text-[var(--fg0)]">
+- Astro
+- Pure Vanilla JS 
+- Tailwind CSS
+- <span class="text-[var(--green)]">0 runtime dependencies</span>
+      </pre>
   </div>
 </div>
