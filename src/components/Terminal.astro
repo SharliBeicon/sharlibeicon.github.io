@@ -37,8 +37,8 @@ const commands = [
   { name: "uname", description: "Show system information" },
   { name: "uptime", description: "Show system uptime" },
   {
-    name: "theme [dark|light]",
-    description: "Switch between dark and light themes",
+    name: "theme [dark|light|system]",
+    description: "Switch theme or follow system preference",
   },
   { name: "[exit|quit]", description: "Close the terminal session" },
 ];
@@ -110,9 +110,11 @@ const systemInfo = {
     if (componentElement) {
       return componentElement.innerHTML;
     }
+
+    return null;
   }
 
-  function substringUntilDot(str) {
+  function substringUntilDot(str: string) {
     const dotIndex = str.indexOf(".");
     if (dotIndex === -1) {
       return str;
@@ -198,18 +200,38 @@ ${commandList}</pre>`;
 
     theme: (themeArg: string) => {
       if (!themeArg) {
+        // Show current theme and available options
+        const currentTheme = document.documentElement.getAttribute("data-theme") || "system";
+        const storedTheme = localStorage.getItem('terminal-theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        
         return [
-          '<span class="text-[var(--red)]">theme: missing argument</span>',
-          "Usage: theme &lt;dark|light&gt;",
+          `<span class="text-[var(--cyan)]">Current theme: ${currentTheme}</span>`,
+          `<span class="text-[var(--white)]">System preference: ${systemTheme}</span>`,
+          `<span class="text-[var(--white)]">Stored preference: ${storedTheme || 'none (follows system)'}</span>`,
+          "",
+          "Usage: theme &lt;dark|light|system&gt;",
+          "  dark   - Force dark theme",
+          "  light  - Force light theme", 
+          "  system - Follow system preference (clears stored preference)"
         ];
       } else if (themeArg === "dark" || themeArg === "light") {
         const html = document.documentElement;
         html.setAttribute("data-theme", themeArg);
+        // Store the user's preference
+        localStorage.setItem('terminal-theme', themeArg);
         return `<span class="text-[var(--green)]">Theme switched to ${themeArg} mode</span>`;
+      } else if (themeArg === "system") {
+        // Clear stored preference and follow system
+        localStorage.removeItem('terminal-theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const html = document.documentElement;
+        html.setAttribute("data-theme", systemTheme);
+        return `<span class="text-[var(--green)]">Theme set to follow system preference (${systemTheme})</span>`;
       } else {
         return [
           '<span class="text-[var(--red)]">theme: invalid argument</span>',
-          "Available themes: dark, light",
+          "Available themes: dark, light, system",
         ];
       }
     },
@@ -225,6 +247,44 @@ ${commandList}</pre>`;
     const input = document.getElementById("terminal-input") as HTMLInputElement;
     const output = document.getElementById("terminal-output") as HTMLDivElement;
     let currentInput = "";
+
+    // Theme management functions
+    function getStoredTheme(): string | null {
+      return localStorage.getItem('terminal-theme');
+    }
+
+    function storeTheme(theme: string): void {
+      localStorage.setItem('terminal-theme', theme);
+    }
+
+    function getSystemTheme(): string {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme: string): void {
+      const html = document.documentElement;
+      html.setAttribute("data-theme", theme);
+    }
+
+    function initializeTheme(): void {
+      // Check for stored preference first, then system preference
+      const storedTheme = getStoredTheme();
+      const themeToApply = storedTheme || getSystemTheme();
+      applyTheme(themeToApply);
+    }
+
+    // Initialize theme on load
+    initializeTheme();
+
+    // Listen for system theme changes if no stored preference
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      const storedTheme = getStoredTheme();
+      if (!storedTheme) {
+        // Only follow system preference if user hasn't manually set a theme
+        const newTheme = e.matches ? 'dark' : 'light';
+        applyTheme(newTheme);
+      }
+    });
 
     // Debounced scroll function for better performance
     let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
