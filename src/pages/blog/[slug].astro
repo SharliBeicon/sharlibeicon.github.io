@@ -52,18 +52,37 @@ function formatDate(date: Date) {
             </svg>
             Back to Blog
           </a>
-          
+
           <!-- Theme Toggle Button -->
           <button
             id="theme-toggle"
             class="text-[var(--fg1)] hover:text-[var(--fg0)] transition-all duration-200 hover:scale-110 flex items-center gap-2 text-sm"
             title="Switch theme"
           >
-            <svg id="theme-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              id="theme-icon"
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               <!-- Default: sun icon (for dark mode) -->
-              <path id="sun-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              <path
+                id="sun-icon"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              ></path>
               <!-- Moon icon (for light mode) -->
-              <path id="moon-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+              <path
+                id="moon-icon"
+                class="hidden"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              ></path>
             </svg>
           </button>
         </nav>
@@ -284,10 +303,6 @@ function formatDate(date: Date) {
     const sunIcon = document.getElementById("sun-icon");
     const moonIcon = document.getElementById("moon-icon");
 
-    function getStoredTheme() {
-      return localStorage.getItem("terminal-theme");
-    }
-
     function getSystemTheme() {
       return window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
@@ -295,7 +310,9 @@ function formatDate(date: Date) {
     }
 
     function getCurrentTheme() {
-      return document.documentElement.getAttribute("data-theme") || getSystemTheme();
+      return (
+        document.documentElement.getAttribute("data-theme") || getSystemTheme()
+      );
     }
 
     function applyTheme(theme) {
@@ -316,7 +333,7 @@ function formatDate(date: Date) {
     function toggleTheme() {
       const currentTheme = getCurrentTheme();
       const newTheme = currentTheme === "dark" ? "light" : "dark";
-      
+
       // Store the user's preference
       localStorage.setItem("terminal-theme", newTheme);
       applyTheme(newTheme);
@@ -329,4 +346,3 @@ function formatDate(date: Date) {
     themeToggle?.addEventListener("click", toggleTheme);
   });
 </script>
-

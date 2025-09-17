@@ -15,7 +15,7 @@ import Github from "../svg/github.svg";
   <body>
     <script>
       // Theme management - runs before page render to prevent flash
-      (function() {
+      (function () {
         function getStoredTheme() {
           return localStorage.getItem("terminal-theme");
         }
@@ -41,8 +41,9 @@ import Github from "../svg/github.svg";
         initializeTheme();
 
         // Listen for system theme changes if no stored preference
-        window.matchMedia("(prefers-color-scheme: dark)")
-          .addEventListener("change", function(e) {
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", function (e) {
             const storedTheme = getStoredTheme();
             if (!storedTheme) {
               // Only follow system preference if user hasn't manually set a theme
