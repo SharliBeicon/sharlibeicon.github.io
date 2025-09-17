@@ -201,30 +201,37 @@ ${commandList}</pre>`;
     theme: (themeArg: string) => {
       if (!themeArg) {
         // Show current theme and available options
-        const currentTheme = document.documentElement.getAttribute("data-theme") || "system";
-        const storedTheme = localStorage.getItem('terminal-theme');
-        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        
+        const currentTheme =
+          document.documentElement.getAttribute("data-theme") || "system";
+        const storedTheme = localStorage.getItem("terminal-theme");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+          .matches
+          ? "dark"
+          : "light";
+
         return [
           `<span class="text-[var(--cyan)]">Current theme: ${currentTheme}</span>`,
           `<span class="text-[var(--white)]">System preference: ${systemTheme}</span>`,
-          `<span class="text-[var(--white)]">Stored preference: ${storedTheme || 'none (follows system)'}</span>`,
+          `<span class="text-[var(--white)]">Stored preference: ${storedTheme || "none (follows system)"}</span>`,
           "",
           "Usage: theme &lt;dark|light|system&gt;",
           "  dark   - Force dark theme",
-          "  light  - Force light theme", 
-          "  system - Follow system preference (clears stored preference)"
+          "  light  - Force light theme",
+          "  system - Follow system preference (clears stored preference)",
         ];
       } else if (themeArg === "dark" || themeArg === "light") {
         const html = document.documentElement;
         html.setAttribute("data-theme", themeArg);
         // Store the user's preference
-        localStorage.setItem('terminal-theme', themeArg);
+        localStorage.setItem("terminal-theme", themeArg);
         return `<span class="text-[var(--green)]">Theme switched to ${themeArg} mode</span>`;
       } else if (themeArg === "system") {
         // Clear stored preference and follow system
-        localStorage.removeItem('terminal-theme');
-        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        localStorage.removeItem("terminal-theme");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+          .matches
+          ? "dark"
+          : "light";
         const html = document.documentElement;
         html.setAttribute("data-theme", systemTheme);
         return `<span class="text-[var(--green)]">Theme set to follow system preference (${systemTheme})</span>`;
@@ -250,15 +257,17 @@ ${commandList}</pre>`;
 
     // Theme management functions
     function getStoredTheme(): string | null {
-      return localStorage.getItem('terminal-theme');
+      return localStorage.getItem("terminal-theme");
     }
 
     function storeTheme(theme: string): void {
-      localStorage.setItem('terminal-theme', theme);
+      localStorage.setItem("terminal-theme", theme);
     }
 
     function getSystemTheme(): string {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
     }
 
     function applyTheme(theme: string): void {
@@ -277,14 +286,16 @@ ${commandList}</pre>`;
     initializeTheme();
 
     // Listen for system theme changes if no stored preference
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      const storedTheme = getStoredTheme();
-      if (!storedTheme) {
-        // Only follow system preference if user hasn't manually set a theme
-        const newTheme = e.matches ? 'dark' : 'light';
-        applyTheme(newTheme);
-      }
-    });
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        const storedTheme = getStoredTheme();
+        if (!storedTheme) {
+          // Only follow system preference if user hasn't manually set a theme
+          const newTheme = e.matches ? "dark" : "light";
+          applyTheme(newTheme);
+        }
+      });
 
     // Debounced scroll function for better performance
     let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
