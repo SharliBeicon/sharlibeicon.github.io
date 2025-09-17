@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Github from "../svg/github.svg";
 ---
 
 <!doctype html>
@@ -12,6 +13,31 @@ import "../styles/global.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
-    <slot />
+    <div
+      class="flex flex-col min-h-screen max-h-screen p-6 md:px-12 gap-4 overflow-hidden bg-[var(--background1)] shadow-lg"
+    >
+      <slot />
+
+      <footer class="flex-shrink-0">
+        <div
+          class="flex justify-between items-center py-3 px-4 border-t border-[var(--border-color)] text-sm text-[var(--fg1)]"
+        >
+          <span class="opacity-80">© 2025 Charlie Bacon</span>
+          <a
+            href="https://github.com/sharlibeicon/sharlibeicon.github.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-[var(--fg1)] no-underline transition-colors duration-200 hover:text-[var(--fg0)]"
+          >
+            <Github
+              width={24}
+              height={24}
+              class="fill-[var(--fg1)] transition-transform duration-200 hover:scale-110 hover:fill-[var(--fg0)]"
+            />
+            View on GitHub
+          </a>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
