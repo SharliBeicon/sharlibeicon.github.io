@@ -255,7 +255,7 @@ ${commandList}</pre>`;
     const output = document.getElementById("terminal-output") as HTMLDivElement;
     let currentInput = "";
 
-    // Theme management functions
+    // Theme management functions (global theme is already initialized in Layout)
     function getStoredTheme(): string | null {
       return localStorage.getItem("terminal-theme");
     }
@@ -274,28 +274,6 @@ ${commandList}</pre>`;
       const html = document.documentElement;
       html.setAttribute("data-theme", theme);
     }
-
-    function initializeTheme(): void {
-      // Check for stored preference first, then system preference
-      const storedTheme = getStoredTheme();
-      const themeToApply = storedTheme || getSystemTheme();
-      applyTheme(themeToApply);
-    }
-
-    // Initialize theme on load
-    initializeTheme();
-
-    // Listen for system theme changes if no stored preference
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (e) => {
-        const storedTheme = getStoredTheme();
-        if (!storedTheme) {
-          // Only follow system preference if user hasn't manually set a theme
-          const newTheme = e.matches ? "dark" : "light";
-          applyTheme(newTheme);
-        }
-      });
 
     // Debounced scroll function for better performance
     let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
