@@ -1,6 +1,7 @@
 @layer base, utils, components;
 
 @import "tailwindcss";
+@plugin '@tailwindcss/typography';
 
 @font-face {
   font-family: "Iosevka Term Web";

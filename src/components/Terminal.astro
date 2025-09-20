@@ -199,15 +199,34 @@ ${commandList}</pre>`;
     },
 
     theme: (themeArg: string) => {
+      // Import theme utilities
+      const themeUtils = {
+        getStoredTheme: () => localStorage.getItem("terminal-theme"),
+        getSystemTheme: () =>
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light",
+        getCurrentTheme: () =>
+          document.documentElement.getAttribute("data-theme") ||
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light",
+        applyTheme: (theme: string) =>
+          document.documentElement.setAttribute("data-theme", theme),
+        storeTheme: (theme: string) => {
+          if (theme === "system") {
+            localStorage.removeItem("terminal-theme");
+          } else {
+            localStorage.setItem("terminal-theme", theme);
+          }
+        },
+      };
+
       if (!themeArg) {
         // Show current theme and available options
-        const currentTheme =
-          document.documentElement.getAttribute("data-theme") || "system";
-        const storedTheme = localStorage.getItem("terminal-theme");
-        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-          .matches
-          ? "dark"
-          : "light";
+        const currentTheme = themeUtils.getCurrentTheme();
+        const storedTheme = themeUtils.getStoredTheme();
+        const systemTheme = themeUtils.getSystemTheme();
 
         return [
           `<span class="text-[var(--cyan)]">Current theme: ${currentTheme}</span>`,
@@ -220,20 +239,14 @@ ${commandList}</pre>`;
           "  system - Follow system preference (clears stored preference)",
         ];
       } else if (themeArg === "dark" || themeArg === "light") {
-        const html = document.documentElement;
-        html.setAttribute("data-theme", themeArg);
-        // Store the user's preference
-        localStorage.setItem("terminal-theme", themeArg);
+        themeUtils.storeTheme(themeArg);
+        themeUtils.applyTheme(themeArg);
         return `<span class="text-[var(--green)]">Theme switched to ${themeArg} mode</span>`;
       } else if (themeArg === "system") {
         // Clear stored preference and follow system
-        localStorage.removeItem("terminal-theme");
-        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-          .matches
-          ? "dark"
-          : "light";
-        const html = document.documentElement;
-        html.setAttribute("data-theme", systemTheme);
+        themeUtils.storeTheme("system");
+        const systemTheme = themeUtils.getSystemTheme();
+        themeUtils.applyTheme(systemTheme);
         return `<span class="text-[var(--green)]">Theme set to follow system preference (${systemTheme})</span>`;
       } else {
         return [

@@ -14,31 +14,33 @@ import Github from "../svg/github.svg";
   </head>
   <body>
     <script>
-      // Theme management - runs before page render to prevent flash
+      // Theme initialization - runs before page render to prevent flash
       (function () {
-        function getStoredTheme() {
+        // Inline version of theme utilities for immediate execution
+        function getStoredTheme(): string | null {
           return localStorage.getItem("terminal-theme");
         }
 
-        function getSystemTheme() {
+        function getSystemTheme(): "dark" | "light" {
           return window.matchMedia("(prefers-color-scheme: dark)").matches
             ? "dark"
             : "light";
         }
 
-        function applyTheme(theme) {
+        function applyTheme(theme: "dark" | "light"): void {
           document.documentElement.setAttribute("data-theme", theme);
         }
 
-        function initializeTheme() {
-          // Check for stored preference first, then system preference
-          const storedTheme = getStoredTheme();
-          const themeToApply = storedTheme || getSystemTheme();
-          applyTheme(themeToApply);
+        function getEffectiveTheme(): "dark" | "light" {
+          const stored = getStoredTheme();
+          if (stored && stored !== 'system') {
+            return stored as "dark" | "light";
+          }
+          return getSystemTheme();
         }
 
         // Initialize theme immediately
-        initializeTheme();
+        applyTheme(getEffectiveTheme());
 
         // Listen for system theme changes if no stored preference
         window

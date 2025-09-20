@@ -1,7 +1,7 @@
 {
   "name": "tuifolio",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -14,6 +14,7 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.18",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1"
   }

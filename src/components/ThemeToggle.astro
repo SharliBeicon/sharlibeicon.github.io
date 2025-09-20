@@ -1,0 +1,57 @@
+---
+export interface Props {
+  class?: string;
+  title?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { class: className = '', title = 'Switch theme', size = 'md' } = Astro.props;
+
+const sizeClasses = {
+  sm: 'w-3 h-3',
+  md: 'w-4 h-4', 
+  lg: 'w-5 h-5'
+};
+
+const iconSize = sizeClasses[size];
+---
+
+<button
+  id="theme-toggle"
+  class={`text-[var(--fg1)] hover:text-[var(--fg0)] transition-all duration-200 hover:scale-110 flex items-center gap-2 text-sm ${className}`}
+  title={title}
+>
+  <svg
+    id="theme-icon"
+    class={iconSize}
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <!-- Sun icon (for dark mode) -->
+    <path
+      id="sun-icon"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+    ></path>
+    <!-- Moon icon (for light mode) -->
+    <path
+      id="moon-icon"
+      class="hidden"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+    ></path>
+  </svg>
+</button>
+
+<script>
+  import { setupThemeToggle } from '../utils/theme';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    setupThemeToggle();
+  });
+</script>
