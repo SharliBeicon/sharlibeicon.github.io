@@ -3,10 +3,59 @@
 ---
 
 <div
-  class="max-w-4xl mx-auto px-6 flex-grow prose dark:prose-invert
-  prose-h1:font-bold prose-h1:text-xl
-  prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl
-  prose-headings"
+  class="max-w-3xl mx-auto px-6 flex-grow prose
+  prose-p:text-justify prose-a:text-[var(--fg1)] prose-a:underline prose-a:decoration-dotted prose-a:hover:text-[var(--blue)] prose-a:underline-offset-4 prose-pre:text-sm prose-pre:md:text-base prose-pre:p-4 prose-h2:mt-4 prose-h2:mb-4"
 >
   <slot />
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const proseContainer = document.querySelector(".prose");
+    if (!proseContainer) return;
+
+    const links = proseContainer.querySelectorAll("a");
+
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+
+      if (
+        href &&
+        (href.startsWith("http://") ||
+          href.startsWith("https://") ||
+          href.startsWith("//"))
+      ) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+
+        link.classList.add("external-link");
+
+        const icon = document.createElement("span");
+        icon.className = "external-link-icon";
+        icon.innerHTML = "[↗]";
+        link.appendChild(icon);
+      }
+    });
+  });
+</script>
+
+<style>
+  .prose {
+    --tw-prose-body: var(--fg0);
+    --tw-prose-headings: var(--fg0);
+    --tw-prose-lead: var(--fg1);
+    --tw-prose-links: var(--blue);
+    --tw-prose-bold: var(--fg0);
+    --tw-prose-counters: var(--fg1);
+    --tw-prose-bullets: var(--fg1);
+    --tw-prose-hr: var(--border-color);
+    --tw-prose-quotes: var(--fg0);
+    --tw-prose-quote-borders: var(--border-color);
+    --tw-prose-captions: var(--fg1);
+    --tw-prose-code: var(--fg0);
+    --tw-prose-pre-code: var(--fg0);
+    --tw-prose-pre-bg: var(--background2);
+    --tw-prose-th-borders: var(--border-color);
+    --tw-prose-td-borders: var(--border-color);
+  }
+</style>
