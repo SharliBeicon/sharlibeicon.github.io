@@ -1,5 +1,6 @@
 const Icons = {
-    github: `<svg
+  codeberg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#aaa" d="M12 1A11 11 0 0 0 1 12a11 11 0 0 0 1.7 6.4L12 6l9.3 12.4A11 11 0 0 0 23 12 11 11 0 0 0 12 1Z"/><path fill="#555" d="M21.3 18.4 12 6l4.4 16.8a11 11 0 0 0 4.9-4.4Z"/></svg>`,
+  github: `<svg
                 style="margin-right: 8px"
                 width="16"
                 height="16"
@@ -11,7 +12,7 @@ const Icons = {
                 ></path></svg
             >
   `,
-    linkedin: `<svg
+  linkedin: `<svg
                 style="margin-right: 8px" 
                 height="16"
                 width="16"
@@ -23,7 +24,7 @@ const Icons = {
                 ></path></svg
             >
   `,
-    twitter: `<svg
+  twitter: `<svg
                 style="margin-right: 8px"
                 width="16"
                 height="16"
@@ -34,7 +35,7 @@ const Icons = {
                     d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
                 ></path></svg
             >
-  `
-}
+  `,
+};
 
-export default Icons
+export default Icons;

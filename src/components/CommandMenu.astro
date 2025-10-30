@@ -17,7 +17,7 @@ const { lang } = Astro.props
   import Icons from "@/content/js/Icons.js"
   import "ninja-keys"
 
-  const { github, linkedin, twitter } = Icons
+  const { codeberg, github, linkedin, twitter } = Icons
   const ninja = document.querySelector("ninja-keys")
   if (ninja !== null) {
     ninja.data = [
@@ -39,6 +39,16 @@ const { lang } = Astro.props
         handler: () => {
           ninja.open({ parent: "Social Media" })
           return { keepOpen: true }
+        },
+      },
+      {
+        id: "Codeberg",
+        title: "Codeberg",
+        icon: codeberg,
+        hotkey: "ctrl+B",
+        parent: "Social Media",
+        handler: () => {
+          window.open("https://codeberg.org/CharlieBacon", "_blank")
         },
       },
       {
@@ -68,7 +78,7 @@ const { lang } = Astro.props
         hotkey: "ctrl+X",
         parent: "Social Media",
         handler: () => {
-          window.open("https://twitter.com/SharliBeicon", "_blank")
+          window.open("https://twitter.com/charliebaconn", "_blank")
         },
       },
       {
