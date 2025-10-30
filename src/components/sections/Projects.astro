@@ -68,8 +68,14 @@ const { lang, title } = Astro.props
   }
 
   p {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     line-height: 1.15rem;
+  }
+
+  @media only screen and (max-width: 500px) {
+    p {
+      font-size: 0.68rem;
+    }
   }
 
   header {

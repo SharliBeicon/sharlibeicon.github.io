@@ -46,6 +46,12 @@ const { lang, title } = Astro.props
     transition: background 500ms;
   }
 
+  @media only screen and (max-width: 500px) {
+    li {
+      font-size: 0.855rem;
+    }
+  }
+
   li:hover {
     background: #00696f;
   }
