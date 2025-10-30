@@ -1,198 +1,94 @@
 {
     "en": [
         {
-            "name": "Romeo5",
-            "isActive": true,
-            "description": "Flight Information Display and Situational Awareness tool for Air Traffic Controllers and AFIS",
+            "name": "Oxify",
+            "description": "A minimal memory footprint Spotify client built on top of Ratatui and Librespot.",
             "tags": [
-                "Rust 🦀",
-                "Kubernetes",
-                "gRPC",
-                "Apache Kafka",
-                "Microservices"
+                "wip",
+                "rust"
             ],
-            "url": "https://databeacon.aero/romeo5/"
+            "url": "https://codeberg.org/CharlieBacon/oxify"
         },
         {
-            "name": "Cenware",
-            "isActive": true,
-            "description": "Digital transformation project that aims to help small businesses in Cadiz Bay's area to growth",
+            "name": "El Telitairo",
+            "description": "AI powered telegram bot.",
             "tags": [
-                "Side Project",
-                "TypeScript",
-                "React",
-                "GraphQL",
-                "Microservices"
+                "rust",
+                "ai"
             ],
-            "url": "https://cenware.net"
+            "url": "https://github.com/SharliBeicon/telitairos-bot"
         },
         {
-            "name": "PayRetailers Sandbox",
-            "isActive": false,
-            "description": "Sandbox integration and back office that mock final product features to attract potential partners",
+            "name": "Procedural Maps",
+            "description": "Procedural map generation using constraint satisfaction.",
             "tags": [
-                "TypeScript",
-                "React",
-                ".NET Core",
-                "API Rest"
+                "zig",
+                "raylib"
             ],
-            "url": "https://www.payretailers.com/es/partners/"
+            "url": "https://github.com/SharliBeicon/procedural-maps"
         },
         {
-            "name": "+10 Energy plant Integrations",
-            "isActive": false,
-            "description": "End to end integrations of renewable energy plants into Bluence ecosystem. From requirements gathering to production deployment",
+            "name": "Particle System",
+            "description": "A celular automata model which displays different kind of particles such as sand and water.",
             "tags": [
-                "C#",
-                ".NET Framework",
-                "JavaServer Pages",
-                "JavaScript",
-                "Team Leading"
+                "C",
+                "SDL"
             ],
-            "url": "https://bluence.isotrol.com/es/"
+            "url": "https://codeberg.org/CharlieBacon/particles-celular-automata"
         },
         {
-            "name": "RecRep Tool",
-            "isActive": false,
-            "description": "Tool for Bluence SCADA development teams. Takes real time data from a productive energy plant and replays it into development environments",
+            "name": "Terminal Space Invaders",
+            "description": "A terminal-based ASCII version of the game Space Invaders. Written in Rust.",
             "tags": [
-                "C#",
-                ".NET Framework",
-                "Automation Protocols"
+                "rust"
             ],
-            "url": "https://bluence.isotrol.com/es/"
-        },
-        {
-            "name": "IFF Sensor Integration",
-            "isActive": false,
-            "description": "Integration of the 'Friend or Foe Identification' Sensor into the F110's frigates combat system",
-            "tags": [
-                "C++",
-                "Qt Framework",
-                "DDS"
-            ],
-            "url": "https://www.defensa.com/defensa-naval/secretos-tecnologicos-mastil-fragata-f110"
-        },
-        {
-            "name": "C4IP | User Service",
-            "isActive": false,
-            "description": "User Management Service for modern Spanish Army's combat ships ",
-            "tags": [
-                "C++",
-                "API Rest",
-                "Docker"
-            ],
-            "url": "https://www.infodefensa.com/texto-diario/mostrar/4351528/smart-8000-asi-futuro-buque-combate-navantia"
-        },
-        {
-            "name": "C4IP | ETL",
-            "isActive": false,
-            "description": "Loading/verification data and representation service from different sources",
-            "tags": [
-                "TypeScript",
-                "React",
-                "Docker",
-                "API Rest"
-            ],
-            "url": "https://www.infodefensa.com/texto-diario/mostrar/4351528/smart-8000-asi-futuro-buque-combate-navantia"
+            "url": "https://github.com/SharliBeicon/rust-space-invaders"
         }
     ],
     "es": [
         {
-            "name": "Romeo5",
-            "isActive": true,
-            "description": "Herramienta de visualización de información de vuelo y conciencia situacional para controladores de tráfico aéreo y AFIS",
+            "name": "Oxify",
+            "description": "Cliente de Spotify con memoria mínima construido sobre Ratatui y Librespot.",
             "tags": [
-                "Rust 🦀",
-                "Kubernetes",
-                "gRPC",
-                "Apache Kafka",
-                "Microservices"
+                "wip",
+                "rust"
             ],
-            "url": "https://databeacon.aero/romeo5/"
+            "url": "https://codeberg.org/CharlieBacon/oxify"
         },
         {
-            "name": "Cenware",
-            "isActive": true,
-            "description": "Proyecto de transformación digital que busca ayudar a pequeñas empresas de la zona de la bahía de Cádiz en su crecimiento",
+            "name": "El Telitairo",
+            "description": "Bot de telegram con IA.",
             "tags": [
-                "Proyecto Paralelo",
-                "TypeScript",
-                "React",
-                "GraphQL",
-                "Microservicios"
+                "rust",
+                "ai"
             ],
-            "url": "https://cenware.net"
+            "url": "https://github.com/SharliBeicon/telitairos-bot"
         },
         {
-            "name": "PayRetailers Sandbox",
-            "isActive": false,
-            "description": "Ecosistema Sandbox que simula un entorno de back office real para captar potenciales clientes",
+            "name": "Procedural Maps",
+            "description": "Generación de mapas procedimentales usando satisfacción de restricciones.",
             "tags": [
-                "TypeScript",
-                "React",
-                ".NET Core",
-                "API Rest"
+                "zig",
+                "raylib"
             ],
-            "url": "https://www.payretailers.com/es/partners/"
+            "url": "https://github.com/SharliBeicon/procedural-maps"
         },
         {
-            "name": "+10 Integraciones de plantas de energía",
-            "isActive": false,
-            "description": "Integraciones punto a punto de plantas de energía en los entornos Bluence, desde la toma de requisitos hasta despliegues a producción",
+            "name": "Particle System",
+            "description": "Modelo de autómata celular que muestra diferentes tipos de partículas como arena y agua.",
             "tags": [
-                "C#",
-                ".NET Framework",
-                "JavaServer Pages",
-                "JavaScript",
-                "Lider de Equipo"
+                "C",
+                "SDL"
             ],
-            "url": "https://bluence.isotrol.com/es/"
+            "url": "https://codeberg.org/CharlieBacon/particles-celular-automata"
         },
         {
-            "name": "RecRep Tool",
-            "isActive": false,
-            "description": "Herramienta para los equipos de desarrollo de Bluence. Capta datos reales de plantas de energía renovables y los simula en entornos de desarrollo",
+            "name": "Terminal Space Invaders",
+            "description": "Versión ASCII del juego Space Invaders para terminal. Escrito en Rust.",
             "tags": [
-                "C#",
-                ".NET Framework",
-                "Protocolos Industriales"
+                "rust"
             ],
-            "url": "https://bluence.isotrol.com/es/"
-        },
-        {
-            "name": "Integración sensor IFF",
-            "isActive": false,
-            "description": "Integración del sensor 'Friend or Foe Identification' en el sistema de combate de las fragatas F110",
-            "tags": [
-                "C++",
-                "Qt Framework",
-                "DDS"
-            ],
-            "url": "https://www.defensa.com/defensa-naval/secretos-tecnologicos-mastil-fragata-f110"
-        },
-        {
-            "name": "C4IP | User Service",
-            "isActive": false,
-            "description": "Microservicio de gestión de usuarios para sistemas de combate y navegación",
-            "tags": [
-                "C++",
-                "API Rest",
-                "Docker"
-            ],
-            "url": "https://www.infodefensa.com/texto-diario/mostrar/4351528/smart-8000-asi-futuro-buque-combate-navantia"
-        },
-        {
-            "name": "C4IP | ETL",
-            "isActive": false,
-            "description": "Servicio de carga, verificación y representación de información para diferentes sistemas",
-            "tags": [
-                "TypeScript",
-                "React",
-                "Docker",
-                "API Rest"
-            ],
-            "url": "https://www.infodefensa.com/texto-diario/mostrar/4351528/smart-8000-asi-futuro-buque-combate-navantia"
+            "url": "https://github.com/SharliBeicon/rust-space-invaders"
         }
     ]
 }

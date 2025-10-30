@@ -21,7 +21,7 @@ const { lang, title } = Astro.props
                 <header>
                   <a href={item.url} target="_blank">
                     <h3>
-                      {item.name} {item.isActive && <span>&bull;</span>}
+                      {item.name}
                     </h3>
                   </a>
 
@@ -62,10 +62,6 @@ const { lang, title } = Astro.props
     margin-bottom: 6px;
   }
 
-  article h3 span {
-    color: rgb(0, 197, 36);
-  }
-
   a:hover {
     text-decoration: underline;
     text-decoration-color: #00adb5;
@@ -87,6 +83,7 @@ const { lang, title } = Astro.props
     font-size: 0.8rem;
   }
   footer li {
+    cursor: pointer;
     border-radius: 8px;
     background: #00adb5;
     color: #fff;

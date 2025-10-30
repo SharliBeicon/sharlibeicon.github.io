@@ -13,16 +13,10 @@
       "summary": "Developed secure payment gateway integrations. Succesfully integrated several partners with the consequent achievement of PCI DSS compliance certificate."
     },
     {
-      "company": "Alten",
+      "company": "Navantia",
       "position": "Software Engineer",
-      "duration": "May 2023 - December 2023",
-      "summary": "Design and development of combat and navigation microservices for Navantia S.A, as part of the C4IP project aiming at modernizing the architecture of the Spanish Navy systems."
-    },
-    {
-      "company": "Ghenova Digital",
-      "position": "Software Engineer",
-      "duration": "June 2022 - May 2023",
-      "summary": "Integration of sensors into the new combat system of the F110 frigates of the Spanish Navy. Integrating new functionalities into a legacy C++ codebase of millions of lines."
+      "duration": "June 2022 - December 2023",
+      "summary": "Design and development of combat and navigation microservices as part of the C4IP project, aimed at modernizing the Spanish Navy's architecture. Integration of sensors into the F110 frigates combat system, implementing new functionalities in a legacy C++ codebase of millions of lines."
     },
     {
       "company": "Isotrol",
@@ -45,16 +39,10 @@
       "summary": "Parte del equipo de seguridad desarrollando integraciones de pasarelas de pago securizadas. Numerosos partners integrados con la consecuente obtención del certificado de cumplimiento de la normativa PCI DSS."
     },
     {
-      "company": "Alten",
+      "company": "Navantia",
       "position": "Ingeniero de Software",
-      "duration": "Mayo 2023 - Diciembre 2023",
-      "summary": "Diseño y desarrollo de microservicios de combate y navegación para Navantia S.A, como parte del proyecto C4IP que busca la modernización en la arquitectura de los sistemas de la armada española."
-    },
-    {
-      "company": "Ghenova Digital",
-      "position": "Ingeniero de Software",
-      "duration": "Junio 2022 - Mayo 2023",
-      "summary": "Integración de sensores dentro del nuevo sistema de combate de las fragatas F110 de la armada española. Integrando nuevas funcionalidades en un código legacy C++ de millones de lineas."
+      "duration": "Junio 2022 - Diciembre 2023",
+      "summary": "Diseño y desarrollo de microservicios de combate y navegación como parte del proyecto C4IP, que busca modernizar la arquitectura de la armada española. Integración de sensores en el sistema de combate de las fragatas F110, implementando nuevas funcionalidades en un código legacy C++ de millones de líneas."
     },
     {
       "company": "Isotrol",
