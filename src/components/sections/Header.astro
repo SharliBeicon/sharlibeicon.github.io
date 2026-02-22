@@ -1,0 +1,45 @@
+---
+import Section from "@/components/Section.astro";
+import { Image } from "astro:assets";
+import profileImg from "@/assets/profile.png";
+---
+
+<Section>
+    <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+        <div class="flex flex-col items-start">
+            <h1
+                class="text-2xl font-semibold leading-tight print:text-[2.25rem] sm:text-[2.75rem] md:text-[3.5rem]"
+            >
+                Carlos Tocino
+            </h1>
+            <h3
+                class="mt-1 text-md font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]"
+            >
+                AKA. Charlie Bacon
+            </h3>
+            <h2
+                class="mt-2 text-lg text-[1.05rem] font-normal leading-snug text-[color:var(--color-subtle)] print:text-[1.05rem] sm:text-[1.35rem] md:text-[1.75rem]"
+            >
+                Senior Software Engineer | Rust Developer
+            </h2>
+            <h4
+                class="mt-2 text-lg font-extralight text-[color:var(--color-subtle)]"
+            >
+                Southern Spain ☀️🏖️
+            </h4>
+            <p class="mt-1 text-lg font-extralight color:var(--color-stale)]">
+                me@charliebacon.dev
+            </p>
+        </div>
+        <figure class="shrink-0">
+            <Image
+                class="h-40 w-40 rounded-full sm:h-48 sm:w-48 md:h-[250px] md:w-[250px]"
+                src={profileImg}
+                alt="profile"
+                width={250}
+                height={250}
+                loading="eager"
+            />
+        </figure>
+    </div>
+</Section>

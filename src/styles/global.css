@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --palette-ink: #222831;
+    --palette-slate: #393e46;
+    --palette-soft: #8f9ba8;
+    --palette-soft-light: #7f8c9b;
+    --palette-soft-dark: #a1a9b2;
+    --palette-accent: #00adb5;
+    --palette-paper: #eeeeee;
+    --color-bg: var(--palette-paper);
+    --color-text: var(--palette-ink);
+    --color-muted: var(--palette-slate);
+    --color-subtle: var(--palette-soft-light);
+    --color-accent: var(--palette-accent);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: var(--palette-ink);
+      --color-text: var(--palette-paper);
+      --color-muted: var(--palette-slate);
+      --color-subtle: var(--palette-soft-dark);
+      --color-accent: var(--palette-accent);
+    }
+  }
+
+  html[data-theme="light"] {
+    --color-bg: var(--palette-paper);
+    --color-text: var(--palette-ink);
+    --color-muted: var(--palette-slate);
+    --color-subtle: var(--palette-soft-light);
+    --color-accent: var(--palette-accent);
+  }
+
+  html[data-theme="dark"] {
+    --color-bg: var(--palette-ink);
+    --color-text: var(--palette-paper);
+    --color-muted: var(--palette-slate);
+    --color-subtle: var(--palette-soft-dark);
+    --color-accent: var(--palette-accent);
+  }
+
+  html {
+    @apply tracking-[-0.025rem];
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family:
+      "Iosevka Web", Menlo, Monaco, "Lucida Console", "Courier New", Courier,
+      monospace;
+  }
+}
+
+@layer components {
+  .accent-link {
+    @apply underline decoration-[color:var(--color-accent)] decoration-[3px] underline-offset-4 transition-colors hover:text-[color:var(--color-accent)] text-lg;
+  }
+}
