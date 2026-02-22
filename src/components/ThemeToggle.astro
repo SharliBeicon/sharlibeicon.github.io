@@ -1,5 +1,5 @@
 ---
-
+import themeToggleScript from "../scripts/theme-toggle.ts?url";
 ---
 
 <button
@@ -27,6 +27,4 @@
     </svg>
 </button>
 
-<script type="module">
-    import "/src/scripts/theme-toggle.ts";
-</script>
+<script type="module" src={themeToggleScript}></script>
