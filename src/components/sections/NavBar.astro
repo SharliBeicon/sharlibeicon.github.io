@@ -5,14 +5,14 @@ const isBlogPage = Astro.url.pathname.startsWith("/blog");
 ---
 
 <header class="print:hidden">
-    <nav class="flex items-center justify-end gap-5 px-5">
-        {
-            isBlogPage && (
-                <a class="accent-link text-base" href="/">
-                    Home
-                </a>
-            )
-        }
-        <ThemeToggle />
-    </nav>
+  <nav class="flex items-center justify-end gap-5 px-5">
+    {
+      isBlogPage && (
+        <a class="accent-link text-base" href="/">
+          Home
+        </a>
+      )
+    }
+    <ThemeToggle />
+  </nav>
 </header>

@@ -6,14 +6,14 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://charliebacon.dev",
-    vite: {
-        resolve: {
-            alias: {
-                "@": fileURLToPath(new URL("./src", import.meta.url)),
-            },
-        },
-
-        plugins: [tailwindcss()],
+  site: "https://charliebacon.dev",
+  vite: {
+    resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("./src", import.meta.url)),
+      },
     },
+
+    plugins: [tailwindcss()],
+  },
 });

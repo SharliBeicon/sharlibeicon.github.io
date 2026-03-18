@@ -7,12 +7,12 @@ import Section from "@/components/Section.astro";
 import { getReadingTimeLabel } from "@/utils/blog";
 
 export async function getStaticPaths() {
-    const posts = await getCollection("blog");
+  const posts = await getCollection("blog");
 
-    return posts.map((post) => ({
-        params: { slug: post.slug },
-        props: { post },
-    }));
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
 }
 
 const { post } = Astro.props;
@@ -21,30 +21,36 @@ const readingTimeLabel = getReadingTimeLabel(post.body);
 ---
 
 <Layout title={`${post.data.title} | Charlie Bacon`}>
-    <NavBar />
+  <NavBar />
 
-    <Section>
-        <a class="accent-link text-base" href="/blog/">Back to blog</a>
+  <Section>
+    <a class="accent-link text-base" href="/blog/">Back to blog</a>
 
-        <article class="mt-6">
-            <p class="text-sm uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
-                {post.data.pubDate.toLocaleDateString("en", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                })}
-            </p>
-            <h1 class="mt-3 text-4xl leading-tight">{post.data.title}</h1>
-            <p class="mt-3 text-lg text-[color:var(--color-subtle)]">
-                {post.data.description}
-            </p>
-            <p class="mt-2 text-sm uppercase tracking-[0.2em] text-[color:var(--color-subtle)]">
-                {readingTimeLabel}
-            </p>
+    <article class="mt-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-[color:var(--color-accent)]"
+      >
+        {
+          post.data.pubDate.toLocaleDateString("en", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </p>
+      <h1 class="mt-3 text-4xl leading-tight">{post.data.title}</h1>
+      <p class="mt-3 text-lg text-[color:var(--color-subtle)]">
+        {post.data.description}
+      </p>
+      <p
+        class="mt-2 text-sm uppercase tracking-[0.2em] text-[color:var(--color-subtle)]"
+      >
+        {readingTimeLabel}
+      </p>
 
-            <div class="blog-content mt-8 max-w-none">
-                <Content />
-            </div>
-        </article>
-    </Section>
+      <div class="blog-content mt-8 max-w-none">
+        <Content />
+      </div>
+    </article>
+  </Section>
 </Layout>
