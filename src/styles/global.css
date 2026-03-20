@@ -62,7 +62,7 @@
   }
 
   .blog-content {
-    @apply text-[1rem] leading-relaxed sm:text-[1.05rem];
+    @apply text-[1.4rem] leading-relaxed sm:text-[1.05rem];
   }
 
   .blog-content > * + * {
