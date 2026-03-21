@@ -2,7 +2,6 @@
 title: "LZ4 Rust - Devlog #0"
 description: "First steps into an [un]safe, FFI journey"
 pubDate: 2026-03-17
-mastodonCommentUrl: "https://your.instance/@youruser/123456789012345678"
 ---
 
 I always wanted to start my own _'Rewrite it in Rust™️'_ project. However, it
