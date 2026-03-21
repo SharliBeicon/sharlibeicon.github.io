@@ -68,4 +68,67 @@ utilities.
 
 ## Let's start
 
-> [!WIP]
+First things first: [Fork the repo](https://github.com/SharliBeicon/lz4).
+
+Now let's inspect the surface and see if we find out a good starting point:
+
+```shell
+~/D/P/lz4 dev
+❯❯❯ tree -L 1
+.
+├── appveyor.yml
+├── build
+├── CODING_STYLE
+├── contrib
+├── doc
+├── examples
+├── INSTALL
+├── lib
+├── LICENSE
+├── Makefile
+├── NEWS
+├── ossfuzz
+├── programs
+├── README.md
+├── SECURITY.md
+└── tests
+
+9 directories, 8 files
+```
+
+- `build`: We can safely ignore it. Includes support for several build systems.
+  Since we are going to eventually migrate everything to `cargo`, we'll support
+  just `make`.
+- `contrib`: Third party stuff not related to the core of the project.
+- `examples/`: Useful for testing purposes in the future, not now.
+- `ossfuzz/`. Test suite for the
+  [Google's OSS Fuzz project](https://github.com/google/oss-fuzz). Also useful
+  in future chapters of our lifes.
+- `programs/`.
+
+That leave us `lib/` folder, where the algorithm lives and where we should focus
+for now, not to start coding yet, but to understand the very basics of how this
+is built.
+
+Inside, there is a
+[README.md](https://github.com/lz4/lz4/blob/dev/lib/README.md) which is quite
+revealing:
+
+```markdown
+The `/lib` directory contains many files, but depending on project's objectives,
+not all of them are required. Limited systems may want to reduce the nb of
+source files to include as a way to reduce binary size and dependencies.
+
+Capabilities are added at the "level" granularity, detailed below.
+
+#### Level 1 : Minimal LZ4 build
+
+The minimum required is **`lz4.c`** and **`lz4.h`**, which provides the fast
+compression and decompression algorithms. They generate and decode data using
+the [LZ4 block format].
+
+...
+```
+
+Let's explore the public API of `lz4.h`:
+

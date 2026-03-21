@@ -1,5 +1,41 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Iosevka Web";
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/Iosevka/11.1.1/iosevka/woff2/iosevka-extralight.woff2")
+    format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Iosevka Web";
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/Iosevka/11.1.1/iosevka/woff2/iosevka-light.woff2")
+    format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Iosevka Web";
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/Iosevka/11.1.1/iosevka/woff2/iosevka-regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Iosevka Web";
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/Iosevka/11.1.1/iosevka/woff2/iosevka-semibold.woff2")
+    format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
+}
+
 @layer base {
   :root {
     --palette-ink: #222831;
@@ -98,5 +134,24 @@
 
   .blog-content ol {
     @apply list-decimal;
+  }
+
+  html[data-theme="dark"] .astro-code,
+  html[data-theme="dark"] .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+
+  .blog-content .astro-code {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    padding: 0.85rem 1rem;
+  }
+
+  .blog-content .astro-code .line {
+    line-height: 1.4;
   }
 }
