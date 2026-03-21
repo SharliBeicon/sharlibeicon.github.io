@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 
 import Layout from "@/layouts/Layout.astro";
+import MastodonComments from "@/components/MastodonComments.astro";
 import NavBar from "@/components/sections/NavBar.astro";
 import Section from "@/components/Section.astro";
 import { getReadingTimeLabel } from "@/utils/blog";
@@ -51,6 +52,12 @@ const readingTimeLabel = getReadingTimeLabel(post.body);
       <div class="blog-content mt-8 max-w-none">
         <Content />
       </div>
+
+      {
+        post.data.mastodonCommentUrl && (
+          <MastodonComments url={post.data.mastodonCommentUrl} />
+        )
+      }
     </article>
   </Section>
 </Layout>

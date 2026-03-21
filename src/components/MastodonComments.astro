@@ -1,0 +1,192 @@
+---
+interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+const threadUrl = new URL(url);
+const segments = threadUrl.pathname.split("/").filter(Boolean);
+const statusId = segments.at(-1);
+
+if (!statusId) {
+  throw new Error(`Invalid Mastodon status URL: ${url}`);
+}
+
+const endpoint = `${threadUrl.origin}/api/v1/statuses/${statusId}/context`;
+const sectionId = `mastodon-comments-${statusId}`;
+---
+
+<section
+  id={sectionId}
+  class="mastodon-comments mt-12 border-t border-[color:var(--color-muted)]/20 pt-8"
+  data-endpoint={endpoint}
+  data-status-id={statusId}
+  data-thread-url={url}
+>
+  <div class="flex items-center justify-between gap-4">
+    <div>
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-[color:var(--color-accent)]"
+      >
+        Comments
+      </p>
+      <h2 class="mt-2 text-2xl leading-tight">Join the discussion</h2>
+    </div>
+
+    <a
+      class="accent-link text-base"
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Open thread
+    </a>
+  </div>
+
+  <p class="mastodon-comments-status mt-4 text-[color:var(--color-subtle)]">
+    Loading replies from Mastodon...
+  </p>
+  <div class="mastodon-comments-list mt-6"></div>
+</section>
+
+<script>
+  const sections = document.querySelectorAll(
+    ".mastodon-comments[data-endpoint]",
+  );
+
+  const dateFormatter = new Intl.DateTimeFormat("en", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
+
+  const escapeHtml = (value) =>
+    value
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
+
+  const buildCommentTree = (comments, rootStatusId) => {
+    const byParent = new Map();
+
+    for (const comment of comments) {
+      const parentId = comment.in_reply_to_id ?? rootStatusId;
+      const siblings = byParent.get(parentId) ?? [];
+
+      siblings.push(comment);
+      byParent.set(parentId, siblings);
+    }
+
+    for (const siblings of byParent.values()) {
+      siblings.sort(
+        (left, right) =>
+          new Date(left.created_at).getTime() -
+          new Date(right.created_at).getTime(),
+      );
+    }
+
+    return byParent;
+  };
+
+  const renderComments = (commentsByParent, parentId, depth = 0) => {
+    const comments = commentsByParent.get(parentId) ?? [];
+
+    if (!comments.length) {
+      return "";
+    }
+
+    return `
+      <ol class="mastodon-comment-thread" style="--comment-depth:${depth};">
+        ${comments
+          .map((comment) => {
+            const displayName =
+              comment.account.display_name?.trim() || comment.account.username;
+            const accountHandle = `${comment.account.acct}`;
+
+            return `
+              <li class="mastodon-comment">
+                <article class="mastodon-comment-card">
+                  <header class="mastodon-comment-header">
+                    <img
+                      class="mastodon-comment-avatar"
+                      src="${escapeHtml(comment.account.avatar_static)}"
+                      alt=""
+                      loading="lazy"
+                      width="48"
+                      height="48"
+                    />
+                    <div>
+                      <a
+                        class="mastodon-comment-author"
+                        href="${escapeHtml(comment.account.url)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        ${escapeHtml(displayName)}
+                      </a>
+                      <p class="mastodon-comment-meta">
+                        @${escapeHtml(accountHandle)} ·
+                        <a
+                          href="${escapeHtml(comment.url)}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          ${dateFormatter.format(new Date(comment.created_at))}
+                        </a>
+                      </p>
+                    </div>
+                  </header>
+                  <div class="mastodon-comment-body">${comment.content}</div>
+                </article>
+                ${renderComments(commentsByParent, comment.id, depth + 1)}
+              </li>
+            `;
+          })
+          .join("")}
+      </ol>
+    `;
+  };
+
+  const loadComments = async (section) => {
+    const status = section.querySelector(".mastodon-comments-status");
+    const list = section.querySelector(".mastodon-comments-list");
+    const endpoint = section.dataset.endpoint;
+    const rootStatusId = section.dataset.statusId;
+    const threadUrl = section.dataset.threadUrl;
+    const escapedThreadUrl = threadUrl ? escapeHtml(threadUrl) : "";
+
+    if (!status || !list || !endpoint || !rootStatusId || !threadUrl) {
+      return;
+    }
+
+    try {
+      const response = await fetch(endpoint, {
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
+      const data = await response.json();
+      const comments = Array.isArray(data.descendants) ? data.descendants : [];
+
+      if (!comments.length) {
+        status.innerHTML = `No replies yet. <a href="${escapedThreadUrl}" target="_blank" rel="noopener noreferrer">Be the first to comment on Mastodon.</a>`;
+        return;
+      }
+
+      const commentsByParent = buildCommentTree(comments, rootStatusId);
+      list.innerHTML = renderComments(commentsByParent, rootStatusId);
+      status.textContent = `${comments.length} repl${comments.length === 1 ? "y" : "ies"} from Mastodon`;
+    } catch (error) {
+      console.error("Unable to load Mastodon comments", error);
+      status.innerHTML = `Could not load Mastodon replies right now. <a href="${escapedThreadUrl}" target="_blank" rel="noopener noreferrer">Open the thread directly.</a>`;
+    }
+  };
+
+  for (const section of sections) {
+    loadComments(section);
+  }
+</script>

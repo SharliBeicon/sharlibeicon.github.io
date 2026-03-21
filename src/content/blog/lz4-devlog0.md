@@ -1,11 +1,12 @@
 ---
-title: "LZ4 Rust - Devlog #1"
+title: "LZ4 Rust - Devlog #0"
 description: "First steps into an [un]safe, FFI journey"
 pubDate: 2026-03-17
+mastodonCommentUrl: "https://your.instance/@youruser/123456789012345678"
 ---
 
 I always wanted to start my own _'Rewrite it in Rust™️'_ project. However, it
-always felt overwhelming to me due not only to its length, but also to the
+always felt overwhelming to me due not only to its length but also to the
 difficulty of maintaining an aligned implementation in the long run.
 
 That changed when I attended the 2025 edition of
@@ -70,7 +71,7 @@ utilities.
 
 First things first: [Fork the repo](https://github.com/SharliBeicon/lz4).
 
-Now let's inspect the surface and see if we find out a good starting point:
+Now let's inspect the surface and see if we can find a good starting point:
 
 ```shell
 ~/D/P/lz4 dev
@@ -96,19 +97,19 @@ Now let's inspect the surface and see if we find out a good starting point:
 9 directories, 8 files
 ```
 
-- `build`: We can safely ignore it. Includes support for several build systems.
-  Since we are going to eventually migrate everything to `cargo`, we'll support
-  just `make`.
+- `build`: We can safely ignore it. It includes support for several build
+  systems. Since we are going to eventually migrate everything to `cargo`, we'll
+  support just `make`.
 - `contrib`: Third party stuff not related to the core of the project.
 - `examples/`: Useful for testing purposes in the future, not now.
 - `ossfuzz/`. Test suite for the
   [Google's OSS Fuzz project](https://github.com/google/oss-fuzz). Also useful
-  in future chapters of our lifes.
-- `programs/`.
+  in future chapters of our lives.
+- `programs/`: `lz4` CLI comes from here.
 
-That leave us `lib/` folder, where the algorithm lives and where we should focus
-for now, not to start coding yet, but to understand the very basics of how this
-is built.
+That leaves us with the `lib/` folder, where the algorithm lives and where we
+should focus for now, not to start coding yet, but to understand the very basics
+of how this is built.
 
 Inside, there is a
 [README.md](https://github.com/lz4/lz4/blob/dev/lib/README.md) which is quite
@@ -130,5 +131,28 @@ the [LZ4 block format].
 ...
 ```
 
-Let's explore the public API of `lz4.h`:
+As we explore [`lz4.h`](https://github.com/lz4/lz4/blob/dev/lib/lz4.h#L174)
+file, after a few `#define` and constant declarations; we can find the public
+API definitions, separated by sections depending how fine-grained we want to
+interact with this implementation.
 
+This is helpful because it help us to identify potential entrypoints for our
+rewrite.
+
+Specifically, the following signatures are interesting:
+
+```c
+/*-************************************
+*  Simple Functions
+**************************************/
+/*! LZ4_compress_default() :
+ * ...
+ */
+LZ4LIB_API int LZ4_compress_default(const char* src, char* dst, int srcSize, int dstCapacity);
+
+/*! LZ4_decompress_safe() :
+ * ...
+ */
+LZ4LIB_API int LZ4_decompress_safe (const char* src, char* dst, int compressedSize, int dstCapacity);
+
+```

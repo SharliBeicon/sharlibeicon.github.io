@@ -5,6 +5,7 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
+    mastodonCommentUrl: z.string().url().optional(),
   }),
 });
 

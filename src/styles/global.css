@@ -154,4 +154,72 @@
   .blog-content .astro-code .line {
     line-height: 1.4;
   }
+
+  .mastodon-comment-thread {
+    @apply space-y-4;
+    margin-left: calc(var(--comment-depth, 0) * 1rem);
+  }
+
+  .mastodon-comment-thread + .mastodon-comment-thread {
+    @apply mt-4;
+  }
+
+  .mastodon-comment-card {
+    @apply rounded-xl border border-[color:var(--color-muted)]/15 bg-[color:var(--color-bg)]/70 p-4;
+  }
+
+  .mastodon-comment-header {
+    @apply flex items-start gap-3;
+  }
+
+  .mastodon-comment-avatar {
+    @apply h-12 w-12 rounded-full border border-[color:var(--color-muted)]/15;
+  }
+
+  .mastodon-comment-author {
+    @apply text-base font-semibold underline decoration-[color:var(--color-accent)] decoration-[2px] underline-offset-4;
+  }
+
+  .mastodon-comment-meta {
+    @apply mt-1 text-sm text-[color:var(--color-subtle)];
+  }
+
+  .mastodon-comment-meta a {
+    @apply underline decoration-[color:var(--color-muted)]/40 decoration-[2px] underline-offset-3;
+  }
+
+  .mastodon-comment-body {
+    @apply mt-4 space-y-4 text-[1rem] leading-relaxed;
+  }
+
+  .mastodon-comment-body a {
+    @apply underline decoration-[color:var(--color-accent)] decoration-[2px] underline-offset-4;
+  }
+
+  .mastodon-comment-body p,
+  .mastodon-comment-body ul,
+  .mastodon-comment-body ol,
+  .mastodon-comment-body blockquote {
+    @apply mt-3;
+  }
+
+  .mastodon-comment-body ul {
+    @apply ml-5 list-disc;
+  }
+
+  .mastodon-comment-body ol {
+    @apply ml-5 list-decimal;
+  }
+
+  .mastodon-comment-body blockquote {
+    @apply border-l-2 border-[color:var(--color-accent)]/40 pl-4 text-[color:var(--color-subtle)];
+  }
+
+  .mastodon-comment-body .invisible {
+    @apply hidden;
+  }
+
+  .mastodon-comment-body .ellipsis::after {
+    content: "...";
+  }
 }
