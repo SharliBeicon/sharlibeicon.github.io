@@ -33,10 +33,10 @@ that hasn't been migrated before or a project that really "needs" it. Also, for
 personal interest, if the project has some algorithmic complexity to make the
 development fun and full of lessons, that would be nice as well!
 
-We should look for a not-too-large project, assumable by a solo dev during
-their side-project hours; with a clear, scoped division into modules to make it
-easier to squeeze ourselves into it. We also want it to be well tested and
-documented so we do not drift away from the specification.
+We should look for a not-too-large project, assumable by a solo dev during their
+side-project hours; with a clear, scoped division into modules to make it easier
+to squeeze ourselves into it. We also want it to be well tested and documented
+so we do not drift away from the specification.
 
 Given these constraints, and after a quick search, I believe the
 [LZ4 compression algorithm](https://lz4.org/) and its official C implementation
@@ -116,9 +116,9 @@ Inside, there is a
 revealing:
 
 ```markdown
-The `/lib` directory contains many files, but depending on project's
-objectives, not all of them are required. Limited systems may want to reduce the
-nb of source files to include as a way to reduce binary size and dependencies.
+The `/lib` directory contains many files, but depending on project's objectives,
+not all of them are required. Limited systems may want to reduce the nb of
+source files to include as a way to reduce binary size and dependencies.
 
 Capabilities are added at the "level" granularity, detailed below.
 
@@ -182,6 +182,8 @@ definition says about it:
 > successive value providing roughly +~3% to speed. An acceleration value of "1"
 > is the same as regular LZ4_compress_default()
 
-Also, `LZ4_compress_fast()` is just another wrapper over `LZ4_compress_fast_extState()`.
-Since the latter receive another extra field, an external `state`;
-`fast()` just decides how to allocate that state and then pass it to `extState()`.
+Also,
+[`LZ4_compress_fast()`](https://github.com/lz4/lz4/blob/5c4c1fb2354133e1f3b087a341576985f8114bd5/lib/lz4.c#L1449)
+is just another wrapper over `LZ4_compress_fast_extState()`. Since the latter
+receive another extra field, an external `state`; `fast()` just decides how to
+allocate that state and then pass it to `extState()`.
