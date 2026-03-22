@@ -5,20 +5,21 @@ pubDate: 2026-03-17
 ---
 
 I always wanted to start my own _'Rewrite it in Rust™️'_ project. However, it
-always felt overwhelming to me due not only to its length but also to the
-difficulty of maintaining an aligned implementation in the long run.
+always felt overwhelming to me, not only because of its length but also because
+of the difficulty of maintaining an aligned implementation in the long run.
 
 That changed when I attended the 2025 edition of
 [EuroRust](https://eurorust.eu/). Among dozens of quite interesting talks, the
-one given by [Luca Palmieri](https://www.youtube.com/watch?v=XklFGy3aUX4) kept
-me thinking about starting this project.
+one given by [Luca Palmieri](https://www.youtube.com/watch?v=XklFGy3aUX4) got me
+thinking about starting this project.
 
 ## Rewrite, Optimize, Repeat
 
 We don't want a standalone version of the software at the very beginning of the
-project. We want two parts living together, coexisting, interoperating with each
-other. A rewrite from scratch is not the solution; replacing isolated modules
-until the Rust virus has spread enough to take control of the project is.
+project. We want two parts living together, coexisting, and interoperating with
+each other. A rewrite from scratch is not the solution; replacing isolated
+modules until the Rust virus has spread enough to take control of the project
+is.
 
 This project is not just about writing Rust code. It is about C, ABIs, build
 systems, interoperability, memory layouts, and optimizations while keeping an
@@ -28,14 +29,14 @@ eye on possible regressions.
 
 Ok, we know what we want to do. The next question is: what is our target? Since
 the main purpose of this project is learning, we don't need to find a project
-that hasn't been migrated before, or a project that really "needs" it. Also, for
+that hasn't been migrated before or a project that really "needs" it. Also, for
 personal interest, if the project has some algorithmic complexity to make the
 development fun and full of lessons, that would be nice as well!
 
-We should look for a not-too-large project, assumable by a solo dev during their
-side-project hours; with a clear, scoped division into modules to make it easier
-to squeeze ourselves into it. We also want it to be well tested and documented
-so we do not drift away from the specification.
+We should look for a not-too-large project, assumable by a solo dev during
+their side-project hours; with a clear, scoped division into modules to make it
+easier to squeeze ourselves into it. We also want it to be well tested and
+documented so we do not drift away from the specification.
 
 Given these constraints, and after a quick search, I believe the
 [LZ4 compression algorithm](https://lz4.org/) and its official C implementation
@@ -115,9 +116,9 @@ Inside, there is a
 revealing:
 
 ```markdown
-The `/lib` directory contains many files, but depending on project's objectives,
-not all of them are required. Limited systems may want to reduce the nb of
-source files to include as a way to reduce binary size and dependencies.
+The `/lib` directory contains many files, but depending on project's
+objectives, not all of them are required. Limited systems may want to reduce the
+nb of source files to include as a way to reduce binary size and dependencies.
 
 Capabilities are added at the "level" granularity, detailed below.
 
@@ -130,12 +131,14 @@ the [LZ4 block format].
 ...
 ```
 
-As we explore [`lz4.h`](https://github.com/lz4/lz4/blob/dev/lib/lz4.h#L174)
-file, after a few `#define` and constant declarations; we can find the public
-API definitions, separated by sections depending how fine-grained we want to
+## Understanding the code
+
+As we explore the [`lz4.h`](https://github.com/lz4/lz4/blob/dev/lib/lz4.h#L174)
+file, after a few `#define` and constant declarations, we can find the public
+API definitions, separated by sections depending on how fine-grained we want to
 interact with this implementation.
 
-This is helpful because it help us to identify potential entrypoints for our
+This is helpful because it allows us to identify potential entry points for our
 rewrite.
 
 Specifically, the following signatures are interesting:
@@ -153,5 +156,32 @@ LZ4LIB_API int LZ4_compress_default(const char* src, char* dst, int srcSize, int
  * ...
  */
 LZ4LIB_API int LZ4_decompress_safe (const char* src, char* dst, int compressedSize, int dstCapacity);
-
 ```
+
+Aha! Functions for compressing and decompressing strings (`const char *`) inside
+a compression algorithm implementation. Seems reasonable.
+
+Let's deep dive into the compression one. Exploring that one will give us the
+needed context on the types, structures, and helpers that power the compression
+function:
+
+```c
+int LZ4_compress_default(const char* src, char* dst, int srcSize, int dstCapacity)
+{
+    return LZ4_compress_fast(src, dst, srcSize, dstCapacity, 1);
+}
+```
+
+Alright, that was easy... it just calls another `LZ4_compress_fast`, which has a
+very similar signature with an extra hardcoded `1`. This is what the function
+definition says about it:
+
+> Same as LZ4_compress_default(), but allows selection of "acceleration" factor.
+> The larger the acceleration value, the faster the algorithm, but also the
+> lesser the compression. It's a trade-off. It can be fine tuned, with each
+> successive value providing roughly +~3% to speed. An acceleration value of "1"
+> is the same as regular LZ4_compress_default()
+
+Also, `LZ4_compress_fast()` is just another wrapper over `LZ4_compress_fast_extState()`.
+Since the latter receive another extra field, an external `state`;
+`fast()` just decides how to allocate that state and then pass it to `extState()`.

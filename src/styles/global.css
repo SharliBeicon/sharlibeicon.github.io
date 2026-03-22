@@ -136,6 +136,14 @@
     @apply list-decimal;
   }
 
+  .blog-content blockquote {
+    @apply border-l-4 border-[color:var(--color-accent)]/50 bg-[color:var(--color-muted)]/6 px-5 py-4 italic text-[color:var(--color-subtle)];
+  }
+
+  .blog-content blockquote p {
+    @apply my-0;
+  }
+
   html[data-theme="dark"] .astro-code,
   html[data-theme="dark"] .astro-code span {
     color: var(--shiki-dark) !important;
