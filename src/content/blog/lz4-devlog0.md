@@ -98,10 +98,10 @@ Now let's inspect the surface and see if we can find a good starting point:
 9 directories, 8 files
 ```
 
-- `build`: We can safely ignore it. It includes support for several build
+- `build/`: We can safely ignore it. It includes support for several build
   systems. Since we are going to eventually migrate everything to `cargo`, we'll
   support just `make`.
-- `contrib`: Third party stuff not related to the core of the project.
+- `contrib/`: Third party stuff not related to the core of the project.
 - `examples/`: Useful for testing purposes in the future, not now.
 - `ossfuzz/`. Test suite for the
   [Google's OSS Fuzz project](https://github.com/google/oss-fuzz). Also useful
