@@ -26,7 +26,7 @@ This project is not just about writing Rust code. It is about C, ABIs, build
 systems, interoperability, memory layouts, and optimizations while keeping an
 eye on possible regressions.
 
-## Target choice
+## Project choice
 
 Ok, we know what we want to do. The next question is: what is our target? Since
 the main purpose of this project is learning, we don't need to find a project
