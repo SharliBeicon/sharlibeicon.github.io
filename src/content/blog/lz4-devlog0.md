@@ -25,7 +25,7 @@ This project is not just about writing Rust code. It is about C, ABIs, build
 systems, interoperability, memory layouts, and optimizations while keeping an
 eye on possible regressions.
 
-## Project choice
+## Target choice
 
 Ok, we know what we want to do. The next question is: what is our target? Since
 the main purpose of this project is learning, we don't need to find a project
@@ -105,7 +105,8 @@ Now let's inspect the surface and see if we can find a good starting point:
 - `ossfuzz/`. Test suite for the
   [Google's OSS Fuzz project](https://github.com/google/oss-fuzz). Also useful
   in future chapters of our lives.
-- `programs/`: `lz4` CLI comes from here.
+- `programs/`: Include programs that make use of the algorithm, such as the
+  `lz4` CLI.
 
 That leaves us with the `lib/` folder, where the algorithm lives and where we
 should focus for now, not to start coding yet, but to understand the very basics
@@ -157,9 +158,6 @@ LZ4LIB_API int LZ4_compress_default(const char* src, char* dst, int srcSize, int
  */
 LZ4LIB_API int LZ4_decompress_safe (const char* src, char* dst, int compressedSize, int dstCapacity);
 ```
-
-Aha! Functions for compressing and decompressing strings (`const char *`) inside
-a compression algorithm implementation. Seems reasonable.
 
 Let's dive deep into the compression one. Exploring that one will give us the
 needed context on the types, structures, and helpers that power the compression
@@ -368,8 +366,8 @@ Let's try a `make test` to see if everything works as expected:
 Well, it definitely runs!
 
 And it think that's enough for devlog #0: we have not rewritten the compressor,
-we have not won any benchmarks; but we do have a very important part done: a Rust
-crate compiled by Cargo, linked into the C library, and callable from the
+we have not won any benchmarks; but we do have a very important part done: a
+Rust crate compiled by Cargo, linked into the C library, and callable from the
 existing codebase without breaking the build.
 
 From here on, things get more interesting.
