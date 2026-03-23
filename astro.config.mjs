@@ -18,7 +18,7 @@ export default defineConfig({
     shikiConfig: {
       themes: {
         dark: "one-dark-pro",
-        light: "one-light",
+        light: "light-plus",
       },
     },
   },

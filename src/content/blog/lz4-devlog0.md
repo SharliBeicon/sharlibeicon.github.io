@@ -204,14 +204,172 @@ same, and make the C implementation use our version instead. That would leave us
 with a Rust project wired into the main C one, in a really good shape for the
 next chapters.
 
-## Rust integration
+```c
+int LZ4_compressBound(int isize)  { return LZ4_COMPRESSBOUND(isize); }
 
-To understand what goes on in this section, you should read
-[_Calling Rust code from C_](https://doc.rust-lang.org/nomicon/ffi.html?highlight=opaq#calling-rust-code-from-c)
-from the _Rustonomicon_. It is a short section.
+...
 
-Ok, so let's create a lib crate at the root level of the repo:
+#define LZ4_COMPRESSBOUND(isize)  ((unsigned)(isize) > (unsigned)LZ4_MAX_INPUT_SIZE ? 0 : (isize) + ((isize)/255) + 16)
+```
+
+Note that this is a compile-time macro, so we are certainly losing efficiency if
+we use our custom function instead, since it becomes an externally linked,
+runtime-executed function. However, that's acceptable for now, since
+outperforming the current implementation is way, way beyond our current scope.
+
+## Code integration
+
+### Rust crate
+
+Ok, so let's create a library crate at the root level of the repo:
 
 ```shell
 cargo new --lib lz4-rs
 ```
+
+Then, we need to add the following to `Cargo.toml` to tell Cargo it should treat
+our code as a static library, so it emits `liblz4_rs.a` we can link to the C
+artifacts.
+
+```toml
+[package]
+name = "lz4-rs"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["staticlib"]
+```
+
+Inside `lib.rs`, we are going to create a function that replicates the behavior
+of `LZ4_compressBound()`:
+
+```rust
+use std::ffi::c_int;
+
+pub const LZ4_MAX_INPUT_SIZE: u32 = 0x7E00_0000;
+
+pub const fn lz4_compress_bound(input_size: c_int) -> c_int {
+    if (input_size as u32) > LZ4_MAX_INPUT_SIZE {
+        0
+    } else {
+        input_size + (input_size / 255) + 16
+    }
+}
+```
+
+1. Include `c_int`. We need to match whatever `int` means on the platform that
+   executes the code (it can go from 16 bits to 64).
+2. `LZ4_MAX_INPUT_SIZE` constant with the same value as in the C implementation.
+3. Rust version of the function. Note that we declare it as `const`, because we
+   want to match the `#define` from C, which is evaluated at compile time.
+
+Now, we need to add a FFI wrapper to be able to call it from C:
+
+```rust
+#[unsafe(no_mangle)]
+pub unsafe extern "C" fn LZ4_rs_compressBound(isize: c_int) -> c_int {
+    lz4_compress_bound(isize)
+}
+```
+
+1.  Rust, when compiling, changes symbol names at the binary level. This is used
+    to add meta-information and prevent name collisions. However, we don't want
+    that to happen here, because otherwise C would not be able to find the
+    function. So with `#[unsafe(no_mangle)]` we tell the compiler not to change
+    the function name.
+2.  The function must be marked with `extern "C"` because Rust's ABI is not
+    stabilized. Parameter ordering, how return values are handled, and who
+    cleans up the stack can change. With that, we tell the compiler we need to
+    stick to the C ABI in order to interoperate properly.
+
+### Call it from C
+
+Going back to `lz4.c`, if we go to the implementation of `LZ4_compressBound()`
+We can swap the call of the macro with our Rust version. Declaring first the
+existence of the symbol:
+
+```c
+extern int LZ4_rs_compressBound(int isize);
+
+int LZ4_compressBound(int isize)  { return LZ4_rs_compressBound(isize); }
+```
+
+Now, all the references to `LZ4_compressBound()` across the C implementation
+will use our version instead.
+
+There is just another more step. Linking.
+
+### Linking all together
+
+We do not need to reinvent the whole build. We just need to teach `lib/Makefile`
+how to build the Rust crate and link its output into `liblz4`.
+
+First, we define where the Rust crate lives and where Cargo will leave the
+generated static library:
+
+```make
+CARGO ?= cargo
+
+RUSTDIR ?= ../lz4-rs
+RUST_PROFILE ?= release
+RUST_TARGET_DIR := $(RUSTDIR)/target/$(RUST_PROFILE)
+RUST_STATICLIB := $(RUST_TARGET_DIR)/liblz4_rs.a
+```
+
+Then we add a rule for building that artifact:
+
+```make
+$(RUST_STATICLIB): $(RUSTDIR)/src/lib.rs $(RUSTDIR)/Cargo.toml
+	$(CARGO) build --manifest-path $(RUSTDIR)/Cargo.toml --lib --profile $(RUST_PROFILE)
+```
+
+And finally, we make the shared `liblz4` target depend on that Rust archive and
+link it in:
+
+```make
+$(LIBLZ4): $(RUST_STATICLIB)
+$(LIBLZ4): LDLIBS += $(RUST_STATICLIB)
+
+$(eval $(call c_dynamic_library,$(LIBLZ4),$(OBJFILES),,echo "$(LIBLZ4) created",$(RUST_STATICLIB)))
+```
+
+With that, running `make` from the project root still feels like regular old
+`make`, but now there is a tiny Rust island hidden inside the build.
+
+However, `programs/Makefile` and `tests/Makefile` also compile and link targets
+that pull in `lz4.c`, so once `LZ4_compressBound()` starts calling into Rust,
+they need to link against `liblz4_rs.a` too. Otherwise the library itself builds
+fine, but the CLI and test binaries fail at link time with an unresolved symbol.
+
+So the same `RUST_STATICLIB` definition and build rule must be added there as
+well, and the corresponding targets need `LDLIBS += $(RUST_STATICLIB)`.
+
+Let's try a `make test` to see if everything works as expected:
+
+```shell
++--------------+------------------------------+--------------+----------------+--------------+--------------+
+|Source        |Function Benchmarked          | Total Seconds|  Iterations/sec|  ns/Iteration|  % of default|
++--------------+------------------------------+--------------+----------------+--------------+--------------+
+|Normal Text   |LZ4_compress_default()        |   0.016784000|         595,805|         1,678|       100.00%|
+|Normal Text   |LZ4_compress_fast()           |   0.016889000|         592,101|         1,688|       100.63%|
+|Normal Text   |LZ4_compress_fast_extState()  |   0.016694000|         599,017|         1,669|        99.46%|
+|Normal Text   |LZ4_decompress_safe()         |   0.003408000|       2,934,272|           340|        20.31%|
+|Normal Text   |LZ4_decompress_fast()         |   0.009859000|       1,014,301|           985|        58.74%|
+|              |                              |              |                |              |              |
+|Compressible  |LZ4_compress_default()        |   0.002235000|       4,474,272|           223|       100.00%|
+|Compressible  |LZ4_compress_fast()           |   0.002402000|       4,163,197|           240|       107.47%|
+|Compressible  |LZ4_compress_fast_extState()  |   0.002260000|       4,424,778|           226|       101.12%|
+|Compressible  |LZ4_decompress_safe()         |   0.000831000|      12,033,694|            83|        37.18%|
+|Compressible  |LZ4_decompress_fast()         |   0.025111000|         398,231|         2,511|     1,123.53%|
++--------------+------------------------------+--------------+----------------+--------------+--------------+
+```
+
+Well, it definitely runs!
+
+And it think that's enough for devlog #0: we have not rewritten the compressor,
+we have not won any benchmarks; but we do have a very important part done: a Rust
+crate compiled by Cargo, linked into the C library, and callable from the
+existing codebase without breaking the build.
+
+From here on, things get more interesting.
