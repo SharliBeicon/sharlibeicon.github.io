@@ -11,7 +11,10 @@ const posts = (await getCollection("blog")).sort(
 );
 ---
 
-<Layout title="Blog | Charlie Bacon">
+<Layout
+  title="Blog | Charlie Bacon"
+  metaContent="Blog posts on software engineering, systems work, side projects, and whatever technical rabbit hole I am currently in."
+>
   <NavBar />
 
   <Section>

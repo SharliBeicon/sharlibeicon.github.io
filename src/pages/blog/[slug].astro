@@ -21,7 +21,10 @@ const { Content } = await render(post);
 const readingTimeLabel = getReadingTimeLabel(post.body);
 ---
 
-<Layout title={`${post.data.title} | Charlie Bacon`}>
+<Layout
+  title={`${post.data.title} | Charlie Bacon`}
+  metaContent={post.data.description}
+>
   <NavBar />
 
   <Section>
