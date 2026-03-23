@@ -34,7 +34,7 @@ personal interest, if the project has some algorithmic complexity to make the
 development fun and full of lessons, that would be nice as well!
 
 We should look for a not-too-large project, assumable by a solo dev during their
-side-project hours; with a clear, scoped division into modules to make it easier
+side-project hours, with a clear, scoped division into modules to make it easier
 to squeeze ourselves into it. We also want it to be well tested and documented
 so we do not drift away from the specification.
 
@@ -161,7 +161,7 @@ LZ4LIB_API int LZ4_decompress_safe (const char* src, char* dst, int compressedSi
 Aha! Functions for compressing and decompressing strings (`const char *`) inside
 a compression algorithm implementation. Seems reasonable.
 
-Let's deep dive into the compression one. Exploring that one will give us the
+Let's dive deep into the compression one. Exploring that one will give us the
 needed context on the types, structures, and helpers that power the compression
 function:
 
@@ -184,6 +184,34 @@ definition says about it:
 
 Also,
 [`LZ4_compress_fast()`](https://github.com/lz4/lz4/blob/5c4c1fb2354133e1f3b087a341576985f8114bd5/lib/lz4.c#L1449)
-is just another wrapper over `LZ4_compress_fast_extState()`. Since the latter
-receive another extra field, an external `state`; `fast()` just decides how to
-allocate that state and then pass it to `extState()`.
+is just another wrapper over `LZ4_compress_fast_extState()`. The latter receives
+another extra field, an external `state`; `fast()` just decides how to allocate
+that state and then pass it to `extState()`.
+
+## First target
+
+If we take a look at the implementation of
+[`LZ4_compress_fast_extState`](https://github.com/lz4/lz4/blob/5c4c1fb2354133e1f3b087a341576985f8114bd5/lib/lz4.c#L1378),
+after some initializations and checks, we get to this line:
+
+```c
+if (maxOutputSize >= LZ4_compressBound(inputSize)) {
+```
+
+Here, `LZ4_compressBound(inputSize)` is a super simple function that we can use
+to end this chapter: create our Rust crate, expose a function that behaves the
+same, and make the C implementation use our version instead. That would leave us
+with a Rust project wired into the main C one, in a really good shape for the
+next chapters.
+
+## Rust integration
+
+To understand what goes on in this section, you should read
+[_Calling Rust code from C_](https://doc.rust-lang.org/nomicon/ffi.html?highlight=opaq#calling-rust-code-from-c)
+from the _Rustonomicon_. It is a short section.
+
+Ok, so let's create a lib crate at the root level of the repo:
+
+```shell
+cargo new --lib lz4-rs
+```
