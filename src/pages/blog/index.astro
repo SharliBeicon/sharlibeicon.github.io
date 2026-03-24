@@ -18,7 +18,9 @@ const posts = (await getCollection("blog")).sort(
   <NavBar />
 
   <Section>
-    <div class="mb-6 flex items-center justify-between gap-4 border-b border-[color:var(--color-muted)]/20 pb-4">
+    <div
+      class="mb-6 flex items-center justify-between gap-4 border-b border-[color:var(--color-muted)]/20 pb-4"
+    >
       <h1 class="text-3xl leading-tight">Blog</h1>
       <a class="accent-link text-base" href="/rss.xml">RSS</a>
     </div>
