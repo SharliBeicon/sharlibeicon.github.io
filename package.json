@@ -10,6 +10,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.17",
     "@tailwindcss/vite": "^4.2.0",
     "astro": "^5.17.1",
     "rehype-external-links": "^3.0.0",
